@@ -11,6 +11,9 @@
 		C5774B752B27E9D20089DA4A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5774B742B27E9D20089DA4A /* ContentView.swift */; };
 		C5774B772B27E9D30089DA4A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C5774B762B27E9D30089DA4A /* Assets.xcassets */; };
 		C5774B7A2B27E9D30089DA4A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C5774B792B27E9D30089DA4A /* Preview Assets.xcassets */; };
+		C5774B832B28AAF40089DA4A /* MusicsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5774B822B28AAF40089DA4A /* MusicsListView.swift */; };
+		C5774B852B28AB420089DA4A /* ArtistsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5774B842B28AB420089DA4A /* ArtistsListView.swift */; };
+		C5774B872B28AC0D0089DA4A /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5774B862B28AC0D0089DA4A /* SettingsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +22,9 @@
 		C5774B742B27E9D20089DA4A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		C5774B762B27E9D30089DA4A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C5774B792B27E9D30089DA4A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		C5774B822B28AAF40089DA4A /* MusicsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicsListView.swift; sourceTree = "<group>"; };
+		C5774B842B28AB420089DA4A /* ArtistsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistsListView.swift; sourceTree = "<group>"; };
+		C5774B862B28AC0D0089DA4A /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +41,8 @@
 		C5774B662B27E9D10089DA4A = {
 			isa = PBXGroup;
 			children = (
+				C5774B862B28AC0D0089DA4A /* SettingsView.swift */,
+				C5774B842B28AB420089DA4A /* ArtistsListView.swift */,
 				C5774B712B27E9D20089DA4A /* Musistic */,
 				C5774B702B27E9D20089DA4A /* Products */,
 			);
@@ -53,6 +61,7 @@
 			children = (
 				C5774B722B27E9D20089DA4A /* MusisticApp.swift */,
 				C5774B742B27E9D20089DA4A /* ContentView.swift */,
+				C5774B822B28AAF40089DA4A /* MusicsListView.swift */,
 				C5774B762B27E9D30089DA4A /* Assets.xcassets */,
 				C5774B782B27E9D30089DA4A /* Preview Content */,
 			);
@@ -137,7 +146,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C5774B872B28AC0D0089DA4A /* SettingsView.swift in Sources */,
 				C5774B752B27E9D20089DA4A /* ContentView.swift in Sources */,
+				C5774B852B28AB420089DA4A /* ArtistsListView.swift in Sources */,
+				C5774B832B28AAF40089DA4A /* MusicsListView.swift in Sources */,
 				C5774B732B27E9D20089DA4A /* MusisticApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
