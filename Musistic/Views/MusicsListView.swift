@@ -10,7 +10,7 @@ import SwiftUI
 struct MusicsListView: View {
     var body: some View {
         NavigationStack {
-            ContentListView()
+            Text("My top songs")
                 .navigationTitle("My top songs")
         }
         

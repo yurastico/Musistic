@@ -8,22 +8,33 @@
 import SwiftUI
 
 struct LogInView: View {
+    @State private var isLogged = false
     var body: some View {
-        NavigationStack {
-            NavigationLink {
+        VStack {
+            if isLogged {
                 MainView()
-            } label: {
-                Text("Log in with Spotify")
-                    .frame(maxWidth: .infinity)
-                    .font(.title)
-                    .fontWeight(.bold)
-                    .padding()
-                    .background(Color.green)
-                    .foregroundStyle(.white)
-                    .clipShape(RoundedRectangle(cornerRadius: 66))
-                    .padding()
+                    .transition(.move(edge: .trailing))
+            } else {
+                Button {
+                    withAnimation {
+                        isLogged = true
+                    }
+                } label: {
+                    Text("Log in with Spotify")
+                        .frame(maxWidth: .infinity)
+                        .font(.title)
+                        .fontWeight(.bold)
+                        .padding()
+                        .background(Color.green)
+                        .foregroundStyle(.white)
+                        .clipShape(RoundedRectangle(cornerRadius: 66))
+                        .padding()
+                }
             }
         }
+        
+        
+        
         
         
     }
