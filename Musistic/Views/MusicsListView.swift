@@ -9,7 +9,11 @@ import SwiftUI
 
 struct MusicsListView: View {
     var body: some View {
-        Text("Musics")
+        NavigationStack {
+            ContentListView()
+                .navigationTitle("My top songs")
+        }
+        
     }
 }
 

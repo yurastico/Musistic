@@ -8,23 +8,29 @@
 
 /* Begin PBXBuildFile section */
 		C5774B732B27E9D20089DA4A /* MusisticApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5774B722B27E9D20089DA4A /* MusisticApp.swift */; };
-		C5774B752B27E9D20089DA4A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5774B742B27E9D20089DA4A /* ContentView.swift */; };
+		C5774B752B27E9D20089DA4A /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5774B742B27E9D20089DA4A /* MainView.swift */; };
 		C5774B772B27E9D30089DA4A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C5774B762B27E9D30089DA4A /* Assets.xcassets */; };
 		C5774B7A2B27E9D30089DA4A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C5774B792B27E9D30089DA4A /* Preview Assets.xcassets */; };
 		C5774B832B28AAF40089DA4A /* MusicsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5774B822B28AAF40089DA4A /* MusicsListView.swift */; };
 		C5774B852B28AB420089DA4A /* ArtistsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5774B842B28AB420089DA4A /* ArtistsListView.swift */; };
 		C5774B872B28AC0D0089DA4A /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5774B862B28AC0D0089DA4A /* SettingsView.swift */; };
+		C5774B892B28B75F0089DA4A /* MyPlaylistsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5774B882B28B75F0089DA4A /* MyPlaylistsView.swift */; };
+		C5774B8B2B28E9C90089DA4A /* ContentListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5774B8A2B28E9C90089DA4A /* ContentListView.swift */; };
+		C5774B8E2B2937D70089DA4A /* LogInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5774B8D2B2937D70089DA4A /* LogInView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		C5774B6F2B27E9D20089DA4A /* Musistic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Musistic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5774B722B27E9D20089DA4A /* MusisticApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusisticApp.swift; sourceTree = "<group>"; };
-		C5774B742B27E9D20089DA4A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		C5774B742B27E9D20089DA4A /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		C5774B762B27E9D30089DA4A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C5774B792B27E9D30089DA4A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		C5774B822B28AAF40089DA4A /* MusicsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicsListView.swift; sourceTree = "<group>"; };
 		C5774B842B28AB420089DA4A /* ArtistsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistsListView.swift; sourceTree = "<group>"; };
 		C5774B862B28AC0D0089DA4A /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		C5774B882B28B75F0089DA4A /* MyPlaylistsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPlaylistsView.swift; sourceTree = "<group>"; };
+		C5774B8A2B28E9C90089DA4A /* ContentListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentListView.swift; sourceTree = "<group>"; };
+		C5774B8D2B2937D70089DA4A /* LogInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,8 +47,6 @@
 		C5774B662B27E9D10089DA4A = {
 			isa = PBXGroup;
 			children = (
-				C5774B862B28AC0D0089DA4A /* SettingsView.swift */,
-				C5774B842B28AB420089DA4A /* ArtistsListView.swift */,
 				C5774B712B27E9D20089DA4A /* Musistic */,
 				C5774B702B27E9D20089DA4A /* Products */,
 			);
@@ -59,11 +63,10 @@
 		C5774B712B27E9D20089DA4A /* Musistic */ = {
 			isa = PBXGroup;
 			children = (
+				C5774B8C2B2937C90089DA4A /* Views */,
 				C5774B722B27E9D20089DA4A /* MusisticApp.swift */,
-				C5774B742B27E9D20089DA4A /* ContentView.swift */,
-				C5774B822B28AAF40089DA4A /* MusicsListView.swift */,
-				C5774B762B27E9D30089DA4A /* Assets.xcassets */,
 				C5774B782B27E9D30089DA4A /* Preview Content */,
+				C5774B762B27E9D30089DA4A /* Assets.xcassets */,
 			);
 			path = Musistic;
 			sourceTree = "<group>";
@@ -74,6 +77,20 @@
 				C5774B792B27E9D30089DA4A /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		C5774B8C2B2937C90089DA4A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C5774B8D2B2937D70089DA4A /* LogInView.swift */,
+				C5774B742B27E9D20089DA4A /* MainView.swift */,
+				C5774B822B28AAF40089DA4A /* MusicsListView.swift */,
+				C5774B842B28AB420089DA4A /* ArtistsListView.swift */,
+				C5774B8A2B28E9C90089DA4A /* ContentListView.swift */,
+				C5774B882B28B75F0089DA4A /* MyPlaylistsView.swift */,
+				C5774B862B28AC0D0089DA4A /* SettingsView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -146,10 +163,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C5774B892B28B75F0089DA4A /* MyPlaylistsView.swift in Sources */,
 				C5774B872B28AC0D0089DA4A /* SettingsView.swift in Sources */,
-				C5774B752B27E9D20089DA4A /* ContentView.swift in Sources */,
+				C5774B752B27E9D20089DA4A /* MainView.swift in Sources */,
 				C5774B852B28AB420089DA4A /* ArtistsListView.swift in Sources */,
 				C5774B832B28AAF40089DA4A /* MusicsListView.swift in Sources */,
+				C5774B8B2B28E9C90089DA4A /* ContentListView.swift in Sources */,
+				C5774B8E2B2937D70089DA4A /* LogInView.swift in Sources */,
 				C5774B732B27E9D20089DA4A /* MusisticApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

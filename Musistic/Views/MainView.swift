@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  MainView.swift
 //  Musistic
 //
 //  Created by Yuri Cunha on 11/12/23.
@@ -7,16 +7,20 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct MainView: View {
     var body: some View {
         TabView {
             MusicsListView()
                 .tabItem {
-                    Label("Musics", systemImage: "music.note.list")
+                    Label("Musics", systemImage: "music.note")
                 }
             ArtistsListView()
                 .tabItem {
                     Label("Artists", systemImage: "music.mic")
+                }
+            MyPlaylistsView()
+                .tabItem {
+                    Label("Playlists",systemImage: "music.note.list")
                 }
             SettingsView()
                 .tabItem {
@@ -29,5 +33,5 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView()
+    MainView()
 }

@@ -11,7 +11,7 @@ struct ArtistsListView: View {
     var body: some View {
         NavigationStack {
             Text("Artists")
-                .navigationTitle("Artists")
+                .navigationTitle("My top artists")
         }
     }
 }
