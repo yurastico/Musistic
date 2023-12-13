@@ -8,13 +8,25 @@
 import SwiftUI
 
 struct MusicsListView: View {
+    @State private var list = [Track]()
     var body: some View {
         NavigationStack {
-            Text("My top songs")
-                .navigationTitle("My top songs")
+            List(list) { track in
+                Text(track.name)
+            }
+        }
+        .onAppear {
+            readAllData()
         }
         
     }
+    
+    private func readAllData() {
+        let item = Bundle.main.decode( BaseResponse<Track>.self,from: "track-mock.json")
+        list = item.items
+        
+    }
+    
 }
 
 #Preview {

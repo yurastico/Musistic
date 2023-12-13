@@ -17,6 +17,9 @@
 		C5774B892B28B75F0089DA4A /* MyPlaylistsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5774B882B28B75F0089DA4A /* MyPlaylistsView.swift */; };
 		C5774B8B2B28E9C90089DA4A /* ContentListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5774B8A2B28E9C90089DA4A /* ContentListView.swift */; };
 		C5774B8E2B2937D70089DA4A /* LogInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5774B8D2B2937D70089DA4A /* LogInView.swift */; };
+		C596B60D2B2943E9001A5F0B /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = C596B60C2B2943E9001A5F0B /* Model.swift */; };
+		C596B6102B2947E7001A5F0B /* Bundle+decoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C596B60F2B2947E7001A5F0B /* Bundle+decoder.swift */; };
+		C5CD98832B294A7C00799ECD /* track-mock.json in Resources */ = {isa = PBXBuildFile; fileRef = C5CD98822B294A7C00799ECD /* track-mock.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +34,9 @@
 		C5774B882B28B75F0089DA4A /* MyPlaylistsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPlaylistsView.swift; sourceTree = "<group>"; };
 		C5774B8A2B28E9C90089DA4A /* ContentListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentListView.swift; sourceTree = "<group>"; };
 		C5774B8D2B2937D70089DA4A /* LogInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInView.swift; sourceTree = "<group>"; };
+		C596B60C2B2943E9001A5F0B /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		C596B60F2B2947E7001A5F0B /* Bundle+decoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+decoder.swift"; sourceTree = "<group>"; };
+		C5CD98822B294A7C00799ECD /* track-mock.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "track-mock.json"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +69,9 @@
 		C5774B712B27E9D20089DA4A /* Musistic */ = {
 			isa = PBXGroup;
 			children = (
+				C5CD98822B294A7C00799ECD /* track-mock.json */,
+				C596B60C2B2943E9001A5F0B /* Model.swift */,
+				C596B60E2B2947DB001A5F0B /* Extensions */,
 				C5774B8C2B2937C90089DA4A /* Views */,
 				C5774B722B27E9D20089DA4A /* MusisticApp.swift */,
 				C5774B782B27E9D30089DA4A /* Preview Content */,
@@ -91,6 +100,14 @@
 				C5774B862B28AC0D0089DA4A /* SettingsView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		C596B60E2B2947DB001A5F0B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C596B60F2B2947E7001A5F0B /* Bundle+decoder.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -153,6 +170,7 @@
 			files = (
 				C5774B7A2B27E9D30089DA4A /* Preview Assets.xcassets in Resources */,
 				C5774B772B27E9D30089DA4A /* Assets.xcassets in Resources */,
+				C5CD98832B294A7C00799ECD /* track-mock.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -163,7 +181,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C596B60D2B2943E9001A5F0B /* Model.swift in Sources */,
 				C5774B892B28B75F0089DA4A /* MyPlaylistsView.swift in Sources */,
+				C596B6102B2947E7001A5F0B /* Bundle+decoder.swift in Sources */,
 				C5774B872B28AC0D0089DA4A /* SettingsView.swift in Sources */,
 				C5774B752B27E9D20089DA4A /* MainView.swift in Sources */,
 				C5774B852B28AB420089DA4A /* ArtistsListView.swift in Sources */,
