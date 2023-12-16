@@ -7,6 +7,6 @@
 
 import Foundation
 
-struct ExternalIDS: Codable {
+struct ExternalIDS: Codable,Hashable {
     let isrc: String
 }

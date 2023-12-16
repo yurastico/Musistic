@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Artist: Codable,Identifiable {
+struct Artist: Codable,Identifiable, Hashable {
     let external_urls: ExternalUrls
     let followers: Followers?
     let genres: [String]?

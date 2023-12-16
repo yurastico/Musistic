@@ -8,11 +8,29 @@
 import SwiftUI
 
 struct TopMusicDetail: View {
+    let track: Track
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            AsyncImageContainer(url: URL(string: track.album.images.first!.url)!)
+            
+            VStack {
+                Text(track.name)
+                    .font(.largeTitle)
+                    .bold()
+                Text(track.album.name)
+                    .font(.headline)
+                Text(track.artists[0].name)
+                    .font(.title)
+                
+                
+                
+            }
+            Spacer()
+        }
     }
 }
 
 #Preview {
-    TopMusicDetail()
+    Text("need to fix this!!!!!")
+    //TopMusicDetail(track: <#T##Track#>)
 }

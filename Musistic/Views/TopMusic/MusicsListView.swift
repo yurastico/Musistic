@@ -9,16 +9,25 @@ import SwiftUI
 
 struct MusicsListView: View {
     @State private var list = [Track]()
+    @State private var path = NavigationPath()
     var body: some View {
-        NavigationStack {
+        NavigationStack(path: $path) {
             List(list) { track in
-                MusicItemRow(track: track)
-                    .listRowSeparator(.hidden, edges: .all)
-                    .padding(-5)
-                    
+                NavigationLink(value: NavigationType.detail(track: track)) {
+                    MusicItemRow(track: track)
+                        .listRowSeparator(.hidden, edges: .all)
+                        .padding(-5)
+                }
             }
             .listStyle(.plain)
             .navigationTitle("Top Songs")
+            .navigationDestination(for: NavigationType.self) { type in
+                switch type {
+                case .detail(let track):
+                    TopMusicDetail(track: track)
+                }
+                
+            }
            
             
         }

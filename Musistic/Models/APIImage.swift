@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct APIImage: Codable {
+struct APIImage: Codable,Hashable {
     let url: String
     let height, width: Int
 }

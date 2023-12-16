@@ -7,6 +7,6 @@
 
 import Foundation
 
-enum ArtistType: String, Codable {
+enum ArtistType: String, Codable,Hashable {
     case artist = "artist"
 }

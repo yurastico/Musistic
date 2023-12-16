@@ -7,7 +7,11 @@
 
 import Foundation
 
-struct Track: Codable, Identifiable {
+struct Track: Codable, Identifiable, Hashable {
+    static func == (lhs: Track, rhs: Track) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
     let album: Album
     let artists: [Artist]
     let available_markets: [String]

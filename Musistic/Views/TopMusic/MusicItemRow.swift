@@ -12,7 +12,8 @@ struct MusicItemRow: View {
     
     var body: some View {
         HStack {
-            image
+            AsyncImageContainer(url: URL(string: track.album.images.first!.url)!)
+                .frame(width: 50,height: 50)
             
             VStack(alignment: .leading) {
                 Text(track.name)
@@ -31,16 +32,7 @@ struct MusicItemRow: View {
         
     }
     
-    var image: some View {
-        AsyncImage(url: URL(string: track.album.images.first!.url)) { image in
-            image
-                .resizable()
-                .scaledToFit()
-        } placeholder: {
-            ProgressView()
-        }
-        .frame(width: 50,height: 50)
-    }
+
 }
 
 #Preview {

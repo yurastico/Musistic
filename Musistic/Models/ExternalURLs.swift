@@ -7,6 +7,6 @@
 
 import Foundation
 
-struct ExternalUrls: Codable {
+struct ExternalUrls: Codable,Hashable {
     let spotify: String
 }
