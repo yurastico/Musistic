@@ -12,8 +12,13 @@ struct MusicsListView: View {
     var body: some View {
         NavigationStack {
             List(list) { track in
-                Text(track.name)
+                MusicItemRow(track: track)
             }
+            .listStyle(.plain)
+            .listRowSeparator(.hidden)
+            .listRowSpacing(0)
+            .listRowInsets(.none)
+            .navigationTitle("Top Songs")
         }
         .onAppear {
             readAllData()

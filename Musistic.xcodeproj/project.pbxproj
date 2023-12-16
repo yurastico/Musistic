@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C570BE552B2DB97A006E7536 /* MusicItemRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C570BE542B2DB97A006E7536 /* MusicItemRow.swift */; };
 		C5774B732B27E9D20089DA4A /* MusisticApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5774B722B27E9D20089DA4A /* MusisticApp.swift */; };
 		C5774B752B27E9D20089DA4A /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5774B742B27E9D20089DA4A /* MainView.swift */; };
 		C5774B772B27E9D30089DA4A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C5774B762B27E9D30089DA4A /* Assets.xcassets */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C570BE542B2DB97A006E7536 /* MusicItemRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicItemRow.swift; sourceTree = "<group>"; };
 		C5774B6F2B27E9D20089DA4A /* Musistic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Musistic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5774B722B27E9D20089DA4A /* MusisticApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusisticApp.swift; sourceTree = "<group>"; };
 		C5774B742B27E9D20089DA4A /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 				C5774B8D2B2937D70089DA4A /* LogInView.swift */,
 				C5774B742B27E9D20089DA4A /* MainView.swift */,
 				C5774B822B28AAF40089DA4A /* MusicsListView.swift */,
+				C570BE542B2DB97A006E7536 /* MusicItemRow.swift */,
 				C5774B842B28AB420089DA4A /* ArtistsListView.swift */,
 				C5774B8A2B28E9C90089DA4A /* ContentListView.swift */,
 				C5774B882B28B75F0089DA4A /* MyPlaylistsView.swift */,
@@ -191,6 +194,7 @@
 				C5774B8B2B28E9C90089DA4A /* ContentListView.swift in Sources */,
 				C5774B8E2B2937D70089DA4A /* LogInView.swift in Sources */,
 				C5774B732B27E9D20089DA4A /* MusisticApp.swift in Sources */,
+				C570BE552B2DB97A006E7536 /* MusicItemRow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
