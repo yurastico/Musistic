@@ -29,7 +29,7 @@ struct MusicsListView: View {
     }
     
     private func readAllData() {
-        let item = Bundle.main.decode( BaseResponse<Track>.self,from: "track-mock.json")
+        let item = Bundle.main.decode( GetTopResponse<Track>.self,from: "track-mock.json")
         list = item.items
         
     }
