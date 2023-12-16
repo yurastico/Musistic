@@ -13,12 +13,14 @@ struct MusicsListView: View {
         NavigationStack {
             List(list) { track in
                 MusicItemRow(track: track)
+                    .listRowSeparator(.hidden, edges: .all)
+                    .padding(-5)
+                    
             }
             .listStyle(.plain)
-            .listRowSeparator(.hidden)
-            .listRowSpacing(0)
-            .listRowInsets(.none)
             .navigationTitle("Top Songs")
+           
+            
         }
         .onAppear {
             readAllData()

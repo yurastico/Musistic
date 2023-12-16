@@ -26,6 +26,7 @@ struct MusicItemRow: View {
             VStack(alignment: .leading) {
                 Text(track.name)
                     .font(.headline)
+                    .lineLimit(1)
                     .bold()
                     .multilineTextAlignment(.leading)
                 
