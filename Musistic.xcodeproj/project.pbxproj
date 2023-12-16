@@ -152,10 +152,17 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		C5774B662B27E9D10089DA4A = {
+		C570BE782B2E5C0E006E7536 /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
 				C570BE722B2E52D6006E7536 /* NavigationType.swift */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
+		C5774B662B27E9D10089DA4A = {
+			isa = PBXGroup;
+			children = (
 				C5774B712B27E9D20089DA4A /* Musistic */,
 				C5774B702B27E9D20089DA4A /* Products */,
 			);
@@ -172,6 +179,7 @@
 		C5774B712B27E9D20089DA4A /* Musistic */ = {
 			isa = PBXGroup;
 			children = (
+				C570BE782B2E5C0E006E7536 /* Navigation */,
 				C570BE5D2B2E4BC6006E7536 /* Models */,
 				C5CD98822B294A7C00799ECD /* track-mock.json */,
 				C596B60E2B2947DB001A5F0B /* Extensions */,
