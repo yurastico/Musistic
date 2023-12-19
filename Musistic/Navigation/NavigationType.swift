@@ -9,4 +9,5 @@ import Foundation
 
 enum NavigationType: Hashable {
     case detail(track: Track)
+    
 }
