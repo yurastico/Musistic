@@ -8,6 +8,6 @@
 import Foundation
 
 enum RequestError: Error {
-    case invalidURL, decode, noResponse, expiredToken
+    case invalidURL, decode, noResponse, expiredToken, noAuthorized, unknown
     case custom(_ error: [String: Any]?)
 }
