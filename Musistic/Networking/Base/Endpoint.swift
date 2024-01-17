@@ -13,7 +13,10 @@ protocol Endpoint {
     var path: String { get }
     var method: RequestMethod { get }
     var header: [String: String]? { get }
-    var body: [String: String]? { get }
+    var jsonBody: [String: String]? { get }
+    var urlBody: String? { get }
+    
+    
 }
 
 extension Endpoint {
@@ -21,7 +24,5 @@ extension Endpoint {
         "https"
     }
     
-    var host: String {
-        "api.spotify.com/v1"
-    }
+    
 }
