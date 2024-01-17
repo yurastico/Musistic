@@ -15,7 +15,7 @@ enum TokenEndpoint {
 
 extension TokenEndpoint: Endpoint {
     var urlBody: String? {
-        //"grant_type=authorization_code&code=\(code)&redirect_uri=\(ConstantsSpotifyApi.redirectURL.rawValue)"
+        "grant_type=authorization_code&code=\(fatalError("esqueceu de colocar o code aqui"))&redirect_uri=\(SpotifyBaseURL.redirectURL.rawValue)"
     }
     
     var host: String {
