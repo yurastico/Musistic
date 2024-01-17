@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct LogInView: View {
+struct LogInView: View, GetCode {
     @State private var isLogged = false
     var body: some View {
         VStack {
@@ -17,7 +17,12 @@ struct LogInView: View {
             } else {
                 Button {
                     withAnimation {
-                        isLogged = true
+                        //isLogged = true
+                        
+                    }
+                    if let url = createUrl(endpoint: AuthorizeEndpoint.authorize) {
+                        UIApplication.shared.open(url)
+                        
                     }
                 } label: {
                     Text("Log in with Spotify")
