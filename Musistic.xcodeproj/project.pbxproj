@@ -16,6 +16,8 @@
 		A99279322B57BE6400D20E48 /* SpotifyBaseURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99279312B57BE6400D20E48 /* SpotifyBaseURL.swift */; };
 		A99279342B57C0CD00D20E48 /* SpotifyConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99279332B57C0CD00D20E48 /* SpotifyConstants.swift */; };
 		A99279392B57C5CB00D20E48 /* GetCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99279382B57C5CB00D20E48 /* GetCode.swift */; };
+		A992793C2B5939B600D20E48 /* AuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A992793B2B5939B600D20E48 /* AuthenticationService.swift */; };
+		A992793F2B5939E700D20E48 /* AccessTokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A992793E2B5939E700D20E48 /* AccessTokenResponse.swift */; };
 		C570BE552B2DB97A006E7536 /* MusicItemRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C570BE542B2DB97A006E7536 /* MusicItemRow.swift */; };
 		C570BE5F2B2E4C13006E7536 /* GetTopResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C570BE5E2B2E4C13006E7536 /* GetTopResponse.swift */; };
 		C570BE612B2E4C24006E7536 /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = C570BE602B2E4C24006E7536 /* Track.swift */; };
@@ -55,6 +57,8 @@
 		A99279332B57C0CD00D20E48 /* SpotifyConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyConstants.swift; sourceTree = "<group>"; };
 		A99279352B57C54B00D20E48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		A99279382B57C5CB00D20E48 /* GetCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCode.swift; sourceTree = "<group>"; };
+		A992793B2B5939B600D20E48 /* AuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationService.swift; sourceTree = "<group>"; };
+		A992793E2B5939E700D20E48 /* AccessTokenResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessTokenResponse.swift; sourceTree = "<group>"; };
 		C570BE542B2DB97A006E7536 /* MusicItemRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicItemRow.swift; sourceTree = "<group>"; };
 		C570BE5E2B2E4C13006E7536 /* GetTopResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTopResponse.swift; sourceTree = "<group>"; };
 		C570BE602B2E4C24006E7536 /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
@@ -98,6 +102,7 @@
 		A99279202B55F46700D20E48 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				A992793A2B5939AB00D20E48 /* Services */,
 				A99279362B57C5A100D20E48 /* TokenEndpoint */,
 				A992792C2B574E9800D20E48 /* AuthenticationEndpoint */,
 				A99279232B55F4EE00D20E48 /* Base */,
@@ -133,6 +138,14 @@
 			children = (
 			);
 			path = TokenEndpoint;
+			sourceTree = "<group>";
+		};
+		A992793A2B5939AB00D20E48 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				A992793B2B5939B600D20E48 /* AuthenticationService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		C570BE562B2E496E006E7536 /* Login */ = {
@@ -207,6 +220,7 @@
 				C570BE6E2B2E4DFA006E7536 /* ExternalIds.swift */,
 				C570BE6C2B2E4DE8006E7536 /* ArtistType.swift */,
 				C570BE6A2B2E4DD2006E7536 /* ExternalURLs.swift */,
+				A992793E2B5939E700D20E48 /* AccessTokenResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -357,6 +371,7 @@
 				A99279272B55F6CB00D20E48 /* RequestMethod.swift in Sources */,
 				C5774B892B28B75F0089DA4A /* MyPlaylistsView.swift in Sources */,
 				C596B6102B2947E7001A5F0B /* Bundle+decoder.swift in Sources */,
+				A992793F2B5939E700D20E48 /* AccessTokenResponse.swift in Sources */,
 				A992792E2B574EAB00D20E48 /* TokenEndpoint.swift in Sources */,
 				A99279342B57C0CD00D20E48 /* SpotifyConstants.swift in Sources */,
 				C570BE6D2B2E4DE8006E7536 /* ArtistType.swift in Sources */,
@@ -368,6 +383,7 @@
 				C5774B852B28AB420089DA4A /* ArtistsListView.swift in Sources */,
 				A99279392B57C5CB00D20E48 /* GetCode.swift in Sources */,
 				C5774B832B28AAF40089DA4A /* MusicsListView.swift in Sources */,
+				A992793C2B5939B600D20E48 /* AuthenticationService.swift in Sources */,
 				C5774B8B2B28E9C90089DA4A /* ContentListView.swift in Sources */,
 				C570BE752B2E54B3006E7536 /* TopMusicDetail.swift in Sources */,
 				C570BE6F2B2E4DFA006E7536 /* ExternalIds.swift in Sources */,

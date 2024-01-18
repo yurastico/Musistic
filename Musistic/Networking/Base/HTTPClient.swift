@@ -45,7 +45,9 @@ extension HTTPClient {
                 guard let responseModel = responseModel else {
                     return .success(nil)
                 }
-                guard let decodedResponse = try? JSONDecoder().decode(responseModel, from: data) else {
+                var decoder = JSONDecoder()
+                decoder.keyDecodingStrategy = .convertFromSnakeCase
+                guard let decodedResponse = try? decoder.decode(responseModel, from: data) else {
                     return .failure(.decode)
                 }
                 
@@ -56,7 +58,10 @@ extension HTTPClient {
             case 401:
                 return .failure(.noAuthorized)
             default:
-                return .failure(.unknown)
+                print(response.statusCode)
+                let errorResponse = try? JSONSerialization.jsonObject(with: data) as? [String: Any]
+                return .failure(.custom(errorResponse))
+                
                 
             }
             
