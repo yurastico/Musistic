@@ -14,7 +14,7 @@ final class SpotifyAuthenticationManager {
     private static let acessTokenKey = "musistic-spotify-accessToken"
     private static let refreshTokenKey = "musistic-spotify-refreshToken"
     private static let expiresInKey = "musistic-spotify-expiresIn"
-    
+        
     var accessToken: String?
     var expiresIn: TimeInterval?
     var refreshToken: String?

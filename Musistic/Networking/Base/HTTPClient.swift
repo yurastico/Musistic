@@ -45,7 +45,7 @@ extension HTTPClient {
                 guard let responseModel = responseModel else {
                     return .success(nil)
                 }
-                var decoder = JSONDecoder()
+                let decoder = JSONDecoder()
                 decoder.keyDecodingStrategy = .convertFromSnakeCase
                 guard let decodedResponse = try? decoder.decode(responseModel, from: data) else {
                     return .failure(.decode)

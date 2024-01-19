@@ -40,7 +40,7 @@ struct LogInView: View, GetCode {
         .onOpenURL { url in
             
             Task {
-                await AuthenticationService().getAcessToken(from: url)
+                await AuthenticationService().SaveAcessToken(from:url)
             }
             
         }
