@@ -18,6 +18,8 @@
 		A99279392B57C5CB00D20E48 /* GetCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99279382B57C5CB00D20E48 /* GetCode.swift */; };
 		A992793C2B5939B600D20E48 /* AuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A992793B2B5939B600D20E48 /* AuthenticationService.swift */; };
 		A992793F2B5939E700D20E48 /* AccessTokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A992793E2B5939E700D20E48 /* AccessTokenResponse.swift */; };
+		A99279442B5A7EB800D20E48 /* KeychainHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99279432B5A7EB800D20E48 /* KeychainHelper.swift */; };
+		A99279472B5A7F6C00D20E48 /* SpotifyAuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99279462B5A7F6C00D20E48 /* SpotifyAuthenticationManager.swift */; };
 		C570BE552B2DB97A006E7536 /* MusicItemRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C570BE542B2DB97A006E7536 /* MusicItemRow.swift */; };
 		C570BE5F2B2E4C13006E7536 /* GetTopResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C570BE5E2B2E4C13006E7536 /* GetTopResponse.swift */; };
 		C570BE612B2E4C24006E7536 /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = C570BE602B2E4C24006E7536 /* Track.swift */; };
@@ -59,6 +61,8 @@
 		A99279382B57C5CB00D20E48 /* GetCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCode.swift; sourceTree = "<group>"; };
 		A992793B2B5939B600D20E48 /* AuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationService.swift; sourceTree = "<group>"; };
 		A992793E2B5939E700D20E48 /* AccessTokenResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessTokenResponse.swift; sourceTree = "<group>"; };
+		A99279432B5A7EB800D20E48 /* KeychainHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainHelper.swift; sourceTree = "<group>"; };
+		A99279462B5A7F6C00D20E48 /* SpotifyAuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyAuthenticationManager.swift; sourceTree = "<group>"; };
 		C570BE542B2DB97A006E7536 /* MusicItemRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicItemRow.swift; sourceTree = "<group>"; };
 		C570BE5E2B2E4C13006E7536 /* GetTopResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTopResponse.swift; sourceTree = "<group>"; };
 		C570BE602B2E4C24006E7536 /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
@@ -146,6 +150,22 @@
 				A992793B2B5939B600D20E48 /* AuthenticationService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		A99279422B5A7EAF00D20E48 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				A99279432B5A7EB800D20E48 /* KeychainHelper.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		A99279452B5A7F5300D20E48 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				A99279462B5A7F6C00D20E48 /* SpotifyAuthenticationManager.swift */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 		C570BE562B2E496E006E7536 /* Login */ = {
@@ -252,6 +272,8 @@
 		C5774B712B27E9D20089DA4A /* Musistic */ = {
 			isa = PBXGroup;
 			children = (
+				A99279452B5A7F5300D20E48 /* Managers */,
+				A99279422B5A7EAF00D20E48 /* Services */,
 				A99279352B57C54B00D20E48 /* Info.plist */,
 				A99279202B55F46700D20E48 /* Networking */,
 				C570BE782B2E5C0E006E7536 /* Navigation */,
@@ -385,9 +407,11 @@
 				C5774B832B28AAF40089DA4A /* MusicsListView.swift in Sources */,
 				A992793C2B5939B600D20E48 /* AuthenticationService.swift in Sources */,
 				C5774B8B2B28E9C90089DA4A /* ContentListView.swift in Sources */,
+				A99279442B5A7EB800D20E48 /* KeychainHelper.swift in Sources */,
 				C570BE752B2E54B3006E7536 /* TopMusicDetail.swift in Sources */,
 				C570BE6F2B2E4DFA006E7536 /* ExternalIds.swift in Sources */,
 				C570BE732B2E52D6006E7536 /* NavigationType.swift in Sources */,
+				A99279472B5A7F6C00D20E48 /* SpotifyAuthenticationManager.swift in Sources */,
 				C5774B8E2B2937D70089DA4A /* LogInView.swift in Sources */,
 				C570BE5F2B2E4C13006E7536 /* GetTopResponse.swift in Sources */,
 				C570BE712B2E4E08006E7536 /* ItemType.swift in Sources */,

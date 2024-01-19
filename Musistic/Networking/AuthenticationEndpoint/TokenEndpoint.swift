@@ -39,5 +39,7 @@ extension TokenEndpoint: Endpoint {
         nil
     }
     
-    
+    static func isAcessTokenExpired() -> Bool {
+        return true
+    }
 }
