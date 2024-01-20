@@ -38,11 +38,23 @@ struct LogInView: View, GetCode {
             }
         }
         .onOpenURL { url in
-            
             Task {
-                await AuthenticationService().SaveAcessToken(from:url)
+                await AuthenticationService().saveAcessToken(from:url)
             }
-            
+        }
+        .onAppear {
+            if SpotifyAuthenticationManager.shared.isAccessTokenValid() {
+                isLogged = true
+                print("tudo valendo!!!!!")
+            } else {
+                Task {
+                    if SpotifyAuthenticationManager.shared.accessToken != nil {
+                        let isAuthenticated = await AuthenticationService().refreshToken()
+                        self.isLogged = isAuthenticated
+                        print("refreshing token!!!!!!!!!!!!")
+                    }
+                }
+            }
         }
         
         

@@ -17,7 +17,7 @@ extension GetCode {
         urlComponents.host = endpoint.host
         urlComponents.path = endpoint.path
         
-        urlComponents.queryItems = createQueryItems(from: endpoint.queryParams)
+        urlComponents.queryItems = endpoint.queryItems
         
         guard let url = urlComponents.url else { return nil}
         

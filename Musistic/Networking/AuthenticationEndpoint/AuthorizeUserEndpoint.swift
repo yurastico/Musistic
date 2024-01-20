@@ -12,6 +12,14 @@ enum AuthorizeEndpoint {
 }
 
 extension AuthorizeEndpoint: Endpoint {
+    var queryItems: [URLQueryItem]? {
+        return [URLQueryItem(name: "response_type", value: "code"),
+                URLQueryItem(name: "client_id", value: SpotifyConstants.clientId.rawValue),
+                URLQueryItem(name: "scope", value: SpotifyConstants.scope.rawValue),
+                URLQueryItem(name: "redirect_uri", value: SpotifyBaseURL.redirectURL.rawValue),
+                URLQueryItem(name: "state", value: generateRandomString())]
+    }
+    
     var host: String {
         SpotifyBaseURL.auth.rawValue
     }
@@ -33,20 +41,6 @@ extension AuthorizeEndpoint: Endpoint {
     
     var jsonBody: [String : String]? {
         nil
-    }
-    
-    var urlBody: String? {
-        nil
-    }
-    
-    var queryParams: [String:String] {
-        [
-            "response_type": "code",
-            "client_id": SpotifyConstants.clientId.rawValue,
-            "scope": SpotifyConstants.scope.rawValue,
-            "redirect_uri": SpotifyBaseURL.redirectURL.rawValue,
-            "state": generateRandomString()
-        ]
     }
     
     private func generateRandomString(length: Int = 16) -> String {

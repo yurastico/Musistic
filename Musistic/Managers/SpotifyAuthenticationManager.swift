@@ -56,9 +56,6 @@ final class SpotifyAuthenticationManager {
         return Date.now > Date(timeIntervalSince1970: expiresIn)
     }
     
-    func refreshCredentials(for token: String) {
-        
-    }
     
     
 }

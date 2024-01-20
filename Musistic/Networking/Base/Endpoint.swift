@@ -14,7 +14,7 @@ protocol Endpoint {
     var method: RequestMethod { get }
     var header: [String: String]? { get }
     var jsonBody: [String: String]? { get }
-    var urlBody: String? { get }
+    var queryItems: [URLQueryItem]? { get }
     
     
 }

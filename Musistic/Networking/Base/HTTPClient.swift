@@ -17,6 +17,7 @@ extension HTTPClient {
         urlComponents.scheme = endpoint.schema
         urlComponents.host = endpoint.host
         urlComponents.path = endpoint.path
+        urlComponents.queryItems = endpoint.queryItems
         
         guard let url = urlComponents.url else  {
             return .failure(.invalidURL)
@@ -29,8 +30,9 @@ extension HTTPClient {
         if let body = endpoint.jsonBody {
             request.httpBody = try? JSONSerialization.data(withJSONObject: body)
         }
-        if let body = endpoint.urlBody {
-            request.httpBody = body.data(using: .utf8)
+        if let body = urlComponents.percentEncodedQuery?.data(using: .utf8) {
+            request.httpBody = body
+            
         }
         
         do {

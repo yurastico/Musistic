@@ -1,26 +1,25 @@
 //
-//  AuthenticationEndpoint.swift
+//  RefreshTokenEndpoint.swift
 //  Musistic
 //
-//  Created by Yuri Cunha on 16/01/24.
+//  Created by Yuri Cunha on 20/01/24.
 //
 
 import Foundation
 
-struct TokenEndpoint {
-    var code: String
+struct RefreshTokenEndpoint {
+    var refreshToken: String
     
 }
 
-extension TokenEndpoint: Endpoint {
-
+extension RefreshTokenEndpoint: Endpoint {
+   
     var queryItems: [URLQueryItem]? {
-        return [URLQueryItem(name: "grant_type", value: "authorization_code"),
-            URLQueryItem(name: "code", value: code),
-            URLQueryItem(name: "redirect_uri", value: SpotifyBaseURL.redirectURL.rawValue)]
-        
-        
-      
+            
+        return [URLQueryItem(name: "grant_type", value:"refresh_Token"),
+                URLQueryItem(name: "refresh_token", value: refreshToken),
+                URLQueryItem(name: "client_id", value: SpotifyConstants.clientId.rawValue)]
+                
     }
     
     var host: String {
