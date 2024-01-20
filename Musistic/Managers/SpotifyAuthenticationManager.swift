@@ -14,7 +14,7 @@ final class SpotifyAuthenticationManager {
     private static let acessTokenKey = "musistic-spotify-accessToken"
     private static let refreshTokenKey = "musistic-spotify-refreshToken"
     private static let expiresInKey = "musistic-spotify-expiresIn"
-        
+    
     var accessToken: String?
     var expiresIn: TimeInterval?
     var refreshToken: String?
@@ -31,7 +31,7 @@ final class SpotifyAuthenticationManager {
             KeychainHelper.save(value: credentials.refreshToken, key: Self.refreshTokenKey)
             KeychainHelper.save(value: "\(credentials.expiresIn)", key: Self.expiresInKey)
             DispatchQueue.main.async {
-                self.expiresIn = TimeInterval(credentials.expiresIn)
+                self.expiresIn = Date.now.timeIntervalSince1970 + TimeInterval(credentials.expiresIn)
                 self.accessToken = credentials.accessToken
                 self.refreshToken = credentials.refreshToken
             }
@@ -51,6 +51,14 @@ final class SpotifyAuthenticationManager {
         }
     }
     
+    func isAccessTokenValid() -> Bool {
+        guard let expiresIn = self.expiresIn else { return false}
+        return Date.now > Date(timeIntervalSince1970: expiresIn)
+    }
+    
+    func refreshCredentials(for token: String) {
+        
+    }
     
     
 }
