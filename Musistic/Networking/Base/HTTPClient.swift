@@ -18,6 +18,7 @@ extension HTTPClient {
         urlComponents.host = endpoint.host
         urlComponents.path = endpoint.path
         urlComponents.queryItems = endpoint.queryItems
+
         
         guard let url = urlComponents.url else  {
             return .failure(.invalidURL)
@@ -55,8 +56,9 @@ extension HTTPClient {
                     print(error)
                 }
                 guard let decodedResponse = try? decoder.decode(responseModel, from: data) else {
+                    
                     let errorResponse = try? JSONSerialization.jsonObject(with: data) as? [String: Any]
-                    print(errorResponse)
+                    
                     return .failure(.decode)
                 }
                 

@@ -21,6 +21,9 @@
 		A99279442B5A7EB800D20E48 /* KeychainHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99279432B5A7EB800D20E48 /* KeychainHelper.swift */; };
 		A99279472B5A7F6C00D20E48 /* SpotifyAuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99279462B5A7F6C00D20E48 /* SpotifyAuthenticationManager.swift */; };
 		A99279492B5C78E100D20E48 /* RefreshTokenEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99279482B5C78E100D20E48 /* RefreshTokenEndpoint.swift */; };
+		A9EB11872B5CE5C00052DCCA /* GetTopEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EB11862B5CE5C00052DCCA /* GetTopEndpoint.swift */; };
+		A9EB11892B5CEC9A0052DCCA /* GetTopService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EB11882B5CEC9A0052DCCA /* GetTopService.swift */; };
+		A9EB118B2B5CFEEB0052DCCA /* ArtistListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EB118A2B5CFEEB0052DCCA /* ArtistListRow.swift */; };
 		C570BE552B2DB97A006E7536 /* MusicItemRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C570BE542B2DB97A006E7536 /* MusicItemRow.swift */; };
 		C570BE5F2B2E4C13006E7536 /* GetTopResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C570BE5E2B2E4C13006E7536 /* GetTopResponse.swift */; };
 		C570BE612B2E4C24006E7536 /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = C570BE602B2E4C24006E7536 /* Track.swift */; };
@@ -65,6 +68,9 @@
 		A99279432B5A7EB800D20E48 /* KeychainHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainHelper.swift; sourceTree = "<group>"; };
 		A99279462B5A7F6C00D20E48 /* SpotifyAuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyAuthenticationManager.swift; sourceTree = "<group>"; };
 		A99279482B5C78E100D20E48 /* RefreshTokenEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshTokenEndpoint.swift; sourceTree = "<group>"; };
+		A9EB11862B5CE5C00052DCCA /* GetTopEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTopEndpoint.swift; sourceTree = "<group>"; };
+		A9EB11882B5CEC9A0052DCCA /* GetTopService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTopService.swift; sourceTree = "<group>"; };
+		A9EB118A2B5CFEEB0052DCCA /* ArtistListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistListRow.swift; sourceTree = "<group>"; };
 		C570BE542B2DB97A006E7536 /* MusicItemRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicItemRow.swift; sourceTree = "<group>"; };
 		C570BE5E2B2E4C13006E7536 /* GetTopResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTopResponse.swift; sourceTree = "<group>"; };
 		C570BE602B2E4C24006E7536 /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
@@ -108,9 +114,8 @@
 		A99279202B55F46700D20E48 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				A9EB11852B5CE5AE0052DCCA /* Endpoints */,
 				A992793A2B5939AB00D20E48 /* Services */,
-				A99279362B57C5A100D20E48 /* TokenEndpoint */,
-				A992792C2B574E9800D20E48 /* AuthenticationEndpoint */,
 				A99279232B55F4EE00D20E48 /* Base */,
 			);
 			path = Networking;
@@ -134,22 +139,17 @@
 			isa = PBXGroup;
 			children = (
 				A992792F2B57538300D20E48 /* AuthorizeUserEndpoint.swift */,
+				A99279482B5C78E100D20E48 /* RefreshTokenEndpoint.swift */,
 				A992792D2B574EAB00D20E48 /* TokenEndpoint.swift */,
 			);
 			path = AuthenticationEndpoint;
-			sourceTree = "<group>";
-		};
-		A99279362B57C5A100D20E48 /* TokenEndpoint */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = TokenEndpoint;
 			sourceTree = "<group>";
 		};
 		A992793A2B5939AB00D20E48 /* Services */ = {
 			isa = PBXGroup;
 			children = (
 				A992793B2B5939B600D20E48 /* AuthenticationService.swift */,
+				A9EB11882B5CEC9A0052DCCA /* GetTopService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -168,6 +168,23 @@
 				A99279462B5A7F6C00D20E48 /* SpotifyAuthenticationManager.swift */,
 			);
 			path = Managers;
+			sourceTree = "<group>";
+		};
+		A9EB11842B5CE51A0052DCCA /* GetTopEndpoint */ = {
+			isa = PBXGroup;
+			children = (
+				A9EB11862B5CE5C00052DCCA /* GetTopEndpoint.swift */,
+			);
+			path = GetTopEndpoint;
+			sourceTree = "<group>";
+		};
+		A9EB11852B5CE5AE0052DCCA /* Endpoints */ = {
+			isa = PBXGroup;
+			children = (
+				A992792C2B574E9800D20E48 /* AuthenticationEndpoint */,
+				A9EB11842B5CE51A0052DCCA /* GetTopEndpoint */,
+			);
+			path = Endpoints;
 			sourceTree = "<group>";
 		};
 		C570BE562B2E496E006E7536 /* Login */ = {
@@ -192,6 +209,7 @@
 			isa = PBXGroup;
 			children = (
 				C5774B842B28AB420089DA4A /* ArtistsListView.swift */,
+				A9EB118A2B5CFEEB0052DCCA /* ArtistListRow.swift */,
 			);
 			path = TopArtists;
 			sourceTree = "<group>";
@@ -258,7 +276,6 @@
 		C5774B662B27E9D10089DA4A = {
 			isa = PBXGroup;
 			children = (
-				A99279482B5C78E100D20E48 /* RefreshTokenEndpoint.swift */,
 				C5774B712B27E9D20089DA4A /* Musistic */,
 				C5774B702B27E9D20089DA4A /* Products */,
 			);
@@ -279,7 +296,6 @@
 				A99279422B5A7EAF00D20E48 /* Services */,
 				A99279352B57C54B00D20E48 /* Info.plist */,
 				A99279202B55F46700D20E48 /* Networking */,
-				C570BE782B2E5C0E006E7536 /* Navigation */,
 				C570BE5D2B2E4BC6006E7536 /* Models */,
 				C5CD98822B294A7C00799ECD /* track-mock.json */,
 				C596B60E2B2947DB001A5F0B /* Extensions */,
@@ -302,6 +318,7 @@
 		C5774B8C2B2937C90089DA4A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				C570BE782B2E5C0E006E7536 /* Navigation */,
 				C570BE5B2B2E4B9D006E7536 /* Components */,
 				C570BE5A2B2E49B3006E7536 /* Playlists */,
 				C570BE592B2E49A2006E7536 /* Settings */,
@@ -395,6 +412,7 @@
 				A992792B2B55F7AE00D20E48 /* RequestError.swift in Sources */,
 				A99279272B55F6CB00D20E48 /* RequestMethod.swift in Sources */,
 				C5774B892B28B75F0089DA4A /* MyPlaylistsView.swift in Sources */,
+				A9EB11872B5CE5C00052DCCA /* GetTopEndpoint.swift in Sources */,
 				C596B6102B2947E7001A5F0B /* Bundle+decoder.swift in Sources */,
 				A992793F2B5939E700D20E48 /* AccessTokenResponse.swift in Sources */,
 				A992792E2B574EAB00D20E48 /* TokenEndpoint.swift in Sources */,
@@ -408,6 +426,7 @@
 				C5774B852B28AB420089DA4A /* ArtistsListView.swift in Sources */,
 				A99279392B57C5CB00D20E48 /* GetCode.swift in Sources */,
 				C5774B832B28AAF40089DA4A /* MusicsListView.swift in Sources */,
+				A9EB118B2B5CFEEB0052DCCA /* ArtistListRow.swift in Sources */,
 				A992793C2B5939B600D20E48 /* AuthenticationService.swift in Sources */,
 				C5774B8B2B28E9C90089DA4A /* ContentListView.swift in Sources */,
 				A99279442B5A7EB800D20E48 /* KeychainHelper.swift in Sources */,
@@ -416,6 +435,7 @@
 				C570BE732B2E52D6006E7536 /* NavigationType.swift in Sources */,
 				A99279472B5A7F6C00D20E48 /* SpotifyAuthenticationManager.swift in Sources */,
 				C5774B8E2B2937D70089DA4A /* LogInView.swift in Sources */,
+				A9EB11892B5CEC9A0052DCCA /* GetTopService.swift in Sources */,
 				C570BE5F2B2E4C13006E7536 /* GetTopResponse.swift in Sources */,
 				C570BE712B2E4E08006E7536 /* ItemType.swift in Sources */,
 				C570BE612B2E4C24006E7536 /* Track.swift in Sources */,

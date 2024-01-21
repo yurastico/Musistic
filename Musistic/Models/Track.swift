@@ -14,20 +14,20 @@ struct Track: Codable, Identifiable, Hashable {
     
     let album: Album
     let artists: [Artist]
-    let available_markets: [String]
-    let disc_number: Int
-    let duration_ms: Int
+    let availableMarkets: [String]
+    let discNumber: Int
+    let durationMs: Int
     let explicit: Bool
-    let external_ids: ExternalIDS
-    let external_urls: ExternalUrls
+    let externalIds: ExternalIDS
+    let externalUrls: ExternalUrls
     let href: String
     let id: String
     let name: String
     let popularity: Int
-    let preview_url: String?
-    let track_number: Int
+    let previewUrl: String?
+    let trackNumber: Int
     let type: ItemType
     let uri: String
-    let is_local: Bool
+    let isLocal: Bool
     
 }

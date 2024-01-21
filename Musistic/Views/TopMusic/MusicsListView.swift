@@ -32,14 +32,22 @@ struct MusicsListView: View {
             
         }
         .onAppear {
-            readAllData()
+            Task {
+                await readAllData()
+            }
         }
         
     }
     
-    private func readAllData() {
-        let item = Bundle.main.decode( GetTopResponse<Track>.self,from: "track-mock.json")
-        list = item.items
+    private func readAllData() async {
+        let result = await GetTopService().fetchTop(for: Track.self)
+        switch result {
+        case .success(let tracks):
+            self.list = tracks.items
+        case .failure(let error):
+            print(error)
+        }
+        
         
     }
     

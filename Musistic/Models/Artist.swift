@@ -8,7 +8,7 @@
 import Foundation
 
 struct Artist: Codable,Identifiable, Hashable {
-    let external_urls: ExternalUrls
+    let externalUrls: ExternalUrls
     let followers: Followers?
     let genres: [String]?
     let href: String

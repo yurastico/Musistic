@@ -18,7 +18,6 @@ struct LogInView: View, GetCode {
                 Button {
                     withAnimation {
                         //isLogged = true
-                        
                     }
                     if let url = createUrl(endpoint: AuthorizeEndpoint.authorize) {
                         UIApplication.shared.open(url)
@@ -49,7 +48,6 @@ struct LogInView: View, GetCode {
             }
         }
         .onAppear {
-            
             if SpotifyAuthenticationManager.shared.isAccessTokenValid() {
                 self.isLogged = true
                 print("tudo valendo!!!!!")
@@ -64,11 +62,6 @@ struct LogInView: View, GetCode {
                 }
             }
         }
-        
-        
-        
-        
-        
     }
 }
 

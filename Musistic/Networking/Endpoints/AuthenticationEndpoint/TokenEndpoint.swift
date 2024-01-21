@@ -28,7 +28,7 @@ extension TokenEndpoint: Endpoint {
     }
     
     var path: String {
-        "/api/token"
+        "api/token"
     }
     
     var method: RequestMethod {
