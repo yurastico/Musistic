@@ -28,7 +28,10 @@ final class SpotifyAuthenticationManager {
     func saveCredentials(for credentials: AccessTokenResponse) {
         Task {
             KeychainHelper.save(value: credentials.accessToken,key: Self.acessTokenKey)
-            KeychainHelper.save(value: credentials.refreshToken, key: Self.refreshTokenKey)
+            if credentials.refreshToken != nil {
+                guard let refreshToken = credentials.refreshToken else { return }
+                KeychainHelper.save(value: refreshToken, key: Self.refreshTokenKey)
+            }
             KeychainHelper.save(value: "\(credentials.expiresIn)", key: Self.expiresInKey)
             DispatchQueue.main.async {
                 self.expiresIn = Date.now.timeIntervalSince1970 + TimeInterval(credentials.expiresIn)

@@ -16,7 +16,7 @@ extension RefreshTokenEndpoint: Endpoint {
    
     var queryItems: [URLQueryItem]? {
             
-        return [URLQueryItem(name: "grant_type", value:"refresh_Token"),
+        return [URLQueryItem(name: "grant_type", value:"refresh_token"),
                 URLQueryItem(name: "refresh_token", value: refreshToken),
                 URLQueryItem(name: "client_id", value: SpotifyConstants.clientId.rawValue)]
                 
@@ -44,7 +44,5 @@ extension RefreshTokenEndpoint: Endpoint {
         nil
     }
     
-    static func isAcessTokenExpired() -> Bool {
-        return true
-    }
+
 }

@@ -50,8 +50,10 @@ struct LogInView: View, GetCode {
                 Task {
                     if SpotifyAuthenticationManager.shared.accessToken != nil {
                         let isAuthenticated = await AuthenticationService().refreshToken()
+
                         self.isLogged = isAuthenticated
                         print("refreshing token!!!!!!!!!!!!")
+                        
                     }
                 }
             }

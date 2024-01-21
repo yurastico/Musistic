@@ -34,9 +34,12 @@ struct AuthenticationService: HTTPClient {
         switch result {
         case .success(let accessTokenResponse):
             guard let accessTokenResponse else { return false}
+            print(accessTokenResponse)
             SpotifyAuthenticationManager.shared.saveCredentials(for: accessTokenResponse)
             return true
-        case .failure(_):
+        case .failure(let error):
+            print(error)
+            print("deu pau")
             return false
         }
         

@@ -49,13 +49,21 @@ extension HTTPClient {
                 }
                 let decoder = JSONDecoder()
                 decoder.keyDecodingStrategy = .convertFromSnakeCase
+                do {
+                    let decoded = try decoder.decode(responseModel.self, from: data)
+                } catch {
+                    print(error)
+                }
                 guard let decodedResponse = try? decoder.decode(responseModel, from: data) else {
+                    let errorResponse = try? JSONSerialization.jsonObject(with: data) as? [String: Any]
+                    print(errorResponse)
                     return .failure(.decode)
                 }
                 
                 return .success(decodedResponse)
             case 400:
                 let errorResponse = try? JSONSerialization.jsonObject(with: data) as? [String: Any]
+                
                 return .failure(.custom(errorResponse))
             case 401:
                 return .failure(.noAuthorized)
