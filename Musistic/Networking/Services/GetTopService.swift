@@ -9,14 +9,14 @@ import Foundation
 
 
 struct GetTopService: HTTPClient {
-    func fetchTop<T: Decodable>(for type: T.Type) async -> Result<GetTopResponse<T>,RequestError> {
+    func fetchTop<T: Decodable>(for type: T.Type, timeRange: TimeRange) async -> Result<GetTopResponse<T>,RequestError> {
         
         guard let accessToken = SpotifyAuthenticationManager.shared.accessToken else { return .failure(.expiredToken)}
         var path: GetTopPath = .tracks
         if type.self == Artist.self {
             path = .artists
         }
-        let endpoint = GetTopEndpoint(accessToken: accessToken, paths: path)
+        let endpoint = GetTopEndpoint(accessToken: accessToken, paths: path,queryItems: [URLQueryItem(name: "time_range", value: timeRange.rawValue)])
         
         let result = await sendRequest(endpoint: endpoint, responseModel: GetTopResponse<T>.self)
         switch result {

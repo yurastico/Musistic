@@ -24,6 +24,7 @@
 		A9EB11872B5CE5C00052DCCA /* GetTopEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EB11862B5CE5C00052DCCA /* GetTopEndpoint.swift */; };
 		A9EB11892B5CEC9A0052DCCA /* GetTopService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EB11882B5CEC9A0052DCCA /* GetTopService.swift */; };
 		A9EB118B2B5CFEEB0052DCCA /* ArtistListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EB118A2B5CFEEB0052DCCA /* ArtistListRow.swift */; };
+		A9EB118D2B5D08550052DCCA /* TopArtistDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EB118C2B5D08550052DCCA /* TopArtistDetail.swift */; };
 		C570BE552B2DB97A006E7536 /* MusicItemRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C570BE542B2DB97A006E7536 /* MusicItemRow.swift */; };
 		C570BE5F2B2E4C13006E7536 /* GetTopResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C570BE5E2B2E4C13006E7536 /* GetTopResponse.swift */; };
 		C570BE612B2E4C24006E7536 /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = C570BE602B2E4C24006E7536 /* Track.swift */; };
@@ -35,7 +36,7 @@
 		C570BE6D2B2E4DE8006E7536 /* ArtistType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C570BE6C2B2E4DE8006E7536 /* ArtistType.swift */; };
 		C570BE6F2B2E4DFA006E7536 /* ExternalIds.swift in Sources */ = {isa = PBXBuildFile; fileRef = C570BE6E2B2E4DFA006E7536 /* ExternalIds.swift */; };
 		C570BE712B2E4E08006E7536 /* ItemType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C570BE702B2E4E08006E7536 /* ItemType.swift */; };
-		C570BE732B2E52D6006E7536 /* NavigationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C570BE722B2E52D6006E7536 /* NavigationType.swift */; };
+		C570BE732B2E52D6006E7536 /* TrackNavigationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C570BE722B2E52D6006E7536 /* TrackNavigationType.swift */; };
 		C570BE752B2E54B3006E7536 /* TopMusicDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = C570BE742B2E54B3006E7536 /* TopMusicDetail.swift */; };
 		C570BE772B2E56BF006E7536 /* AsyncImageContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C570BE762B2E56BF006E7536 /* AsyncImageContainer.swift */; };
 		C5774B732B27E9D20089DA4A /* MusisticApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5774B722B27E9D20089DA4A /* MusisticApp.swift */; };
@@ -71,6 +72,7 @@
 		A9EB11862B5CE5C00052DCCA /* GetTopEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTopEndpoint.swift; sourceTree = "<group>"; };
 		A9EB11882B5CEC9A0052DCCA /* GetTopService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTopService.swift; sourceTree = "<group>"; };
 		A9EB118A2B5CFEEB0052DCCA /* ArtistListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistListRow.swift; sourceTree = "<group>"; };
+		A9EB118C2B5D08550052DCCA /* TopArtistDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopArtistDetail.swift; sourceTree = "<group>"; };
 		C570BE542B2DB97A006E7536 /* MusicItemRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicItemRow.swift; sourceTree = "<group>"; };
 		C570BE5E2B2E4C13006E7536 /* GetTopResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTopResponse.swift; sourceTree = "<group>"; };
 		C570BE602B2E4C24006E7536 /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
@@ -82,7 +84,7 @@
 		C570BE6C2B2E4DE8006E7536 /* ArtistType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistType.swift; sourceTree = "<group>"; };
 		C570BE6E2B2E4DFA006E7536 /* ExternalIds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExternalIds.swift; sourceTree = "<group>"; };
 		C570BE702B2E4E08006E7536 /* ItemType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemType.swift; sourceTree = "<group>"; };
-		C570BE722B2E52D6006E7536 /* NavigationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationType.swift; sourceTree = "<group>"; };
+		C570BE722B2E52D6006E7536 /* TrackNavigationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackNavigationType.swift; sourceTree = "<group>"; };
 		C570BE742B2E54B3006E7536 /* TopMusicDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopMusicDetail.swift; sourceTree = "<group>"; };
 		C570BE762B2E56BF006E7536 /* AsyncImageContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImageContainer.swift; sourceTree = "<group>"; };
 		C5774B6F2B27E9D20089DA4A /* Musistic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Musistic.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -209,6 +211,7 @@
 			isa = PBXGroup;
 			children = (
 				C5774B842B28AB420089DA4A /* ArtistsListView.swift */,
+				A9EB118C2B5D08550052DCCA /* TopArtistDetail.swift */,
 				A9EB118A2B5CFEEB0052DCCA /* ArtistListRow.swift */,
 			);
 			path = TopArtists;
@@ -268,7 +271,7 @@
 		C570BE782B2E5C0E006E7536 /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
-				C570BE722B2E52D6006E7536 /* NavigationType.swift */,
+				C570BE722B2E52D6006E7536 /* TrackNavigationType.swift */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
@@ -432,7 +435,7 @@
 				A99279442B5A7EB800D20E48 /* KeychainHelper.swift in Sources */,
 				C570BE752B2E54B3006E7536 /* TopMusicDetail.swift in Sources */,
 				C570BE6F2B2E4DFA006E7536 /* ExternalIds.swift in Sources */,
-				C570BE732B2E52D6006E7536 /* NavigationType.swift in Sources */,
+				C570BE732B2E52D6006E7536 /* TrackNavigationType.swift in Sources */,
 				A99279472B5A7F6C00D20E48 /* SpotifyAuthenticationManager.swift in Sources */,
 				C5774B8E2B2937D70089DA4A /* LogInView.swift in Sources */,
 				A9EB11892B5CEC9A0052DCCA /* GetTopService.swift in Sources */,
@@ -442,6 +445,7 @@
 				A99279492B5C78E100D20E48 /* RefreshTokenEndpoint.swift in Sources */,
 				C5774B732B27E9D20089DA4A /* MusisticApp.swift in Sources */,
 				C570BE632B2E4C57006E7536 /* APIImage.swift in Sources */,
+				A9EB118D2B5D08550052DCCA /* TopArtistDetail.swift in Sources */,
 				A99279302B57538300D20E48 /* AuthorizeUserEndpoint.swift in Sources */,
 				C570BE552B2DB97A006E7536 /* MusicItemRow.swift in Sources */,
 				C570BE672B2E4CE7006E7536 /* Artist.swift in Sources */,

@@ -8,25 +8,37 @@
 import SwiftUI
 
 struct ArtistsListView: View {
+    @State private var timeRange: TimeRange = .mediumTerm
     @State private var list = [Artist]()
     @State private var path = NavigationPath()
     var body: some View {
         NavigationStack(path: $path) {
             List(list) { artist in
-                //NavigationLink(value: NavigationType.detail(track: track)) {
+                NavigationLink(value: ArtistNavigationType.artistDetail(artist: artist)) {
                     ArtistListRow(artist: artist)
                         .listRowSeparator(.hidden, edges: .all)
                         .padding(-5)
-                //}
+                }
             }
             .listStyle(.plain)
             .navigationTitle("Top Songs")
-            .navigationDestination(for: NavigationType.self) { type in
+            .navigationDestination(for: ArtistNavigationType.self) { type in
                 switch type {
-                case .detail(let track):
-                    TopMusicDetail(track: track)
+                case .artistDetail(let artist):
+                    TopArtistDetail(artist: artist)
                 }
-                
+            }
+            .toolbar {
+                Picker("Term", selection: $timeRange) {
+                    ForEach(TimeRange.allCases,id: \.self) { range in
+                        Text(range.rawValue)
+                    }
+                }
+                .onChange(of: timeRange) {
+                    Task {
+                        await readAllData()
+                    }
+                }
             }
            
             
@@ -40,7 +52,7 @@ struct ArtistsListView: View {
     }
     
     private func readAllData() async {
-        let result = await GetTopService().fetchTop(for: Artist.self)
+        let result = await GetTopService().fetchTop(for: Artist.self,timeRange: timeRange)
         switch result {
         case .success(let tracks):
             self.list = tracks.items

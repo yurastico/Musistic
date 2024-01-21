@@ -31,9 +31,11 @@ extension HTTPClient {
         if let body = endpoint.jsonBody {
             request.httpBody = try? JSONSerialization.data(withJSONObject: body)
         }
-        if let body = urlComponents.percentEncodedQuery?.data(using: .utf8) {
-            request.httpBody = body
-            
+        if endpoint.method == .post {
+            if let body = urlComponents.percentEncodedQuery?.data(using: .utf8) {
+                request.httpBody = body
+                
+            }
         }
         
         do {

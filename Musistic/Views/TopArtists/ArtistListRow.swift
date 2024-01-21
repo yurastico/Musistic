@@ -21,7 +21,7 @@ struct ArtistListRow: View {
                     .bold()
                     .multilineTextAlignment(.leading)
                 
-                Text("\(artist.followers?.total ?? 0)")
+                Text("\(artist.genres?.first ?? "")")
                     .font(.subheadline)
                     .multilineTextAlignment(.leading)
             }

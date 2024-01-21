@@ -13,7 +13,7 @@ struct MusicsListView: View {
     var body: some View {
         NavigationStack(path: $path) {
             List(list) { track in
-                NavigationLink(value: NavigationType.detail(track: track)) {
+                NavigationLink(value: TrackNavigationType.trackDetail(track: track)) {
                     MusicItemRow(track: track)
                         .listRowSeparator(.hidden, edges: .all)
                         .padding(-5)
@@ -21,10 +21,12 @@ struct MusicsListView: View {
             }
             .listStyle(.plain)
             .navigationTitle("Top Songs")
-            .navigationDestination(for: NavigationType.self) { type in
+            .navigationDestination(for: TrackNavigationType.self) { type in
                 switch type {
-                case .detail(let track):
+                case .trackDetail(let track):
                     TopMusicDetail(track: track)
+                
+                    
                 }
                 
             }
@@ -40,7 +42,7 @@ struct MusicsListView: View {
     }
     
     private func readAllData() async {
-        let result = await GetTopService().fetchTop(for: Track.self)
+        let result = await GetTopService().fetchTop(for: Track.self,timeRange: .mediumTerm)
         switch result {
         case .success(let tracks):
             self.list = tracks.items

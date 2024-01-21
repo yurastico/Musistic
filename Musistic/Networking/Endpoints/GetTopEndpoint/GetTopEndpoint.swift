@@ -61,7 +61,7 @@ extension GetTopEndpoint: Endpoint {
     
 }
 
-enum TimeRange: String {
+enum TimeRange: String, CaseIterable {
     case shortTerm = "short_term"
     case mediumTerm = "medium_term"
     case longTerm = "long_term"
