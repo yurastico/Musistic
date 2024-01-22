@@ -12,6 +12,7 @@ import Observation
 final class GetTopViewModel {
     var tracks = [Track]()
     
+    
     func refreshTracks(for range: TimeRange) async {
         
         let result = await GetTopService().fetchTop(for: Track.self,timeRange: range)

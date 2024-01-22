@@ -11,7 +11,7 @@ struct SkeletonView: View {
    
     var body: some View {
         VStack(spacing: 35) {
-            ForEach(0..<4,id: \.self) { index in
+            ForEach(0..<1,id: \.self) { index in
                     SkeletonRow()
             }
         }

@@ -10,14 +10,23 @@ import SwiftUI
 struct MusicsListView: View {
     @State private var timeRange: TimeRange = .mediumTerm
     @State private var path = NavigationPath()
+    @State private var isFetchingData = true
     private var viewModel = GetTopViewModel()
     var body: some View {
         NavigationStack(path: $path) {
+            
             List(viewModel.tracks) { track in
-                NavigationLink(value: TrackNavigationType.trackDetail(track: track)) {
-                    MusicItemRow(track: track)
+                if isFetchingData {
+                   SkeletonView()
                         .listRowSeparator(.hidden, edges: .all)
                         .padding(-5)
+                    
+                } else {
+                    NavigationLink(value: TrackNavigationType.trackDetail(track: track)) {
+                        MusicItemRow(track: track)
+                            .listRowSeparator(.hidden, edges: .all)
+                            .padding(-5)
+                    }
                 }
             }
             .listStyle(.plain)
