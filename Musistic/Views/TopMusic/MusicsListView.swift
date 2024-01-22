@@ -14,18 +14,12 @@ struct MusicsListView: View {
     private var viewModel = GetTopViewModel()
     var body: some View {
         NavigationStack(path: $path) {
-            
             List(viewModel.tracks) { track in
                 if isFetchingData {
                    SkeletonView()
-                        .listRowSeparator(.hidden, edges: .all)
-                        .padding(-5)
-                    
                 } else {
                     NavigationLink(value: TrackNavigationType.trackDetail(track: track)) {
                         MusicItemRow(track: track)
-                            .listRowSeparator(.hidden, edges: .all)
-                            .padding(-5)
                     }
                 }
             }
@@ -39,22 +33,8 @@ struct MusicsListView: View {
                 
             }
             .toolbar {
-                Picker("Term", selection: $timeRange) {
-                    ForEach(TimeRange.allCases,id: \.self) { range in
-                        Text(range.rawValue)
-                    }
-                }
-                .onChange(of: timeRange) {
-                    Task {
-                        isFetchingData = true
-                        await viewModel.refreshTracks(for: timeRange)
-                        isFetchingData = false
-                        
-                    }
-                }
+                termPicker
             }
-           
-            
         }
         .onAppear {
             Task {
@@ -64,6 +44,22 @@ struct MusicsListView: View {
             }
         }
         
+    }
+    
+    var termPicker: some View {
+        Picker("Term", selection: $timeRange) {
+            ForEach(TimeRange.allCases,id: \.self) { range in
+                Text(range.rawValue)
+            }
+        }
+        .onChange(of: timeRange) {
+            Task {
+                isFetchingData = true
+                await viewModel.refreshTracks(for: timeRange)
+                isFetchingData = false
+                
+            }
+        }
     }
 }
 

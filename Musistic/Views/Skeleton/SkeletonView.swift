@@ -10,10 +10,12 @@ import SwiftUI
 struct SkeletonView: View {
    
     var body: some View {
-        VStack(spacing: 35) {
+        VStack(spacing: 4) {
             ForEach(0..<1,id: \.self) { index in
                     SkeletonRow()
             }
+            .listRowSeparator(.hidden, edges: .all)
+            .padding(-5)
         }
     }
 }
@@ -25,7 +27,7 @@ struct SkeletonRow: View {
             HStack(spacing: 16) {
                 LinearGradient(gradient: Gradient(colors: [.gray,.white,.gray]), startPoint: .leading, endPoint: .trailing)
                     .mask {
-                        Circle()
+                        RoundedRectangle(cornerRadius: 8)
                             .frame(width: 60,height: 60,alignment: .leading)
                             .redectedAnimation()
                         
