@@ -8,11 +8,13 @@
 import SwiftUI
 
 struct SettingsView: View {
+    @Environment(UserStateViewModel.self) var userStateViewModel
     var body: some View {
         NavigationStack {
             Form {
                 Button("Logout") {
                     SpotifyAuthenticationManager.shared.removeCredentials()
+                    userStateViewModel.isLogged = false
                 }
             }
             .navigationTitle("Settings")

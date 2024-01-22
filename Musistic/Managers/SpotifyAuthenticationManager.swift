@@ -57,8 +57,7 @@ final class SpotifyAuthenticationManager {
     
     func isAccessTokenValid() -> Bool {
         guard let expiresIn = self.expiresIn else { return false}
-        print(Date.now)
-        print(Date(timeIntervalSince1970: expiresIn))
+       
         return Date.now < Date(timeIntervalSince1970: expiresIn)
     }
     

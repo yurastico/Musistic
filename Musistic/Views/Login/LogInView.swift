@@ -8,19 +8,18 @@
 import SwiftUI
 
 struct LogInView: View, GetCode {
-    @State private var isLogged = false
+    @Environment(UserStateViewModel.self) var userStateViewModel
     var body: some View {
         
         VStack {
-            if isLogged {
+            if userStateViewModel.isLogged {
                 MainView()
                     .transition(.move(edge: .trailing))
                     
+                    
             } else {
                 Button {
-                    withAnimation {
-                        //isLogged = true
-                    }
+                   
                     if let url = createUrl(endpoint: AuthorizeEndpoint.authorize) {
                         UIApplication.shared.open(url)
                         
@@ -40,10 +39,11 @@ struct LogInView: View, GetCode {
         }
         .onOpenURL { url in
             Task {
+                print(url)
                 let result = await AuthenticationService().saveAcessToken(from:url)
                 switch result {
                 case .success(let saved):
-                    isLogged = saved
+                    userStateViewModel.isLogged = saved
                 case .failure(let error):
                     print(error)
                 }
@@ -51,13 +51,16 @@ struct LogInView: View, GetCode {
         }
         .onAppear {
             if SpotifyAuthenticationManager.shared.isAccessTokenValid() {
-                self.isLogged = true
+                withAnimation {
+                    userStateViewModel.isLogged = true
+                }
+                
                 print("tudo valendo!!!!!")
             } else {
                 Task {
                     if SpotifyAuthenticationManager.shared.accessToken != nil {
                         let isAuthenticated = await AuthenticationService().refreshToken()
-                        self.isLogged = isAuthenticated
+                        self.userStateViewModel.isLogged = isAuthenticated
                         print("refreshing token!!!!!!!!!!!!")
                         
                     }

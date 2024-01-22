@@ -18,7 +18,7 @@ extension HTTPClient {
         urlComponents.host = endpoint.host
         urlComponents.path = endpoint.path
         urlComponents.queryItems = endpoint.queryItems
-
+        
         
         guard let url = urlComponents.url else  {
             return .failure(.invalidURL)
@@ -72,7 +72,6 @@ extension HTTPClient {
             case 401:
                 return .failure(.noAuthorized)
             default:
-                print(response.statusCode)
                 let errorResponse = try? JSONSerialization.jsonObject(with: data) as? [String: Any]
                 return .failure(.custom(errorResponse))
                 

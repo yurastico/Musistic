@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct MusisticApp: App {
+    var userStateViewModel = UserStateViewModel()
     var body: some Scene {
         WindowGroup {
             LogInView()
+                .environment(userStateViewModel)
+                
         }
     }
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A9835ED62B5DEA5F00F18F20 /* UserStateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9835ED52B5DEA5F00F18F20 /* UserStateViewModel.swift */; };
 		A99279252B55F52100D20E48 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99279242B55F52100D20E48 /* Endpoint.swift */; };
 		A99279272B55F6CB00D20E48 /* RequestMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99279262B55F6CB00D20E48 /* RequestMethod.swift */; };
 		A99279292B55F75B00D20E48 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99279282B55F75B00D20E48 /* HTTPClient.swift */; };
@@ -54,6 +55,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A9835ED52B5DEA5F00F18F20 /* UserStateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStateViewModel.swift; sourceTree = "<group>"; };
 		A99279242B55F52100D20E48 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		A99279262B55F6CB00D20E48 /* RequestMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestMethod.swift; sourceTree = "<group>"; };
 		A99279282B55F75B00D20E48 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
@@ -279,6 +281,7 @@
 		C5774B662B27E9D10089DA4A = {
 			isa = PBXGroup;
 			children = (
+				A9835ED52B5DEA5F00F18F20 /* UserStateViewModel.swift */,
 				C5774B712B27E9D20089DA4A /* Musistic */,
 				C5774B702B27E9D20089DA4A /* Products */,
 			);
@@ -427,6 +430,7 @@
 				C570BE692B2E4D9D006E7536 /* Followers.swift in Sources */,
 				C5774B752B27E9D20089DA4A /* MainView.swift in Sources */,
 				C5774B852B28AB420089DA4A /* ArtistsListView.swift in Sources */,
+				A9835ED62B5DEA5F00F18F20 /* UserStateViewModel.swift in Sources */,
 				A99279392B57C5CB00D20E48 /* GetCode.swift in Sources */,
 				C5774B832B28AAF40089DA4A /* MusicsListView.swift in Sources */,
 				A9EB118B2B5CFEEB0052DCCA /* ArtistListRow.swift in Sources */,
