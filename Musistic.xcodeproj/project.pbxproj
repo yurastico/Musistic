@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A9835ED62B5DEA5F00F18F20 /* UserStateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9835ED52B5DEA5F00F18F20 /* UserStateViewModel.swift */; };
+		A9835ED92B5E38DB00F18F20 /* GetTopViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9835ED82B5E38DB00F18F20 /* GetTopViewModel.swift */; };
 		A99279252B55F52100D20E48 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99279242B55F52100D20E48 /* Endpoint.swift */; };
 		A99279272B55F6CB00D20E48 /* RequestMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99279262B55F6CB00D20E48 /* RequestMethod.swift */; };
 		A99279292B55F75B00D20E48 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99279282B55F75B00D20E48 /* HTTPClient.swift */; };
@@ -54,6 +55,7 @@
 
 /* Begin PBXFileReference section */
 		A9835ED52B5DEA5F00F18F20 /* UserStateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStateViewModel.swift; sourceTree = "<group>"; };
+		A9835ED82B5E38DB00F18F20 /* GetTopViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTopViewModel.swift; sourceTree = "<group>"; };
 		A99279242B55F52100D20E48 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		A99279262B55F6CB00D20E48 /* RequestMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestMethod.swift; sourceTree = "<group>"; };
 		A99279282B55F75B00D20E48 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
@@ -111,6 +113,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A9835ED72B5E38BF00F18F20 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				A9835ED82B5E38DB00F18F20 /* GetTopViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 		A99279202B55F46700D20E48 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
@@ -300,6 +310,7 @@
 				A99279202B55F46700D20E48 /* Networking */,
 				C570BE5D2B2E4BC6006E7536 /* Models */,
 				C596B60E2B2947DB001A5F0B /* Extensions */,
+				A9835ED72B5E38BF00F18F20 /* ViewModels */,
 				C5774B8C2B2937C90089DA4A /* Views */,
 				C5774B722B27E9D20089DA4A /* MusisticApp.swift */,
 				C5774B782B27E9D30089DA4A /* Preview Content */,
@@ -411,6 +422,7 @@
 				A992792B2B55F7AE00D20E48 /* RequestError.swift in Sources */,
 				A99279272B55F6CB00D20E48 /* RequestMethod.swift in Sources */,
 				C5774B892B28B75F0089DA4A /* MyPlaylistsView.swift in Sources */,
+				A9835ED92B5E38DB00F18F20 /* GetTopViewModel.swift in Sources */,
 				A9EB11872B5CE5C00052DCCA /* GetTopEndpoint.swift in Sources */,
 				A992793F2B5939E700D20E48 /* AccessTokenResponse.swift in Sources */,
 				A992792E2B574EAB00D20E48 /* TokenEndpoint.swift in Sources */,

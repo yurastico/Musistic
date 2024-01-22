@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct MusicsListView: View {
-    @State private var list = [Track]()
     @State private var timeRange: TimeRange = .mediumTerm
     @State private var path = NavigationPath()
+    private var viewModel = GetTopViewModel()
     var body: some View {
         NavigationStack(path: $path) {
-            List(list) { track in
+            List(viewModel.tracks) { track in
                 NavigationLink(value: TrackNavigationType.trackDetail(track: track)) {
                     MusicItemRow(track: track)
                         .listRowSeparator(.hidden, edges: .all)
@@ -26,8 +26,6 @@ struct MusicsListView: View {
                 switch type {
                 case .trackDetail(let track):
                     TopMusicDetail(track: track)
-                
-                    
                 }
                 
             }
@@ -39,7 +37,7 @@ struct MusicsListView: View {
                 }
                 .onChange(of: timeRange) {
                     Task {
-                        await readAllData()
+                        await viewModel.refreshTracks(for: timeRange)
                     }
                 }
             }
@@ -48,25 +46,11 @@ struct MusicsListView: View {
         }
         .onAppear {
             Task {
-                await readAllData()
+                await viewModel.refreshTracks(for: timeRange)
             }
         }
         
     }
-    
-    private func readAllData() async {
-        
-        let result = await GetTopService().fetchTop(for: Track.self,timeRange: timeRange)
-        switch result {
-        case .success(let tracks):
-            self.list = tracks.items
-        case .failure(let error):
-            print(error)
-        }
-        
-        
-    }
-    
 }
 
 #Preview {
