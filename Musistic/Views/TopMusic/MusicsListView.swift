@@ -46,7 +46,10 @@ struct MusicsListView: View {
                 }
                 .onChange(of: timeRange) {
                     Task {
+                        isFetchingData = true
                         await viewModel.refreshTracks(for: timeRange)
+                        isFetchingData = false
+                        
                     }
                 }
             }
@@ -55,7 +58,9 @@ struct MusicsListView: View {
         }
         .onAppear {
             Task {
+                isFetchingData = true
                 await viewModel.refreshTracks(for: timeRange)
+                isFetchingData = false
             }
         }
         
