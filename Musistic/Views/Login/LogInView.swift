@@ -10,10 +10,12 @@ import SwiftUI
 struct LogInView: View, GetCode {
     @State private var isLogged = false
     var body: some View {
+        
         VStack {
             if isLogged {
                 MainView()
                     .transition(.move(edge: .trailing))
+                    
             } else {
                 Button {
                     withAnimation {

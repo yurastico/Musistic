@@ -11,7 +11,9 @@ struct SettingsView: View {
     var body: some View {
         NavigationStack {
             Form {
-                
+                Button("Logout") {
+                    SpotifyAuthenticationManager.shared.removeCredentials()
+                }
             }
             .navigationTitle("Settings")
         }

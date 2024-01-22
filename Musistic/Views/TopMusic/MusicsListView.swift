@@ -9,6 +9,7 @@ import SwiftUI
 
 struct MusicsListView: View {
     @State private var list = [Track]()
+    @State private var timeRange: TimeRange = .mediumTerm
     @State private var path = NavigationPath()
     var body: some View {
         NavigationStack(path: $path) {
@@ -30,6 +31,18 @@ struct MusicsListView: View {
                 }
                 
             }
+            .toolbar {
+                Picker("Term", selection: $timeRange) {
+                    ForEach(TimeRange.allCases,id: \.self) { range in
+                        Text(range.rawValue)
+                    }
+                }
+                .onChange(of: timeRange) {
+                    Task {
+                        await readAllData()
+                    }
+                }
+            }
            
             
         }
@@ -42,7 +55,8 @@ struct MusicsListView: View {
     }
     
     private func readAllData() async {
-        let result = await GetTopService().fetchTop(for: Track.self,timeRange: .mediumTerm)
+        
+        let result = await GetTopService().fetchTop(for: Track.self,timeRange: timeRange)
         switch result {
         case .success(let tracks):
             self.list = tracks.items

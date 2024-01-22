@@ -27,11 +27,6 @@ struct TopArtistDetail: View {
                 Text(artist.name)
                     .font(.largeTitle)
                     .bold()
-                
-                
-                
-                
-                
             }
             Spacer()
         }
