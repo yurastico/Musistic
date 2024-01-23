@@ -18,9 +18,6 @@ extension TokenEndpoint: Endpoint {
         return [URLQueryItem(name: "grant_type", value: "authorization_code"),
             URLQueryItem(name: "code", value: code),
             URLQueryItem(name: "redirect_uri", value: SpotifyBaseURL.redirectURL.rawValue)]
-        
-        
-      
     }
     
     var host: String {
@@ -45,7 +42,4 @@ extension TokenEndpoint: Endpoint {
         nil
     }
     
-    static func isAcessTokenExpired() -> Bool {
-        return true
-    }
 }

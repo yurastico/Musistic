@@ -21,9 +21,6 @@ struct TopMusicDetail: View {
                     .font(.headline)
                 Text(track.artists[0].name)
                     .font(.title)
-                
-                
-                
             }
             Spacer()
         }

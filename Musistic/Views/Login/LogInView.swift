@@ -15,14 +15,14 @@ struct LogInView: View, GetCode {
             if userStateViewModel.isLogged {
                 MainView()
                     .transition(.move(edge: .trailing))
-                    
-                    
             } else {
                 Button {
-                   
-                    if let url = createUrl(endpoint: AuthorizeEndpoint.authorize) {
+                    let result = createUrl(endpoint: AuthorizeEndpoint.authorize)
+                    switch result {
+                    case .success(let url):
                         UIApplication.shared.open(url)
-                        
+                    case .failure(let error):
+                        print(error)
                     }
                 } label: {
                     Text("Log in with Spotify")
@@ -59,10 +59,14 @@ struct LogInView: View, GetCode {
             } else {
                 Task {
                     if SpotifyAuthenticationManager.shared.accessToken != nil {
-                        let isAuthenticated = await AuthenticationService().refreshToken()
-                        self.userStateViewModel.isLogged = isAuthenticated
-                        print("refreshing token!!!!!!!!!!!!")
-                        
+                        let result = await AuthenticationService().refreshToken()
+                        switch result {
+                        case .success(let isAuthenticated):
+                            self.userStateViewModel.isLogged = isAuthenticated
+                            print("refreshing token!!!!!!!!!!!!")
+                        case .failure(let error):
+                            print(error)
+                        }
                     }
                 }
             }

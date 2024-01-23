@@ -30,17 +30,18 @@ struct MusicsListView: View {
                 case .trackDetail(let track):
                     TopMusicDetail(track: track)
                 }
-                
             }
             .toolbar {
                 termPicker
             }
         }
         .onAppear {
+            isFetchingData = true
             Task {
-                isFetchingData = true
                 await viewModel.refreshTracks(for: timeRange)
-                isFetchingData = false
+                withAnimation {
+                    isFetchingData = false
+                }
             }
         }
         
@@ -53,12 +54,12 @@ struct MusicsListView: View {
             }
         }
         .onChange(of: timeRange) {
+            isFetchingData = true
             Task {
-                isFetchingData = true
                 await viewModel.refreshTracks(for: timeRange)
                 isFetchingData = false
-                
             }
+            
         }
     }
 }

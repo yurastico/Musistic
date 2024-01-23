@@ -15,14 +15,10 @@ protocol Endpoint {
     var header: [String: String]? { get }
     var jsonBody: [String: String]? { get }
     var queryItems: [URLQueryItem]? { get }
-    
-    
 }
 
 extension Endpoint {
     var schema: String {
         "https"
     }
-    
-    
 }

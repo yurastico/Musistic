@@ -16,12 +16,10 @@ struct ArtistsListView: View {
             List(list) { artist in
                 NavigationLink(value: ArtistNavigationType.artistDetail(artist: artist)) {
                     ArtistListRow(artist: artist)
-                        .listRowSeparator(.hidden, edges: .all)
-                        .padding(-5)
                 }
             }
             .listStyle(.plain)
-            .navigationTitle("Top Songs")
+            .navigationTitle("Top Artists")
             .navigationDestination(for: ArtistNavigationType.self) { type in
                 switch type {
                 case .artistDetail(let artist):

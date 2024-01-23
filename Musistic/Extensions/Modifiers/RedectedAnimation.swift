@@ -18,8 +18,6 @@ struct RedectedAnimationModifier: ViewModifier {
                 }
             }
     }
-    
-    
 }
 
 extension View {

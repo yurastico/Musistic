@@ -22,11 +22,7 @@ struct GetTopEndpoint {
         self.paths = paths
         self.filterQueryItems = queryItems
     }
-    
-
-    
 }
-
 
 extension GetTopEndpoint: Endpoint {
     var host: String {

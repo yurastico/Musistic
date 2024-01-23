@@ -19,7 +19,6 @@ extension HTTPClient {
         urlComponents.path = endpoint.path
         urlComponents.queryItems = endpoint.queryItems
         
-        
         guard let url = urlComponents.url else  {
             return .failure(.invalidURL)
         }
@@ -34,7 +33,6 @@ extension HTTPClient {
         if endpoint.method == .post {
             if let body = urlComponents.percentEncodedQuery?.data(using: .utf8) {
                 request.httpBody = body
-                
             }
         }
         
@@ -55,21 +53,16 @@ extension HTTPClient {
                 guard let decodedResponse = try? decoder.decode(responseModel, from: data) else {
                     return .failure(.decode)
                 }
-                
                 return .success(decodedResponse)
             case 400:
                 let errorResponse = try? JSONSerialization.jsonObject(with: data) as? [String: Any]
-                
                 return .failure(.custom(errorResponse))
             case 401:
                 return .failure(.noAuthorized)
             default:
                 let errorResponse = try? JSONSerialization.jsonObject(with: data) as? [String: Any]
                 return .failure(.custom(errorResponse))
-                
-                
             }
-            
         } catch {
             return .failure(.unknown)
         }

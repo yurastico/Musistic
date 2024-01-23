@@ -16,13 +16,9 @@ struct TopArtistDetail: View {
                 ForEach(artist.images ?? []) { image in
                     if let url = URL(string: image.url) {
                         AsyncImageContainer(url: url)
-                        
                     }
                 }
             }.tabViewStyle(.page)
-            
-           
-            
             VStack {
                 Text(artist.name)
                     .font(.largeTitle)
@@ -32,7 +28,6 @@ struct TopArtistDetail: View {
         }
     }
 }
-
 
 //#Preview {
 //    TopArtistDetail()

@@ -53,7 +53,6 @@ struct SkeletonRow: View {
     }
 }
 
-
 #Preview {
     SkeletonView()
 }

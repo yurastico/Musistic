@@ -16,38 +16,33 @@ struct AuthenticationService: HTTPClient {
         let result =  await sendRequest(endpoint: endpoint, responseModel: AccessTokenResponse.self)
         switch result {
         case .success(let accessTokenResponse):
-            
-            guard let accessTokenResponse else { return .failure(.invalidURL) }
+            guard let accessTokenResponse else { return .success(false) }
             SpotifyAuthenticationManager.shared.saveCredentials(for: accessTokenResponse)
             return .success(true)
-            
-        case .failure(let error):
-            print(error)
+        case .failure   :
             return .failure(.unknown)
         }
     }
     
-    func refreshToken() async -> Bool {
-        guard let refreshToken = SpotifyAuthenticationManager.shared.refreshToken else { return false }
+    func refreshToken() async -> Result<Bool,RequestError> {
+        guard let refreshToken = SpotifyAuthenticationManager.shared.refreshToken else { return .failure(.expiredToken) }
         let endpoint = RefreshTokenEndpoint(refreshToken: refreshToken)
         
         let result = await sendRequest(endpoint: endpoint, responseModel: AccessTokenResponse.self)
         switch result {
         case .success(let accessTokenResponse):
-            guard let accessTokenResponse else { return false}
-            print(accessTokenResponse)
+            guard let accessTokenResponse else { return .success(false)}
             SpotifyAuthenticationManager.shared.saveCredentials(for: accessTokenResponse)
-            return true
-        case .failure(_):
-            return false
+            return .success(true)
+        case .failure(let error):
+            return .failure(error)
         }
-        
     }
     
     private func getAuthorizationCode(from url: URL) -> String? {
-            let components = URLComponents(url: url, resolvingAgainstBaseURL: true)
-            let code = components?.queryItems?.first(where: {$0.name == "code"})?.value
-            guard let code = code else { return nil }
-            return code
-        }
+        let components = URLComponents(url: url, resolvingAgainstBaseURL: true)
+        let code = components?.queryItems?.first(where: {$0.name == "code"})?.value
+        guard let code = code else { return nil }
+        return code
+    }
 }

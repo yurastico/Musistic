@@ -8,10 +8,10 @@
 import Foundation
 
 protocol GetCode {
-    func createUrl(endpoint: AuthorizeEndpoint) -> URL?
+    func createUrl(endpoint: AuthorizeEndpoint) -> Result<URL,RequestError>
 }
 extension GetCode {
-    func createUrl(endpoint: AuthorizeEndpoint) -> URL? {
+    func createUrl(endpoint: AuthorizeEndpoint) -> Result<URL,RequestError> {
         var urlComponents = URLComponents()
         urlComponents.scheme = endpoint.schema
         urlComponents.host = endpoint.host
@@ -19,9 +19,9 @@ extension GetCode {
         
         urlComponents.queryItems = endpoint.queryItems
         
-        guard let url = urlComponents.url else { return nil}
+        guard let url = urlComponents.url else { return .failure(.invalidURL)}
         
-        return url
+        return .success(url)
         
     }
     
