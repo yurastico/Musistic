@@ -11,34 +11,40 @@ struct ArtistsListView: View {
     @State private var timeRange: TimeRange = .mediumTerm
     @State private var list = [Artist]()
     @State private var path = NavigationPath()
+    @State private var isShowingSnackBar = false
+    @State private var errorMessage = ""
     var body: some View {
         NavigationStack(path: $path) {
-            List(list) { artist in
-                NavigationLink(value: ArtistNavigationType.artistDetail(artist: artist)) {
-                    ArtistListRow(artist: artist)
-                }
-            }
-            .listStyle(.plain)
-            .navigationTitle("Top Artists")
-            .navigationDestination(for: ArtistNavigationType.self) { type in
-                switch type {
-                case .artistDetail(let artist):
-                    TopArtistDetail(artist: artist)
-                }
-            }
-            .toolbar {
-                Picker("Term", selection: $timeRange) {
-                    ForEach(TimeRange.allCases,id: \.self) { range in
-                        Text(range.rawValue)
+            ZStack {
+                List(list) { artist in
+                    NavigationLink(value: ArtistNavigationType.artistDetail(artist: artist)) {
+                        ArtistListRow(artist: artist)
                     }
                 }
-                .onChange(of: timeRange) {
-                    Task {
-                        await readAllData()
+                .listStyle(.plain)
+                .navigationTitle("Top Artists")
+                .navigationDestination(for: ArtistNavigationType.self) { type in
+                    switch type {
+                    case .artistDetail(let artist):
+                        TopArtistDetail(artist: artist)
                     }
                 }
+                .toolbar {
+                    Picker("Term", selection: $timeRange) {
+                        ForEach(TimeRange.allCases,id: \.self) { range in
+                            Text(range.rawValue)
+                        }
+                    }
+                    .onChange(of: timeRange) {
+                        Task {
+                            await readAllData()
+                        }
+                    }
+                }
+                if isShowingSnackBar {
+                    SnackBarErrorView(isShowing: $isShowingSnackBar, message: errorMessage)
+                }
             }
-           
             
         }
         .onAppear {
@@ -56,6 +62,8 @@ struct ArtistsListView: View {
             self.list = tracks.items
         case .failure(let error):
             print(error)
+            errorMessage = "ui ui deu algum pau, esse eh o pau que ta dando ta vendo????"
+            isShowingSnackBar = true
         }
         
         

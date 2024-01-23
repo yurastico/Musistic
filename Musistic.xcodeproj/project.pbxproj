@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A98338302B6073A40087EA99 /* SnackBarErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A983382F2B6073A40087EA99 /* SnackBarErrorView.swift */; };
+		A98338322B6073EB0087EA99 /* UIAplication+getKeyWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98338312B6073EB0087EA99 /* UIAplication+getKeyWindow.swift */; };
 		A9835ED62B5DEA5F00F18F20 /* UserStateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9835ED52B5DEA5F00F18F20 /* UserStateViewModel.swift */; };
 		A9835ED92B5E38DB00F18F20 /* GetTopViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9835ED82B5E38DB00F18F20 /* GetTopViewModel.swift */; };
 		A9835EDC2B5E3B5700F18F20 /* SkeletonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9835EDB2B5E3B5700F18F20 /* SkeletonView.swift */; };
@@ -55,6 +57,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A983382F2B6073A40087EA99 /* SnackBarErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnackBarErrorView.swift; sourceTree = "<group>"; };
+		A98338312B6073EB0087EA99 /* UIAplication+getKeyWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAplication+getKeyWindow.swift"; sourceTree = "<group>"; };
 		A9835ED52B5DEA5F00F18F20 /* UserStateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStateViewModel.swift; sourceTree = "<group>"; };
 		A9835ED82B5E38DB00F18F20 /* GetTopViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTopViewModel.swift; sourceTree = "<group>"; };
 		A9835EDB2B5E3B5700F18F20 /* SkeletonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkeletonView.swift; sourceTree = "<group>"; };
@@ -138,6 +142,14 @@
 				C570BE5E2B2E4C13006E7536 /* GetTopResponse.swift */,
 			);
 			path = GetTopResponse;
+			sourceTree = "<group>";
+		};
+		A983382E2B6073960087EA99 /* Snackbar */ = {
+			isa = PBXGroup;
+			children = (
+				A983382F2B6073A40087EA99 /* SnackBarErrorView.swift */,
+			);
+			path = Snackbar;
 			sourceTree = "<group>";
 		};
 		A9835ED72B5E38BF00F18F20 /* ViewModels */ = {
@@ -363,6 +375,7 @@
 		C5774B8C2B2937C90089DA4A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A983382E2B6073960087EA99 /* Snackbar */,
 				A9835EDA2B5E3B4D00F18F20 /* Skeleton */,
 				C570BE782B2E5C0E006E7536 /* Navigation */,
 				C570BE5B2B2E4B9D006E7536 /* Components */,
@@ -380,6 +393,7 @@
 			isa = PBXGroup;
 			children = (
 				A9835EDD2B5E3BB000F18F20 /* Modifiers */,
+				A98338312B6073EB0087EA99 /* UIAplication+getKeyWindow.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -462,6 +476,7 @@
 				A9EB11872B5CE5C00052DCCA /* GetTopEndpoint.swift in Sources */,
 				A992793F2B5939E700D20E48 /* AccessTokenResponse.swift in Sources */,
 				A992792E2B574EAB00D20E48 /* TokenEndpoint.swift in Sources */,
+				A98338322B6073EB0087EA99 /* UIAplication+getKeyWindow.swift in Sources */,
 				A99279342B57C0CD00D20E48 /* SpotifyConstants.swift in Sources */,
 				C570BE6D2B2E4DE8006E7536 /* ArtistType.swift in Sources */,
 				A99279292B55F75B00D20E48 /* HTTPClient.swift in Sources */,
@@ -474,6 +489,7 @@
 				A99279392B57C5CB00D20E48 /* GetCode.swift in Sources */,
 				C5774B832B28AAF40089DA4A /* MusicsListView.swift in Sources */,
 				A9EB118B2B5CFEEB0052DCCA /* ArtistListRow.swift in Sources */,
+				A98338302B6073A40087EA99 /* SnackBarErrorView.swift in Sources */,
 				A992793C2B5939B600D20E48 /* AuthenticationService.swift in Sources */,
 				A99279442B5A7EB800D20E48 /* KeychainHelper.swift in Sources */,
 				C570BE752B2E54B3006E7536 /* TopMusicDetail.swift in Sources */,
