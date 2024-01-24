@@ -62,7 +62,7 @@ struct ArtistsListView: View {
             self.list = tracks.items
         case .failure(let error):
             print(error)
-            errorMessage = "ui ui deu algum pau, esse eh o pau que ta dando ta vendo????"
+            errorMessage = error.errorMessage
             isShowingSnackBar = true
         }
         
