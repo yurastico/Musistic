@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ArtistsAlbuns: Codable {
+struct ArtistAlbuns: Codable {
     let href: String
     let limit: Int
     let next: String?

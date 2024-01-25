@@ -9,7 +9,9 @@
 /* Begin PBXBuildFile section */
 		A98338302B6073A40087EA99 /* SnackBarErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A983382F2B6073A40087EA99 /* SnackBarErrorView.swift */; };
 		A98338322B6073EB0087EA99 /* UIAplication+getKeyWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98338312B6073EB0087EA99 /* UIAplication+getKeyWindow.swift */; };
-		A98338352B62E2B90087EA99 /* ArtistsAlbuns.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98338342B62E2B90087EA99 /* ArtistsAlbuns.swift */; };
+		A98338352B62E2B90087EA99 /* ArtistAlbuns.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98338342B62E2B90087EA99 /* ArtistAlbuns.swift */; };
+		A98338382B62E4480087EA99 /* ArtistAlbunsEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98338372B62E4480087EA99 /* ArtistAlbunsEndpoint.swift */; };
+		A983383B2B62E5810087EA99 /* ArtistAlbunsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A983383A2B62E5810087EA99 /* ArtistAlbunsService.swift */; };
 		A9835ED62B5DEA5F00F18F20 /* UserStateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9835ED52B5DEA5F00F18F20 /* UserStateViewModel.swift */; };
 		A9835ED92B5E38DB00F18F20 /* GetTopViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9835ED82B5E38DB00F18F20 /* GetTopViewModel.swift */; };
 		A9835EDC2B5E3B5700F18F20 /* SkeletonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9835EDB2B5E3B5700F18F20 /* SkeletonView.swift */; };
@@ -60,7 +62,9 @@
 /* Begin PBXFileReference section */
 		A983382F2B6073A40087EA99 /* SnackBarErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnackBarErrorView.swift; sourceTree = "<group>"; };
 		A98338312B6073EB0087EA99 /* UIAplication+getKeyWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAplication+getKeyWindow.swift"; sourceTree = "<group>"; };
-		A98338342B62E2B90087EA99 /* ArtistsAlbuns.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistsAlbuns.swift; sourceTree = "<group>"; };
+		A98338342B62E2B90087EA99 /* ArtistAlbuns.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistAlbuns.swift; sourceTree = "<group>"; };
+		A98338372B62E4480087EA99 /* ArtistAlbunsEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistAlbunsEndpoint.swift; sourceTree = "<group>"; };
+		A983383A2B62E5810087EA99 /* ArtistAlbunsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistAlbunsService.swift; sourceTree = "<group>"; };
 		A9835ED52B5DEA5F00F18F20 /* UserStateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStateViewModel.swift; sourceTree = "<group>"; };
 		A9835ED82B5E38DB00F18F20 /* GetTopViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTopViewModel.swift; sourceTree = "<group>"; };
 		A9835EDB2B5E3B5700F18F20 /* SkeletonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkeletonView.swift; sourceTree = "<group>"; };
@@ -141,6 +145,7 @@
 				C570BE6E2B2E4DFA006E7536 /* ExternalIds.swift */,
 				C570BE6C2B2E4DE8006E7536 /* ArtistType.swift */,
 				C570BE6A2B2E4DD2006E7536 /* ExternalURLs.swift */,
+				A98338342B62E2B90087EA99 /* ArtistAlbuns.swift */,
 				C570BE5E2B2E4C13006E7536 /* GetTopResponse.swift */,
 			);
 			path = GetTopResponse;
@@ -152,6 +157,22 @@
 				A983382F2B6073A40087EA99 /* SnackBarErrorView.swift */,
 			);
 			path = Snackbar;
+			sourceTree = "<group>";
+		};
+		A98338362B62E4310087EA99 /* ArtistEndpoint */ = {
+			isa = PBXGroup;
+			children = (
+				A98338372B62E4480087EA99 /* ArtistAlbunsEndpoint.swift */,
+			);
+			path = ArtistEndpoint;
+			sourceTree = "<group>";
+		};
+		A98338392B62E56E0087EA99 /* Artist */ = {
+			isa = PBXGroup;
+			children = (
+				A983383A2B62E5810087EA99 /* ArtistAlbunsService.swift */,
+			);
+			path = Artist;
 			sourceTree = "<group>";
 		};
 		A9835ED72B5E38BF00F18F20 /* ViewModels */ = {
@@ -216,6 +237,7 @@
 		A992793A2B5939AB00D20E48 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				A98338392B62E56E0087EA99 /* Artist */,
 				A992793B2B5939B600D20E48 /* AuthenticationService.swift */,
 				A9EB11882B5CEC9A0052DCCA /* GetTopService.swift */,
 			);
@@ -249,6 +271,7 @@
 		A9EB11852B5CE5AE0052DCCA /* Endpoints */ = {
 			isa = PBXGroup;
 			children = (
+				A98338362B62E4310087EA99 /* ArtistEndpoint */,
 				A992792C2B574E9800D20E48 /* AuthenticationEndpoint */,
 				A9EB11842B5CE51A0052DCCA /* GetTopEndpoint */,
 			);
@@ -320,7 +343,6 @@
 			children = (
 				A983382D2B6008550087EA99 /* GetTopResponse */,
 				A983382C2B60082C0087EA99 /* AuthenticationResponse */,
-				A98338342B62E2B90087EA99 /* ArtistsAlbuns.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -480,10 +502,11 @@
 				A992793F2B5939E700D20E48 /* AccessTokenResponse.swift in Sources */,
 				A992792E2B574EAB00D20E48 /* TokenEndpoint.swift in Sources */,
 				A98338322B6073EB0087EA99 /* UIAplication+getKeyWindow.swift in Sources */,
-				A98338352B62E2B90087EA99 /* ArtistsAlbuns.swift in Sources */,
+				A98338352B62E2B90087EA99 /* ArtistAlbuns.swift in Sources */,
 				A99279342B57C0CD00D20E48 /* SpotifyConstants.swift in Sources */,
 				C570BE6D2B2E4DE8006E7536 /* ArtistType.swift in Sources */,
 				A99279292B55F75B00D20E48 /* HTTPClient.swift in Sources */,
+				A98338382B62E4480087EA99 /* ArtistAlbunsEndpoint.swift in Sources */,
 				C5774B872B28AC0D0089DA4A /* SettingsView.swift in Sources */,
 				C570BE6B2B2E4DD2006E7536 /* ExternalURLs.swift in Sources */,
 				C570BE692B2E4D9D006E7536 /* Followers.swift in Sources */,
@@ -503,6 +526,7 @@
 				C5774B8E2B2937D70089DA4A /* LogInView.swift in Sources */,
 				A9EB11892B5CEC9A0052DCCA /* GetTopService.swift in Sources */,
 				C570BE5F2B2E4C13006E7536 /* GetTopResponse.swift in Sources */,
+				A983383B2B62E5810087EA99 /* ArtistAlbunsService.swift in Sources */,
 				C570BE712B2E4E08006E7536 /* ItemType.swift in Sources */,
 				C570BE612B2E4C24006E7536 /* Track.swift in Sources */,
 				A99279492B5C78E100D20E48 /* RefreshTokenEndpoint.swift in Sources */,
