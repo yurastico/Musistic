@@ -13,6 +13,18 @@ final class GetTopViewModel {
     var tracks = [Track]()
     
     func refreshTracks(for range: TimeRange) async {
+        if !SpotifyAuthenticationManager.shared.isAccessTokenValid() {
+            let result = await AuthenticationService().refreshToken()
+            switch result {
+            case .success(let bool):
+                if !bool {
+                    return
+                }
+            case .failure(let error):
+                print(error)
+                return
+            }
+        }
         let result = await GetTopService().fetchTop(for: Track.self,timeRange: range)
         switch result {
         case .success(let tracks):
