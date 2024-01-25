@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		A98338302B6073A40087EA99 /* SnackBarErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A983382F2B6073A40087EA99 /* SnackBarErrorView.swift */; };
 		A98338322B6073EB0087EA99 /* UIAplication+getKeyWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98338312B6073EB0087EA99 /* UIAplication+getKeyWindow.swift */; };
+		A98338352B62E2B90087EA99 /* ArtistsAlbuns.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98338342B62E2B90087EA99 /* ArtistsAlbuns.swift */; };
 		A9835ED62B5DEA5F00F18F20 /* UserStateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9835ED52B5DEA5F00F18F20 /* UserStateViewModel.swift */; };
 		A9835ED92B5E38DB00F18F20 /* GetTopViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9835ED82B5E38DB00F18F20 /* GetTopViewModel.swift */; };
 		A9835EDC2B5E3B5700F18F20 /* SkeletonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9835EDB2B5E3B5700F18F20 /* SkeletonView.swift */; };
@@ -59,6 +60,7 @@
 /* Begin PBXFileReference section */
 		A983382F2B6073A40087EA99 /* SnackBarErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnackBarErrorView.swift; sourceTree = "<group>"; };
 		A98338312B6073EB0087EA99 /* UIAplication+getKeyWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAplication+getKeyWindow.swift"; sourceTree = "<group>"; };
+		A98338342B62E2B90087EA99 /* ArtistsAlbuns.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistsAlbuns.swift; sourceTree = "<group>"; };
 		A9835ED52B5DEA5F00F18F20 /* UserStateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStateViewModel.swift; sourceTree = "<group>"; };
 		A9835ED82B5E38DB00F18F20 /* GetTopViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTopViewModel.swift; sourceTree = "<group>"; };
 		A9835EDB2B5E3B5700F18F20 /* SkeletonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkeletonView.swift; sourceTree = "<group>"; };
@@ -131,9 +133,9 @@
 			isa = PBXGroup;
 			children = (
 				C570BE682B2E4D9D006E7536 /* Followers.swift */,
-				C570BE662B2E4CE7006E7536 /* Artist.swift */,
 				C570BE642B2E4CD8006E7536 /* Album.swift */,
 				C570BE622B2E4C57006E7536 /* APIImage.swift */,
+				C570BE662B2E4CE7006E7536 /* Artist.swift */,
 				C570BE602B2E4C24006E7536 /* Track.swift */,
 				C570BE702B2E4E08006E7536 /* ItemType.swift */,
 				C570BE6E2B2E4DFA006E7536 /* ExternalIds.swift */,
@@ -318,6 +320,7 @@
 			children = (
 				A983382D2B6008550087EA99 /* GetTopResponse */,
 				A983382C2B60082C0087EA99 /* AuthenticationResponse */,
+				A98338342B62E2B90087EA99 /* ArtistsAlbuns.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -477,6 +480,7 @@
 				A992793F2B5939E700D20E48 /* AccessTokenResponse.swift in Sources */,
 				A992792E2B574EAB00D20E48 /* TokenEndpoint.swift in Sources */,
 				A98338322B6073EB0087EA99 /* UIAplication+getKeyWindow.swift in Sources */,
+				A98338352B62E2B90087EA99 /* ArtistsAlbuns.swift in Sources */,
 				A99279342B57C0CD00D20E48 /* SpotifyConstants.swift in Sources */,
 				C570BE6D2B2E4DE8006E7536 /* ArtistType.swift in Sources */,
 				A99279292B55F75B00D20E48 /* HTTPClient.swift in Sources */,
