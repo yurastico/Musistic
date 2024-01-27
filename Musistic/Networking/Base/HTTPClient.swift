@@ -42,7 +42,7 @@ extension HTTPClient {
             guard let response = response as? HTTPURLResponse else {
                 return .failure(.noResponse)
             }
-            
+            print(response.statusCode)
             switch response.statusCode {
             case 200...299:
                 guard let responseModel = responseModel else {
@@ -61,6 +61,7 @@ extension HTTPClient {
                 return .failure(.noAuthorized)
             default:
                 let errorResponse = try? JSONSerialization.jsonObject(with: data) as? [String: Any]
+                
                 return .failure(.custom(errorResponse))
             }
         } catch {

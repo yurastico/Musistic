@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Album: Codable, Hashable {
+struct Album: Codable, Hashable,Identifiable {
     static func == (lhs: Album, rhs: Album) -> Bool {
         lhs.id == rhs.id
     }

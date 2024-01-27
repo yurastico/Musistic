@@ -9,6 +9,11 @@ import SwiftUI
 
 struct TopArtistDetail: View {
     var artist: Artist
+    let viewModel: ArtistDetailViewModel
+    init(artist: Artist) {
+        self.artist = artist
+        self.viewModel = ArtistDetailViewModel(artistId: artist.id)
+    }
     
     var body: some View {
         VStack {
@@ -24,7 +29,22 @@ struct TopArtistDetail: View {
                     .font(.largeTitle)
                     .bold()
             }
+            
+            TabView {
+                ForEach(viewModel.albuns) { albun in
+                    if let url = URL(string: albun.images.first!.url) {
+                        AsyncImageContainer(url: url)
+                    }
+                }
+            }.tabViewStyle(.page)
+            
             Spacer()
+        }
+        .onAppear {
+            Task {
+                await viewModel.fetchAlbuns()
+                
+            }
         }
     }
 }

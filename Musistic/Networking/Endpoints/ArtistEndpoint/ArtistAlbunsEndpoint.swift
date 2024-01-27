@@ -9,19 +9,22 @@ import Foundation
 
 struct ArtistAlbunsEndpoint: Endpoint {
     let artistId: String
+    let accessToken: String
     var host: String {
         SpotifyBaseURL.api.rawValue
     }
     
     var path: String {
-        "/artist/\(artistId)/albuns"
+        "/v1/artists/\(artistId)/albums"
     }
     
     var method: RequestMethod {
         .get
     }
     
-    var header: [String : String]?
+    var header: [String : String]? {
+        ["Authorization": "Bearer \(accessToken)"]
+    }
     
     var jsonBody: [String : String]?
     
