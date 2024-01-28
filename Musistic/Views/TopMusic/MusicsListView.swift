@@ -13,8 +13,9 @@ struct MusicsListView: View {
     @State private var path = NavigationPath()
     @State private var isFetchingData = true
     @State private var isShare = false
+    @State private var isLoadingImage = false
     private var viewModel = GetTopViewModel()
-    @State var imageToShow: Image = Image(systemName: "plus")
+    @State var imageToShow: Image?
     
     var body: some View {
         NavigationStack(path: $path) {
@@ -32,14 +33,14 @@ struct MusicsListView: View {
                     }
                     ToolbarItem(placement: .topBarTrailing) {
                         Button {
-                            let imageRenderer = ImageRenderer(content: ShareItemView(tracks: viewModel.tracksForRender))
-                            
-                            guard let image = imageRenderer.uiImage else { return }
-                            
-                            self.imageToShow = Image(uiImage: image)
-                            
-                            
+                            isLoadingImage = true
                             isShare = true
+                            Task {
+                                await viewModel.prepareForRender()
+                                      
+                                self.imageToShow = await viewModel.renderImage()
+                            }
+                            
                         } label: {
                             Image(systemName: "plus")
                         }
@@ -60,11 +61,17 @@ struct MusicsListView: View {
         }
         .sheet(isPresented: $isShare) {
             VStack {
+                if !isLoadingImage {
+                    imageToShow?
+                        .resizable()
+                        .scaledToFit()
+                } else {
+                    ProgressView()
+                }
                 
-                imageToShow
-                    .resizable()
-                    .scaledToFit()
-                
+            }.onChange(of: imageToShow) {
+                isLoadingImage = false
+                print("mudou")
             }
             
         }
@@ -95,19 +102,16 @@ struct MusicsListView: View {
             isFetchingData = true
             Task {
                 await viewModel.refreshTracks(for: timeRange)
-                await viewModel.prepareForRender()
                 isFetchingData = false
                 
                 
             }
-            
-            
         }
         
     }
 }
 
 #Preview {
-   // MusicsListView()
+    // MusicsListView()
     Text("oi")
 }

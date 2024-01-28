@@ -12,6 +12,8 @@ struct ShareItemView: View {
     var body: some View {
 
         VStack(alignment: .leading) {
+            Text("Your most listened songs!")
+                .font(.largeTitle)
             ForEach(tracks) { track in
                 HStack {
                     track.image

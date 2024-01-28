@@ -39,8 +39,7 @@ final class GetTopViewModel {
         for track in tracks {
             do {
                 guard let url = URL(string: track.album.images[0].url) else { return }
-                let (data,response) = try await URLSession.shared.data(for: URLRequest(url: url))
-                guard let response = response as? HTTPURLResponse else { return }
+                let (data,_) = try await URLSession.shared.data(for: URLRequest(url: url))
                 
                 guard let uiImage = UIImage(data: data) else { return }
                 let renderTrack = TrackForRender(id: track.id, artist: track.artists[0].name, image: Image(uiImage: uiImage), name: track.name, trackAlbumName: track.album.name)
@@ -51,6 +50,19 @@ final class GetTopViewModel {
             }
             
         }
+    }
+    @MainActor
+    func renderImage() async -> Image? {
+        
+        let imageRenderer = ImageRenderer(content: ShareItemView(tracks: self.tracksForRender))
+        let image = imageRenderer.uiImage
+        
+        
+        guard let image else {
+            
+            return nil }
+        return Image(uiImage: image)
+        
     }
     
 }
