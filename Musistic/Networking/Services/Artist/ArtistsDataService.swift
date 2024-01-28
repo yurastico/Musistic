@@ -8,6 +8,20 @@
 import Foundation
 
 struct ArtistAlbunsService: HTTPClient {
+    
+    func fetchArtistTopTracks(artistId: String) async -> [Track]? {
+        guard let accessToken = SpotifyAuthenticationManager.shared.accessToken else { return nil }
+        let endpoint = ArtistTopTracksEndpoint(artistId: artistId, accessToken: accessToken)
+        let result = await sendRequest(endpoint: endpoint, responseModel: ArtistTopTracks.self)
+        switch result {
+        case .success(let tracks):
+            guard let tracks else { return nil }
+            return tracks.tracks
+        case .failure(let error):
+            return nil
+        }
+    }
+    
     func fetchArtistAlbuns(artistId: String) async -> [Album]?{
         guard let accessToken = SpotifyAuthenticationManager.shared.accessToken else { return nil}
         

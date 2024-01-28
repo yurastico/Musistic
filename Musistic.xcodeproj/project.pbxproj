@@ -7,11 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A9015EF62B66C700007CF96D /* ArtistTopTracksEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9015EF52B66C700007CF96D /* ArtistTopTracksEndpoint.swift */; };
+		A9015EF82B66C8B5007CF96D /* ArtistTopTracks.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9015EF72B66C8B5007CF96D /* ArtistTopTracks.swift */; };
 		A98338302B6073A40087EA99 /* SnackBarErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A983382F2B6073A40087EA99 /* SnackBarErrorView.swift */; };
 		A98338322B6073EB0087EA99 /* UIAplication+getKeyWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98338312B6073EB0087EA99 /* UIAplication+getKeyWindow.swift */; };
 		A98338352B62E2B90087EA99 /* ArtistAlbuns.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98338342B62E2B90087EA99 /* ArtistAlbuns.swift */; };
 		A98338382B62E4480087EA99 /* ArtistAlbunsEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98338372B62E4480087EA99 /* ArtistAlbunsEndpoint.swift */; };
-		A983383B2B62E5810087EA99 /* ArtistAlbunsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A983383A2B62E5810087EA99 /* ArtistAlbunsService.swift */; };
+		A983383B2B62E5810087EA99 /* ArtistsDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A983383A2B62E5810087EA99 /* ArtistsDataService.swift */; };
 		A9835ED62B5DEA5F00F18F20 /* UserStateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9835ED52B5DEA5F00F18F20 /* UserStateViewModel.swift */; };
 		A9835ED92B5E38DB00F18F20 /* GetTopViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9835ED82B5E38DB00F18F20 /* GetTopViewModel.swift */; };
 		A9835EDC2B5E3B5700F18F20 /* SkeletonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9835EDB2B5E3B5700F18F20 /* SkeletonView.swift */; };
@@ -62,11 +64,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A9015EF52B66C700007CF96D /* ArtistTopTracksEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistTopTracksEndpoint.swift; sourceTree = "<group>"; };
+		A9015EF72B66C8B5007CF96D /* ArtistTopTracks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistTopTracks.swift; sourceTree = "<group>"; };
 		A983382F2B6073A40087EA99 /* SnackBarErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnackBarErrorView.swift; sourceTree = "<group>"; };
 		A98338312B6073EB0087EA99 /* UIAplication+getKeyWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAplication+getKeyWindow.swift"; sourceTree = "<group>"; };
 		A98338342B62E2B90087EA99 /* ArtistAlbuns.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistAlbuns.swift; sourceTree = "<group>"; };
 		A98338372B62E4480087EA99 /* ArtistAlbunsEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistAlbunsEndpoint.swift; sourceTree = "<group>"; };
-		A983383A2B62E5810087EA99 /* ArtistAlbunsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistAlbunsService.swift; sourceTree = "<group>"; };
+		A983383A2B62E5810087EA99 /* ArtistsDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistsDataService.swift; sourceTree = "<group>"; };
 		A9835ED52B5DEA5F00F18F20 /* UserStateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStateViewModel.swift; sourceTree = "<group>"; };
 		A9835ED82B5E38DB00F18F20 /* GetTopViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTopViewModel.swift; sourceTree = "<group>"; };
 		A9835EDB2B5E3B5700F18F20 /* SkeletonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkeletonView.swift; sourceTree = "<group>"; };
@@ -151,6 +155,7 @@
 				C570BE6A2B2E4DD2006E7536 /* ExternalURLs.swift */,
 				A98338342B62E2B90087EA99 /* ArtistAlbuns.swift */,
 				C570BE5E2B2E4C13006E7536 /* GetTopResponse.swift */,
+				A9015EF72B66C8B5007CF96D /* ArtistTopTracks.swift */,
 			);
 			path = GetTopResponse;
 			sourceTree = "<group>";
@@ -167,6 +172,7 @@
 			isa = PBXGroup;
 			children = (
 				A98338372B62E4480087EA99 /* ArtistAlbunsEndpoint.swift */,
+				A9015EF52B66C700007CF96D /* ArtistTopTracksEndpoint.swift */,
 			);
 			path = ArtistEndpoint;
 			sourceTree = "<group>";
@@ -174,7 +180,7 @@
 		A98338392B62E56E0087EA99 /* Artist */ = {
 			isa = PBXGroup;
 			children = (
-				A983383A2B62E5810087EA99 /* ArtistAlbunsService.swift */,
+				A983383A2B62E5810087EA99 /* ArtistsDataService.swift */,
 			);
 			path = Artist;
 			sourceTree = "<group>";
@@ -506,6 +512,7 @@
 				A9835ED92B5E38DB00F18F20 /* GetTopViewModel.swift in Sources */,
 				A9EB11872B5CE5C00052DCCA /* GetTopEndpoint.swift in Sources */,
 				A992793F2B5939E700D20E48 /* AccessTokenResponse.swift in Sources */,
+				A9015EF62B66C700007CF96D /* ArtistTopTracksEndpoint.swift in Sources */,
 				A992792E2B574EAB00D20E48 /* TokenEndpoint.swift in Sources */,
 				A98338322B6073EB0087EA99 /* UIAplication+getKeyWindow.swift in Sources */,
 				A98338352B62E2B90087EA99 /* ArtistAlbuns.swift in Sources */,
@@ -534,7 +541,7 @@
 				C5774B8E2B2937D70089DA4A /* LogInView.swift in Sources */,
 				A9EB11892B5CEC9A0052DCCA /* GetTopService.swift in Sources */,
 				C570BE5F2B2E4C13006E7536 /* GetTopResponse.swift in Sources */,
-				A983383B2B62E5810087EA99 /* ArtistAlbunsService.swift in Sources */,
+				A983383B2B62E5810087EA99 /* ArtistsDataService.swift in Sources */,
 				C570BE712B2E4E08006E7536 /* ItemType.swift in Sources */,
 				C570BE612B2E4C24006E7536 /* Track.swift in Sources */,
 				A99279492B5C78E100D20E48 /* RefreshTokenEndpoint.swift in Sources */,
@@ -548,6 +555,7 @@
 				A99279322B57BE6400D20E48 /* SpotifyBaseURL.swift in Sources */,
 				C570BE652B2E4CD8006E7536 /* Album.swift in Sources */,
 				A9835EDF2B5E3BBA00F18F20 /* RedectedAnimation.swift in Sources */,
+				A9015EF82B66C8B5007CF96D /* ArtistTopTracks.swift in Sources */,
 				A99279252B55F52100D20E48 /* Endpoint.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
