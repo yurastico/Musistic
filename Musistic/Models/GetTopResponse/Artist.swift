@@ -17,4 +17,5 @@ struct Artist: Codable,Identifiable, Hashable {
     let name: String
     let type: ArtistType
     let uri: String
+    let availableMarkets: [String]?
 }

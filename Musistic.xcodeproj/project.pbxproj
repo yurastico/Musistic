@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		A9015EF62B66C700007CF96D /* ArtistTopTracksEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9015EF52B66C700007CF96D /* ArtistTopTracksEndpoint.swift */; };
 		A9015EF82B66C8B5007CF96D /* ArtistTopTracks.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9015EF72B66C8B5007CF96D /* ArtistTopTracks.swift */; };
+		A9015EFA2B66CA30007CF96D /* RelatedArtistsEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9015EF92B66CA30007CF96D /* RelatedArtistsEndpoint.swift */; };
+		A9015EFC2B66CE32007CF96D /* RelatedArtists.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9015EFB2B66CE32007CF96D /* RelatedArtists.swift */; };
 		A98338302B6073A40087EA99 /* SnackBarErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A983382F2B6073A40087EA99 /* SnackBarErrorView.swift */; };
 		A98338322B6073EB0087EA99 /* UIAplication+getKeyWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98338312B6073EB0087EA99 /* UIAplication+getKeyWindow.swift */; };
 		A98338352B62E2B90087EA99 /* ArtistAlbuns.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98338342B62E2B90087EA99 /* ArtistAlbuns.swift */; };
@@ -66,6 +68,8 @@
 /* Begin PBXFileReference section */
 		A9015EF52B66C700007CF96D /* ArtistTopTracksEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistTopTracksEndpoint.swift; sourceTree = "<group>"; };
 		A9015EF72B66C8B5007CF96D /* ArtistTopTracks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistTopTracks.swift; sourceTree = "<group>"; };
+		A9015EF92B66CA30007CF96D /* RelatedArtistsEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelatedArtistsEndpoint.swift; sourceTree = "<group>"; };
+		A9015EFB2B66CE32007CF96D /* RelatedArtists.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelatedArtists.swift; sourceTree = "<group>"; };
 		A983382F2B6073A40087EA99 /* SnackBarErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnackBarErrorView.swift; sourceTree = "<group>"; };
 		A98338312B6073EB0087EA99 /* UIAplication+getKeyWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAplication+getKeyWindow.swift"; sourceTree = "<group>"; };
 		A98338342B62E2B90087EA99 /* ArtistAlbuns.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistAlbuns.swift; sourceTree = "<group>"; };
@@ -156,6 +160,7 @@
 				A98338342B62E2B90087EA99 /* ArtistAlbuns.swift */,
 				C570BE5E2B2E4C13006E7536 /* GetTopResponse.swift */,
 				A9015EF72B66C8B5007CF96D /* ArtistTopTracks.swift */,
+				A9015EFB2B66CE32007CF96D /* RelatedArtists.swift */,
 			);
 			path = GetTopResponse;
 			sourceTree = "<group>";
@@ -173,6 +178,7 @@
 			children = (
 				A98338372B62E4480087EA99 /* ArtistAlbunsEndpoint.swift */,
 				A9015EF52B66C700007CF96D /* ArtistTopTracksEndpoint.swift */,
+				A9015EF92B66CA30007CF96D /* RelatedArtistsEndpoint.swift */,
 			);
 			path = ArtistEndpoint;
 			sourceTree = "<group>";
@@ -535,7 +541,9 @@
 				A992793C2B5939B600D20E48 /* AuthenticationService.swift in Sources */,
 				A99279442B5A7EB800D20E48 /* KeychainHelper.swift in Sources */,
 				C570BE752B2E54B3006E7536 /* TopMusicDetail.swift in Sources */,
+				A9015EFC2B66CE32007CF96D /* RelatedArtists.swift in Sources */,
 				C570BE6F2B2E4DFA006E7536 /* ExternalIds.swift in Sources */,
+				A9015EFA2B66CA30007CF96D /* RelatedArtistsEndpoint.swift in Sources */,
 				C570BE732B2E52D6006E7536 /* TrackNavigationType.swift in Sources */,
 				A99279472B5A7F6C00D20E48 /* SpotifyAuthenticationManager.swift in Sources */,
 				C5774B8E2B2937D70089DA4A /* LogInView.swift in Sources */,

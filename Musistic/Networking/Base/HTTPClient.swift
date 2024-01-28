@@ -42,18 +42,24 @@ extension HTTPClient {
             guard let response = response as? HTTPURLResponse else {
                 return .failure(.noResponse)
             }
-            print(response.statusCode)
             switch response.statusCode {
             case 200...299:
                 guard let responseModel = responseModel else {
                     return .success(nil)
                 }
+                let errorResponse = try? JSONSerialization.jsonObject(with: data) as? [String: Any]
+                print(errorResponse?.keys)
                 let decoder = JSONDecoder()
                 decoder.keyDecodingStrategy = .convertFromSnakeCase
-                guard let decodedResponse = try? decoder.decode(responseModel, from: data) else {
+                do {
+                    
+                    let decodedResponse = try decoder.decode(responseModel, from: data)
+                    return .success(decodedResponse)
+                } catch(let error) {
+                    print(error)
                     return .failure(.decode)
                 }
-                return .success(decodedResponse)
+               
             case 400:
                 let errorResponse = try? JSONSerialization.jsonObject(with: data) as? [String: Any]
                 return .failure(.custom(errorResponse))

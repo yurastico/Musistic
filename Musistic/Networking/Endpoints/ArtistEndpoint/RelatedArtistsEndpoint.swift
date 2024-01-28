@@ -1,5 +1,5 @@
 //
-//  ArtistTopTracks.swift
+//  RelatedArtistsEndpoint.swift
 //  Musistic
 //
 //  Created by Yuri Cunha on 28/01/24.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ArtistTopTracksEndpoint: Endpoint {
+struct RelatedArtistsEndpoint: Endpoint {
     let artistId: String
     let accessToken: String
     var host: String {
@@ -15,7 +15,7 @@ struct ArtistTopTracksEndpoint: Endpoint {
     }
     
     var path: String {
-        "/v1/artists/\(artistId)/top-tracks"
+        "/v1/artists/\(artistId)/related-artists"
     }
     
     var method: RequestMethod {
@@ -28,9 +28,6 @@ struct ArtistTopTracksEndpoint: Endpoint {
     
     var jsonBody: [String : String]?
     
-    var queryItems: [URLQueryItem]? {
-        [URLQueryItem(name: "market", value: "US")]
-    }
-    
-    
+    var queryItems: [URLQueryItem]?
 }
+                        

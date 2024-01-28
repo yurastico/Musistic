@@ -14,7 +14,7 @@ struct Track: Codable, Identifiable, Hashable {
     
     let album: Album
     let artists: [Artist]
-    let availableMarkets: [String]
+    let availableMarkets: [String]?
     let discNumber: Int
     let durationMs: Int
     let explicit: Bool
@@ -29,6 +29,7 @@ struct Track: Codable, Identifiable, Hashable {
     let type: ItemType
     let uri: String
     let isLocal: Bool
+
     
     
 }

@@ -14,7 +14,7 @@ struct Album: Codable, Hashable,Identifiable {
 
     let albumType: String
     let totalTracks: Int
-    let availableMarkets: [String]
+    let availableMarkets: [String]?
     let externalUrls: ExternalUrls
     let href: String
     let id: String
