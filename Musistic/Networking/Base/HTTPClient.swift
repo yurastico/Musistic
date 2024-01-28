@@ -13,6 +13,7 @@ protocol HTTPClient {
 
 extension HTTPClient {
     func sendRequest<T: Decodable>(endpoint: Endpoint, responseModel: T.Type?) async -> Result<T?,RequestError> {
+
         var urlComponents = URLComponents()
         urlComponents.scheme = endpoint.schema
         urlComponents.host = endpoint.host

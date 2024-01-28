@@ -96,6 +96,7 @@ struct TopArtistDetail: View {
         }
         .onAppear {
             Task {
+                
                 await viewModel.fetchAlbuns()
                 await viewModel.fetchRelatedArtists()
                 await viewModel.fetchArtistTopTracks()
