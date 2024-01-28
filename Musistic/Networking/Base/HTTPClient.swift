@@ -47,8 +47,6 @@ extension HTTPClient {
                 guard let responseModel = responseModel else {
                     return .success(nil)
                 }
-                let errorResponse = try? JSONSerialization.jsonObject(with: data) as? [String: Any]
-                print(errorResponse?.keys)
                 let decoder = JSONDecoder()
                 decoder.keyDecodingStrategy = .convertFromSnakeCase
                 do {

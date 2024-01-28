@@ -18,48 +18,77 @@ struct TopArtistDetail: View {
     var body: some View {
         ScrollView {
             VStack {
-                TabView {
-                    ForEach(artist.images ?? []) { image in
-                        if let url = URL(string: image.url) {
-                            AsyncImageContainer(url: url)
-                        }
+                VStack(spacing: 0) {
+                    if let url = URL(string: artist.images!.first!.url) {
+                        AsyncImageContainer(url: url)
+                            .clipShape(Circle())
+                            
+                        Text(artist.name)
+                            .font(.largeTitle)
+                            .bold()
                     }
-                }.tabViewStyle(.page)
-                VStack {
-                    Text(artist.name)
-                        .font(.largeTitle)
-                        .bold()
+                    
                 }
+                .frame(height: 150)
+                .frame(maxWidth: .infinity)
+                
+                
+                Divider()
                 
                 TabView {
-                    ForEach(viewModel.albuns) { albun in
-                        if let url = URL(string: albun.images.first!.url) {
-                            AsyncImageContainer(url: url)
-                        }
-                    }
-                }.tabViewStyle(.page)
-                
-                VStack {
-                    ForEach(viewModel.relatedArtists) { artist in
-                        HStack {
-                            
-                            
-                            if let url = URL(string: artist.images!.first!.url) {
+                    ForEach(viewModel.albuns) { album in
+                        if let url = URL(string: album.images.first!.url) {
+                            VStack {
                                 AsyncImageContainer(url: url)
+                                    .frame(maxWidth: .infinity)
+                                Text(album.name)
                             }
-                            Text(artist.name)
+                            
                         }
                     }
                 }
-                VStack {
+                
+                .frame(height: 250)
+                .frame(maxWidth: .infinity)
+                .tabViewStyle(.page(indexDisplayMode: .never))
+                
+                
+                Divider()
+                
+                ScrollView(.horizontal) {
+                     HStack {
+                        
+                        ForEach(viewModel.relatedArtists) { artist in
+                            VStack {
+                                if let url = URL(string: artist.images!.first!.url) {
+                                    AsyncImageContainer(url: url)
+                                        .clipShape(Circle())
+                                        .frame(height: 100)
+                                    Text(artist.name)
+                                        .bold()
+                                }
+                                
+                            }
+                        }
+                    }
+                }
+                
+                Divider()
+                
+                VStack(alignment: .leading) {
+                    var number = 0
                     ForEach(viewModel.topTracks) { track in
+                        
                         HStack {
-                            
-                            
                             if let url = URL(string: track.album.images.first!.url) {
+                                Text("\(number.autoIncrement() - 10)")
+                                    .font(.caption2)
                                 AsyncImageContainer(url: url)
+                                    .frame(width: 50,height: 50)
+                                Text(track.name)
+                                
                             }
-                            Text(track.name)
+                            
                         }
                     }
                 }
@@ -78,3 +107,11 @@ struct TopArtistDetail: View {
 //#Preview {
 //    TopArtistDetail()
 //}
+
+
+extension Int {
+    mutating func autoIncrement() -> Int {
+        self += 1
+        return self
+    }
+}
