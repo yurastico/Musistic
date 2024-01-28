@@ -30,6 +30,7 @@
 		A99279442B5A7EB800D20E48 /* KeychainHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99279432B5A7EB800D20E48 /* KeychainHelper.swift */; };
 		A99279472B5A7F6C00D20E48 /* SpotifyAuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99279462B5A7F6C00D20E48 /* SpotifyAuthenticationManager.swift */; };
 		A99279492B5C78E100D20E48 /* RefreshTokenEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99279482B5C78E100D20E48 /* RefreshTokenEndpoint.swift */; };
+		A996B4922B65A1C700B1D690 /* ShareItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A996B4912B65A1C700B1D690 /* ShareItemView.swift */; };
 		A9EAB0422B65737A006A92A8 /* ArtistDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EAB0412B65737A006A92A8 /* ArtistDetailViewModel.swift */; };
 		A9EB11872B5CE5C00052DCCA /* GetTopEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EB11862B5CE5C00052DCCA /* GetTopEndpoint.swift */; };
 		A9EB11892B5CEC9A0052DCCA /* GetTopService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EB11882B5CEC9A0052DCCA /* GetTopService.swift */; };
@@ -85,6 +86,7 @@
 		A99279432B5A7EB800D20E48 /* KeychainHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainHelper.swift; sourceTree = "<group>"; };
 		A99279462B5A7F6C00D20E48 /* SpotifyAuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyAuthenticationManager.swift; sourceTree = "<group>"; };
 		A99279482B5C78E100D20E48 /* RefreshTokenEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshTokenEndpoint.swift; sourceTree = "<group>"; };
+		A996B4912B65A1C700B1D690 /* ShareItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareItemView.swift; sourceTree = "<group>"; };
 		A9EAB0412B65737A006A92A8 /* ArtistDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistDetailViewModel.swift; sourceTree = "<group>"; };
 		A9EB11862B5CE5C00052DCCA /* GetTopEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTopEndpoint.swift; sourceTree = "<group>"; };
 		A9EB11882B5CEC9A0052DCCA /* GetTopService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTopService.swift; sourceTree = "<group>"; };
@@ -361,6 +363,7 @@
 		C5774B662B27E9D10089DA4A = {
 			isa = PBXGroup;
 			children = (
+				A996B4912B65A1C700B1D690 /* ShareItemView.swift */,
 				C5774B712B27E9D20089DA4A /* Musistic */,
 				C5774B702B27E9D20089DA4A /* Products */,
 			);
@@ -513,6 +516,7 @@
 				A98338382B62E4480087EA99 /* ArtistAlbunsEndpoint.swift in Sources */,
 				C5774B872B28AC0D0089DA4A /* SettingsView.swift in Sources */,
 				C570BE6B2B2E4DD2006E7536 /* ExternalURLs.swift in Sources */,
+				A996B4922B65A1C700B1D690 /* ShareItemView.swift in Sources */,
 				C570BE692B2E4D9D006E7536 /* Followers.swift in Sources */,
 				C5774B752B27E9D20089DA4A /* MainView.swift in Sources */,
 				C5774B852B28AB420089DA4A /* ArtistsListView.swift in Sources */,

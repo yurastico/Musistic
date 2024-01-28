@@ -5,4 +5,29 @@
 //  Created by Yuri Cunha on 27/01/24.
 //
 
-import Foundation
+import SwiftUI
+
+struct ShareItemView: View {
+    var tracks: [TrackForRender]
+    var body: some View {
+
+        VStack(alignment: .leading) {
+            ForEach(tracks) { track in
+                HStack {
+                    track.image
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 50,height: 50)
+                    
+                    VStack(alignment: .leading) {
+                        Text(track.name)
+                        Text(track.artist)
+                    }
+                    Spacer()
+                    
+                }
+            }
+        }
+        
+    }
+}

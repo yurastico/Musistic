@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+import SwiftUI
 struct Track: Codable, Identifiable, Hashable {
     static func == (lhs: Track, rhs: Track) -> Bool {
         return lhs.id == rhs.id
@@ -30,4 +30,12 @@ struct Track: Codable, Identifiable, Hashable {
     let uri: String
     let isLocal: Bool
     
+    
+}
+struct TrackForRender: Identifiable {
+    let id: String
+    let artist: String
+    let image: Image
+    let name: String
+    let trackAlbumName: String
 }
