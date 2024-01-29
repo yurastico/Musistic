@@ -30,6 +30,5 @@ struct ShareItemView: View {
                 }
             }
         }
-        
     }
 }

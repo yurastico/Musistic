@@ -9,18 +9,18 @@ import Foundation
 
 struct AuthenticationService: HTTPClient {
     
-    func saveAcessToken(from url: URL) async -> Result<Bool,RequestError> {
-        guard let code = getAuthorizationCode(from: url) else { return .failure(.unknown) }
+    func saveAcessToken(from url: URL) async {
+        guard let code = getAuthorizationCode(from: url) else { return }
         let endpoint = TokenEndpoint(code: code)
         
         let result =  await sendRequest(endpoint: endpoint, responseModel: AccessTokenResponse.self)
         switch result {
         case .success(let accessTokenResponse):
-            guard let accessTokenResponse else { return .success(false) }
+            guard let accessTokenResponse else { return }
             SpotifyAuthenticationManager.shared.saveCredentials(for: accessTokenResponse)
-            return .success(true)
-        case .failure   :
-            return .failure(.unknown)
+            
+        case .failure(let error):
+            print(error.errorMessage)
         }
     }
     

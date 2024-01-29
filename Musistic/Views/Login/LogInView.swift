@@ -40,13 +40,7 @@ struct LogInView: View, GetCode {
         .onOpenURL { url in
             Task {
                 print(url)
-                let result = await AuthenticationService().saveAcessToken(from:url)
-                switch result {
-                case .success(let saved):
-                    userStateViewModel.isLogged = saved
-                case .failure(let error):
-                    print(error)
-                }
+                await AuthenticationService().saveAcessToken(from:url)
             }
         }
         .onAppear {

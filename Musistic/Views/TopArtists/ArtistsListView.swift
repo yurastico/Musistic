@@ -8,70 +8,26 @@
 import SwiftUI
 
 struct ArtistsListView: View {
-    @State private var timeRange: TimeRange = .mediumTerm
-    @State private var list = [Artist]()
-    @State private var path = NavigationPath()
-    @State private var isShowingSnackBar = false
-    @State private var errorMessage = ""
+    @State private var viewModel: GetTopArtistsViewModel = .init()
     var body: some View {
-        NavigationStack(path: $path) {
-            ZStack {
-                List(list) { artist in
-                    NavigationLink(value: ArtistNavigationType.artistDetail(artist: artist)) {
-                        ArtistListRow(artist: artist)
-                    }
-                }
-                .listStyle(.plain)
-                .navigationTitle("Top Artists")
-                .navigationDestination(for: ArtistNavigationType.self) { type in
-                    switch type {
-                    case .artistDetail(let artist):
-                        TopArtistDetail(artist: artist)
-                    }
-                }
-                .toolbar {
-                    Picker("Term", selection: $timeRange) {
-                        ForEach(TimeRange.allCases,id: \.self) { range in
-                            Text(range.rawValue)
-                        }
-                    }
-                    .onChange(of: timeRange) {
-                        Task {
-                            await readAllData()
-                        }
-                    }
-                }
-                if isShowingSnackBar {
-                    SnackBarErrorView(isShowing: $isShowingSnackBar, message: errorMessage)
-                }
+        TopContentListView {
+            ForEach(viewModel.artists) { artist in
+                ArtistListRow(artist: artist)
             }
-            
         }
         .onAppear {
             Task {
-                await readAllData()
+                await viewModel.refreshTracks(for: .longTerm)
             }
         }
-        
     }
     
-    private func readAllData() async {
-        let result = await GetTopService().fetchTop(for: Artist.self,timeRange: timeRange)
-        switch result {
-        case .success(let tracks):
-            self.list = tracks.items
-        case .failure(let error):
-            print(error)
-            errorMessage = error.errorMessage
-            isShowingSnackBar = true
-        }
-        
-        
-    }
+    
     
 }
 
 
 #Preview {
-    ArtistsListView()
+    Text("lul")
+    //ArtistsListView()
 }
