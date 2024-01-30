@@ -42,10 +42,12 @@ final class TopArtistsViewModel<T> where T: ContentForRender & Codable {
             do {
                 guard let url = URL(string: artist.imageUrlString!) else { return }
                 let (data,_) = try await URLSession.shared.data(for: URLRequest(url: url))
-                
+                var renderArtist = artist
                 guard let uiImage = UIImage(data: data) else { return }
+                //renderArtist.image  = data
                 
-                self.contentForRender.append(artist)
+                renderArtist.setValue(for: data)
+                self.contentForRender.append(renderArtist)
                 
             } catch {
                 print(error)

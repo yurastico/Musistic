@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+import SwiftUI
 struct Track: Codable, Identifiable, Hashable {
     static func == (lhs: Track, rhs: Track) -> Bool {
         return lhs.id == rhs.id
@@ -29,11 +29,11 @@ struct Track: Codable, Identifiable, Hashable {
     let type: ItemType
     let uri: String
     let isLocal: Bool
-    
-    
+    var image: Data?
 }
 
 extension Track: ContentForRender {
+    
     var imageUrlString: String? {
         self.album.images.first?.url
     }
@@ -54,4 +54,23 @@ protocol ContentForRender: Identifiable,Hashable {
     var imageUrlString: String? { get}
     var title: String? { get }
     var subtitle: String? { get }
+    //var image: Image? { get set }
+    var image: Data? { get set}
+}
+
+//extension ContentForRender {
+//    var image: Image? {
+//        get {
+//            return Image(systemName: "plus")
+//            
+//        } set(newImage) {
+//            image = newImage
+//        }
+//    }
+//}
+
+extension ContentForRender {
+    mutating func setValue(for data: Data) {
+        self.image = data
+    }
 }

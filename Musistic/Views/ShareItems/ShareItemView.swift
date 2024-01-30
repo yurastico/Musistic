@@ -16,7 +16,7 @@ struct ShareItemView<T: ContentForRender>: View {
                 .font(.largeTitle)
             ForEach(tracks) { track in
                 HStack {
-                    Image(systemName: "plus")
+                    transformDataIntoImage(content: track)?
                         .resizable()
                         .scaledToFit()
                         .frame(width: 50,height: 50)
@@ -30,5 +30,10 @@ struct ShareItemView<T: ContentForRender>: View {
                 }
             }
         }
+    }
+    
+    private func transformDataIntoImage(content: T) -> Image? {
+        guard let uiImage = UIImage(data: content.image!) else { return nil }
+        return Image(uiImage: uiImage)
     }
 }
