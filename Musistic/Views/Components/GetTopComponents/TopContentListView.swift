@@ -19,16 +19,14 @@ struct TopContentListView<type: Identifiable & Codable & Hashable,Content: View,
     @State var imageToShow: Image?
     @ViewBuilder var content: (type) -> Content
     @ViewBuilder var destination: (type) -> Destination
-    
-    
-    
+
     var body: some View {
         NavigationStack(path: $path) {
             ZStack {
                 List {
-                    ForEach(viewModel.content) { artist in
-                        NavigationLink(value: ContentNavigationType.detail(artist)) {
-                            content(artist)
+                    ForEach(viewModel.content) { data in
+                        NavigationLink(value: ContentNavigationType.detail(data)) {
+                            content(data)
                         }
                         
                     }
@@ -103,7 +101,6 @@ struct TopContentListView<type: Identifiable & Codable & Hashable,Content: View,
                 
             }.onChange(of: imageToShow) {
                 isLoadingImage = false
-                print("mudou")
             }
             
         }
