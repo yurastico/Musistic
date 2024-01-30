@@ -7,23 +7,23 @@
 
 import SwiftUI
 
-struct TopContentListView<Content: View>: View {
+struct TopContentListView<type: Identifiable & Codable,Content: View>: View {
     @State private var timeRange: TimeRange = .mediumTerm
     @State private var path = NavigationPath()
     @State private var isShowingSnackBar = false
     @State private var errorMessage = ""
-    @Bindable var viewModel: TopArtistsViewModel
+    @Bindable var viewModel: TopArtistsViewModel<type>
     @State private var isFetchingData = true
     @State private var isShare = false
     @State private var isLoadingImage = false
     @State var imageToShow: Image?
-    @ViewBuilder var content: (Artist) -> Content
+    @ViewBuilder var content: (type) -> Content
     var body: some View {
         NavigationStack(path: $path) {
             ZStack {
                 List {
                     ForEach(viewModel.content) { artist in
-                        NavigationLink(value: ArtistNavigationType.artistDetail(artist: artist)) {
+                        NavigationLink(value: ArtistNavigationType.artistDetail(artist: artist as! Artist)) {
                             content(artist)
                         }
                         
@@ -107,7 +107,7 @@ struct TopContentListView<Content: View>: View {
 }
 
 #Preview {
-    TopContentListView(viewModel: TopArtistsViewModel()) { artist in
+    TopContentListView(viewModel: TopArtistsViewModel<Artist>()) { artist in
         Text("oiii")
     }
 }

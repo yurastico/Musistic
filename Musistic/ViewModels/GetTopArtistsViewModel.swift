@@ -8,20 +8,11 @@
 import SwiftUI
 import Observation
 
-protocol ContentViewModel {
-    associatedtype T
-    func refreshContent(for range: TimeRange) async
-    var content: [T] { get set }
-    var contentForRender: [TrackForRender] { get set }
-    func prepareForRender() async
-    @MainActor
-    func renderImage() async -> Image?
-}
 
 
 @Observable
-final class TopArtistsViewModel: ContentViewModel {
-    var content = [Artist]()
+final class TopArtistsViewModel<T> where T: Codable {
+    var content = [T]()
     var contentForRender = [TrackForRender]()
     
     func refreshContent(for range: TimeRange) async {
@@ -37,7 +28,7 @@ final class TopArtistsViewModel: ContentViewModel {
                 return
             }
         }
-        let result = await GetTopService().fetchTop(for: Artist.self,timeRange: range)
+        let result = await GetTopService().fetchTop(for: T.self,timeRange: range)
         switch result {
         case .success(let artists):
             self.content = artists.items
@@ -48,17 +39,17 @@ final class TopArtistsViewModel: ContentViewModel {
     
     func prepareForRender() async {
         for artist in content {
-            do {
-                guard let url = URL(string: artist.images![0].url) else { return }
-                let (data,_) = try await URLSession.shared.data(for: URLRequest(url: url))
-                
-                guard let uiImage = UIImage(data: data) else { return }
-                let renderTrack = TrackForRender(id: artist.id, artist: artist.name, image: Image(uiImage: uiImage), name: artist.name, trackAlbumName: artist.genres?.first ?? "")
-                self.contentForRender.append(renderTrack)
-                
-            } catch {
-                print(error)
-            }
+//            do {
+//                guard let url = URL(string: artist.images![0].url) else { return }
+//                let (data,_) = try await URLSession.shared.data(for: URLRequest(url: url))
+//                
+//                guard let uiImage = UIImage(data: data) else { return }
+//                let renderTrack = TrackForRender(id: artist.id, artist: artist.name, image: Image(uiImage: uiImage), name: artist.name, trackAlbumName: artist.genres?.first ?? "")
+//                self.contentForRender.append(renderTrack)
+//                
+//            } catch {
+//                print(error)
+//            }
             
         }
     }
