@@ -14,3 +14,7 @@ enum TrackNavigationType: Hashable {
 enum ArtistNavigationType: Hashable {
     case artistDetail(artist: Artist)
 }
+
+enum ContentNavigationType<T>: Hashable where T:Hashable {
+    case detail(T)
+}

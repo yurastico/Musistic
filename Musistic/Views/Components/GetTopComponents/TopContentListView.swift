@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct TopContentListView<type: Identifiable & Codable,Content: View>: View {
+struct TopContentListView<type: Identifiable & Codable & Hashable,Content: View, Destination: View>: View {
     @State private var timeRange: TimeRange = .mediumTerm
     @State private var path = NavigationPath()
     @State private var isShowingSnackBar = false
@@ -18,12 +18,16 @@ struct TopContentListView<type: Identifiable & Codable,Content: View>: View {
     @State private var isLoadingImage = false
     @State var imageToShow: Image?
     @ViewBuilder var content: (type) -> Content
+    @ViewBuilder var destination: (type) -> Destination
+    
+    
+    
     var body: some View {
         NavigationStack(path: $path) {
             ZStack {
                 List {
                     ForEach(viewModel.content) { artist in
-                        NavigationLink(value: ArtistNavigationType.artistDetail(artist: artist as! Artist)) {
+                        NavigationLink(value: ContentNavigationType.detail(artist)) {
                             content(artist)
                         }
                         
@@ -31,10 +35,10 @@ struct TopContentListView<type: Identifiable & Codable,Content: View>: View {
                 }
                 .listStyle(.plain)
                 .navigationTitle("Top Artists")
-                .navigationDestination(for: ArtistNavigationType.self) { type in
+                .navigationDestination(for: ContentNavigationType<type>.self) { type in
                     switch type {
-                    case .artistDetail(let artist):
-                        TopArtistDetail(artist: artist)
+                    case .detail(let artist):
+                        destination(artist)
                     }
                 }
                 .toolbar {
@@ -109,5 +113,6 @@ struct TopContentListView<type: Identifiable & Codable,Content: View>: View {
 #Preview {
     TopContentListView(viewModel: TopArtistsViewModel<Artist>()) { artist in
         Text("oiii")
-    }
+    } destination: { artist in
+        Text(artist.id)}
 }
