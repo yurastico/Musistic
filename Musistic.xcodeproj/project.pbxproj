@@ -13,6 +13,7 @@
 		A9015EFC2B66CE32007CF96D /* RelatedArtists.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9015EFB2B66CE32007CF96D /* RelatedArtists.swift */; };
 		A93A979B2B686D090097656E /* TopContentListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93A979A2B686D090097656E /* TopContentListView.swift */; };
 		A93A979D2B686FE70097656E /* GetTopArtistsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93A979C2B686FE70097656E /* GetTopArtistsViewModel.swift */; };
+		A93A97A02B694BA90097656E /* ShareContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93A979F2B694BA90097656E /* ShareContentView.swift */; };
 		A98338302B6073A40087EA99 /* SnackBarErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A983382F2B6073A40087EA99 /* SnackBarErrorView.swift */; };
 		A98338322B6073EB0087EA99 /* UIAplication+getKeyWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98338312B6073EB0087EA99 /* UIAplication+getKeyWindow.swift */; };
 		A98338352B62E2B90087EA99 /* ArtistAlbuns.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98338342B62E2B90087EA99 /* ArtistAlbuns.swift */; };
@@ -74,6 +75,7 @@
 		A9015EFB2B66CE32007CF96D /* RelatedArtists.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelatedArtists.swift; sourceTree = "<group>"; };
 		A93A979A2B686D090097656E /* TopContentListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopContentListView.swift; sourceTree = "<group>"; };
 		A93A979C2B686FE70097656E /* GetTopArtistsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTopArtistsViewModel.swift; sourceTree = "<group>"; };
+		A93A979F2B694BA90097656E /* ShareContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareContentView.swift; sourceTree = "<group>"; };
 		A983382F2B6073A40087EA99 /* SnackBarErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnackBarErrorView.swift; sourceTree = "<group>"; };
 		A98338312B6073EB0087EA99 /* UIAplication+getKeyWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAplication+getKeyWindow.swift"; sourceTree = "<group>"; };
 		A98338342B62E2B90087EA99 /* ArtistAlbuns.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistAlbuns.swift; sourceTree = "<group>"; };
@@ -152,9 +154,18 @@
 		A93A97972B686C140097656E /* GetTopComponents */ = {
 			isa = PBXGroup;
 			children = (
+				A93A979E2B694B970097656E /* ShareContent */,
 				A93A979A2B686D090097656E /* TopContentListView.swift */,
 			);
 			path = GetTopComponents;
+			sourceTree = "<group>";
+		};
+		A93A979E2B694B970097656E /* ShareContent */ = {
+			isa = PBXGroup;
+			children = (
+				A93A979F2B694BA90097656E /* ShareContentView.swift */,
+			);
+			path = ShareContent;
 			sourceTree = "<group>";
 		};
 		A983382C2B60082C0087EA99 /* AuthenticationResponse */ = {
@@ -541,6 +552,7 @@
 				A9EB11872B5CE5C00052DCCA /* GetTopEndpoint.swift in Sources */,
 				A992793F2B5939E700D20E48 /* AccessTokenResponse.swift in Sources */,
 				A9015EF62B66C700007CF96D /* ArtistTopTracksEndpoint.swift in Sources */,
+				A93A97A02B694BA90097656E /* ShareContentView.swift in Sources */,
 				A992792E2B574EAB00D20E48 /* TokenEndpoint.swift in Sources */,
 				A98338322B6073EB0087EA99 /* UIAplication+getKeyWindow.swift in Sources */,
 				A98338352B62E2B90087EA99 /* ArtistAlbuns.swift in Sources */,

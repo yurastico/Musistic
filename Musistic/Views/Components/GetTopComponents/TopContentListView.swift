@@ -15,7 +15,6 @@ struct TopContentListView<type: Identifiable & Codable & Hashable,Content: View,
     @Bindable var viewModel: TopArtistsViewModel<type>
     @State private var isFetchingData = true
     @State private var isShare = false
-    @State private var isLoadingImage = false
     @State var imageToShow: Image?
     @ViewBuilder var content: (type) -> Content
     @ViewBuilder var destination: (type) -> Destination
@@ -26,7 +25,11 @@ struct TopContentListView<type: Identifiable & Codable & Hashable,Content: View,
                 List {
                     ForEach(viewModel.content) { data in
                         NavigationLink(value: ContentNavigationType.detail(data)) {
-                            content(data)
+                            if isFetchingData {
+                                SkeletonRow()
+                            } else {
+                                content(data)
+                            }
                         }
                         
                     }
@@ -50,14 +53,15 @@ struct TopContentListView<type: Identifiable & Codable & Hashable,Content: View,
                             isFetchingData = true
                             Task {
                                 await viewModel.refreshContent(for: timeRange)
-                                isFetchingData = false
+                                withAnimation {
+                                    isFetchingData = false
+                                }
                             }
                         }
                     }
                     
                     ToolbarItem(placement: .topBarTrailing) {
                         Button {
-                            isLoadingImage = true
                             isShare = true
                             Task {
                                 await viewModel.prepareForRender()
@@ -90,19 +94,7 @@ struct TopContentListView<type: Identifiable & Codable & Hashable,Content: View,
             }
         }
         .sheet(isPresented: $isShare) {
-            VStack {
-                if !isLoadingImage {
-                    imageToShow?
-                        .resizable()
-                        .scaledToFit()
-                } else {
-                    ProgressView()
-                }
-                
-            }.onChange(of: imageToShow) {
-                isLoadingImage = false
-            }
-            
+            ShareContentView(imageToShow: $imageToShow)
         }
     }
 }
