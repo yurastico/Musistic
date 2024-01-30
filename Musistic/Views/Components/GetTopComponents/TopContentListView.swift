@@ -12,9 +12,9 @@ struct TopContentListView<type: Codable & ContentForRender,Content: View, Destin
     @State private var path = NavigationPath()
     @State private var isShowingSnackBar = false
     @State private var errorMessage = ""
-    @Bindable var viewModel: TopArtistsViewModel<type>
+    @Bindable var viewModel: TopContentViewModel<type>
     @State private var isFetchingData = true
-    @State private var isShare = false
+    @State private var IsShowingShareView = false
     @State var imageToShow: Image?
     @ViewBuilder var content: (type) -> Content
     @ViewBuilder var destination: (type) -> Destination
@@ -62,10 +62,9 @@ struct TopContentListView<type: Codable & ContentForRender,Content: View, Destin
                     
                     ToolbarItem(placement: .topBarTrailing) {
                         Button {
-                            isShare = true
+                            IsShowingShareView = true
                             Task {
                                 await viewModel.prepareForRender()
-                                      
                                 self.imageToShow = await viewModel.renderImage()
                             }
                             
@@ -93,14 +92,14 @@ struct TopContentListView<type: Codable & ContentForRender,Content: View, Destin
                 }
             }
         }
-        .sheet(isPresented: $isShare) {
+        .sheet(isPresented: $IsShowingShareView) {
             ShareContentView(imageToShow: $imageToShow)
         }
     }
 }
 
 #Preview {
-    TopContentListView(viewModel: TopArtistsViewModel<Artist>()) { artist in
+    TopContentListView(viewModel: TopContentViewModel<Artist>()) { artist in
         Text("oiii")
     } destination: { artist in
         Text(artist.id)}

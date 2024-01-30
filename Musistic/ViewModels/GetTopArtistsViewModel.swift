@@ -11,7 +11,7 @@ import Observation
 
 
 @Observable
-final class TopArtistsViewModel<T> where T: ContentForRender & Codable {
+final class TopContentViewModel<T> where T: ContentForRender & Codable {
     var content = [T]()
     var contentForRender = [T]()
     
@@ -30,24 +30,24 @@ final class TopArtistsViewModel<T> where T: ContentForRender & Codable {
         }
         let result = await GetTopService().fetchTop(for: T.self,timeRange: range)
         switch result {
-        case .success(let artists):
-            self.content = artists.items
+        case .success(let content):
+            self.content = content.items
         case .failure(let error):
             print(error)
         }
     }
     
     func prepareForRender() async {
-        for artist in content {
+        for item in content {
             do {
-                guard let url = URL(string: artist.imageUrlString!) else { return }
+                guard let url = URL(string: item.imageUrlString!) else { return }
                 let (data,_) = try await URLSession.shared.data(for: URLRequest(url: url))
-                var renderArtist = artist
+                var renderItem = item
                 guard let uiImage = UIImage(data: data) else { return }
                 //renderArtist.image  = data
                 
-                renderArtist.setValue(for: data)
-                self.contentForRender.append(renderArtist)
+                renderItem.setValue(for: data)
+                self.contentForRender.append(renderItem)
                 
             } catch {
                 print(error)
@@ -62,9 +62,7 @@ final class TopArtistsViewModel<T> where T: ContentForRender & Codable {
         let image = imageRenderer.uiImage
         
         
-        guard let image else {
-            
-            return nil }
+        guard let image else { return nil }
         return Image(uiImage: image)
         
     }
