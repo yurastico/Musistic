@@ -8,12 +8,21 @@
 import SwiftUI
 import Observation
 
+protocol ContentViewModel {
+    associatedtype T
+    func refreshContent(for range: TimeRange) async
+    var content: [T] { get set }
+    var contentForRender: [TrackForRender] { get set }
+    func prepareForRender() async
+    @MainActor
+    func renderImage() async -> Image?
+}
 
 
 @Observable
-final class GetTopArtistsViewModel {
-    var artists = [Artist]()
-    var tracksForRender = [TrackForRender]()
+final class TopArtistsViewModel: ContentViewModel {
+    var content = [Artist]()
+    var contentForRender = [TrackForRender]()
     
     func refreshContent(for range: TimeRange) async {
         if !SpotifyAuthenticationManager.shared.isAccessTokenValid() {
@@ -31,21 +40,21 @@ final class GetTopArtistsViewModel {
         let result = await GetTopService().fetchTop(for: Artist.self,timeRange: range)
         switch result {
         case .success(let artists):
-            self.artists = artists.items
+            self.content = artists.items
         case .failure(let error):
             print(error)
         }
     }
     
     func prepareForRender() async {
-        for artist in artists {
+        for artist in content {
             do {
                 guard let url = URL(string: artist.images![0].url) else { return }
                 let (data,_) = try await URLSession.shared.data(for: URLRequest(url: url))
                 
                 guard let uiImage = UIImage(data: data) else { return }
                 let renderTrack = TrackForRender(id: artist.id, artist: artist.name, image: Image(uiImage: uiImage), name: artist.name, trackAlbumName: artist.genres?.first ?? "")
-                self.tracksForRender.append(renderTrack)
+                self.contentForRender.append(renderTrack)
                 
             } catch {
                 print(error)
@@ -56,7 +65,7 @@ final class GetTopArtistsViewModel {
     @MainActor
     func renderImage() async -> Image? {
         
-        let imageRenderer = ImageRenderer(content: ShareItemView(tracks: self.tracksForRender))
+        let imageRenderer = ImageRenderer(content: ShareItemView(tracks: self.contentForRender))
         let image = imageRenderer.uiImage
         
         

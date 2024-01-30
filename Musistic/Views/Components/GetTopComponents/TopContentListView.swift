@@ -12,8 +12,7 @@ struct TopContentListView<Content: View>: View {
     @State private var path = NavigationPath()
     @State private var isShowingSnackBar = false
     @State private var errorMessage = ""
-    @State private var list = [Artist]()
-    @Bindable var viewModel: GetTopArtistsViewModel
+    @Bindable var viewModel: TopArtistsViewModel
     @State private var isFetchingData = true
     @State private var isShare = false
     @State private var isLoadingImage = false
@@ -23,7 +22,7 @@ struct TopContentListView<Content: View>: View {
         NavigationStack(path: $path) {
             ZStack {
                 List {
-                    ForEach(viewModel.artists) { artist in
+                    ForEach(viewModel.content) { artist in
                         NavigationLink(value: ArtistNavigationType.artistDetail(artist: artist)) {
                             content(artist)
                         }
@@ -78,7 +77,7 @@ struct TopContentListView<Content: View>: View {
             
         }
         .onAppear {
-            if viewModel.artists.isEmpty {
+            if viewModel.content.isEmpty {
                 isFetchingData = true
                 Task {
                     await viewModel.refreshContent(for: timeRange)
@@ -108,7 +107,7 @@ struct TopContentListView<Content: View>: View {
 }
 
 #Preview {
-    TopContentListView(viewModel: GetTopArtistsViewModel()) { artist in
+    TopContentListView(viewModel: TopArtistsViewModel()) { artist in
         Text("oiii")
     }
 }
