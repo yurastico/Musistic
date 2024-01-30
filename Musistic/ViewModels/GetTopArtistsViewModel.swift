@@ -11,9 +11,9 @@ import Observation
 
 
 @Observable
-final class TopArtistsViewModel<T> where T: Codable {
+final class TopArtistsViewModel<T> where T: ContentForRender & Codable {
     var content = [T]()
-    var contentForRender = [TrackForRender]()
+    var contentForRender = [T]()
     
     func refreshContent(for range: TimeRange) async {
         if !SpotifyAuthenticationManager.shared.isAccessTokenValid() {
@@ -39,24 +39,24 @@ final class TopArtistsViewModel<T> where T: Codable {
     
     func prepareForRender() async {
         for artist in content {
-//            do {
-//                guard let url = URL(string: artist.images![0].url) else { return }
-//                let (data,_) = try await URLSession.shared.data(for: URLRequest(url: url))
-//                
-//                guard let uiImage = UIImage(data: data) else { return }
-//                let renderTrack = TrackForRender(id: artist.id, artist: artist.name, image: Image(uiImage: uiImage), name: artist.name, trackAlbumName: artist.genres?.first ?? "")
-//                self.contentForRender.append(renderTrack)
-//                
-//            } catch {
-//                print(error)
-//            }
+            do {
+                guard let url = URL(string: artist.imageUrlString!) else { return }
+                let (data,_) = try await URLSession.shared.data(for: URLRequest(url: url))
+                
+                guard let uiImage = UIImage(data: data) else { return }
+                
+                self.contentForRender.append(artist)
+                
+            } catch {
+                print(error)
+            }
             
         }
     }
     @MainActor
     func renderImage() async -> Image? {
         
-        let imageRenderer = ImageRenderer(content: ShareItemView(tracks: self.contentForRender))
+        let imageRenderer = ImageRenderer(content: ShareItemView(tracks: contentForRender))
         let image = imageRenderer.uiImage
         
         

@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct ShareItemView: View {
-    var tracks: [TrackForRender]
+struct ShareItemView<T: ContentForRender>: View {
+    var tracks: [T]
     var body: some View {
 
         VStack(alignment: .leading) {
@@ -16,14 +16,14 @@ struct ShareItemView: View {
                 .font(.largeTitle)
             ForEach(tracks) { track in
                 HStack {
-                    track.image
+                    Image(systemName: "plus")
                         .resizable()
                         .scaledToFit()
                         .frame(width: 50,height: 50)
                     
                     VStack(alignment: .leading) {
-                        Text(track.name)
-                        Text(track.artist)
+                        Text(track.title ?? "")
+                        Text(track.subtitle ?? "")
                     }
                     Spacer()
                     

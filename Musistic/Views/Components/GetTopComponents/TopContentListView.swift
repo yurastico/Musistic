@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct TopContentListView<type: Identifiable & Codable & Hashable,Content: View, Destination: View>: View {
+struct TopContentListView<type: Codable & ContentForRender,Content: View, Destination: View>: View {
     @State private var timeRange: TimeRange = .mediumTerm
     @State private var path = NavigationPath()
     @State private var isShowingSnackBar = false

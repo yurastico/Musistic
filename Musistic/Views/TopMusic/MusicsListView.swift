@@ -9,7 +9,7 @@ import SwiftUI
 
 
 struct MusicsListView: View {
-    private var viewModel = GetTopViewModel()
+    private var viewModel = TopArtistsViewModel<Track>()
     var body: some View {
         TopContentListView(viewModel: TopArtistsViewModel<Track>()) { track in
             MusicItemRow(track: track)

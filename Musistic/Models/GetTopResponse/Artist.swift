@@ -7,7 +7,11 @@
 
 import Foundation
 
-struct Artist: Codable,Identifiable, Hashable {
+struct Artist: Codable,Identifiable,Hashable {
+    static func == (lhs: Artist, rhs: Artist) -> Bool {
+        lhs.id == rhs.id
+    }
+    
     let externalUrls: ExternalUrls
     let followers: Followers?
     let genres: [String]?
@@ -18,4 +22,22 @@ struct Artist: Codable,Identifiable, Hashable {
     let type: ArtistType
     let uri: String
     let availableMarkets: [String]?
+
+    
+}
+
+extension Artist: ContentForRender {
+    var imageUrlString: String? {
+        self.images?.first?.url
+    }
+    
+    var title: String? {
+        self.name
+    }
+    
+    var subtitle: String? {
+        "Followers: \(self.followers?.total ?? 0)"
+    }
+    
+    
 }

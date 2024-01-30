@@ -26,3 +26,5 @@ struct Album: Codable, Hashable,Identifiable {
     let uri: String
     let artists: [Artist]
 }
+
+
