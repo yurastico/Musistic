@@ -10,15 +10,8 @@ import SwiftUI
 struct ArtistsListView: View {
     @State private var viewModel: GetTopArtistsViewModel = .init()
     var body: some View {
-        TopContentListView {
-            ForEach(viewModel.artists) { artist in
-                ArtistListRow(artist: artist)
-            }
-        }
-        .onAppear {
-            Task {
-                await viewModel.refreshTracks(for: .longTerm)
-            }
+        TopContentListView(viewModel: viewModel) { artist in
+            ArtistListRow(artist: artist)
         }
     }
     

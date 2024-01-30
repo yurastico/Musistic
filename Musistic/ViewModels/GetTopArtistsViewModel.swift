@@ -8,12 +8,14 @@
 import SwiftUI
 import Observation
 
+
+
 @Observable
 final class GetTopArtistsViewModel {
     var artists = [Artist]()
     var tracksForRender = [TrackForRender]()
     
-    func refreshTracks(for range: TimeRange) async {
+    func refreshContent(for range: TimeRange) async {
         if !SpotifyAuthenticationManager.shared.isAccessTokenValid() {
             let result = await AuthenticationService().refreshToken()
             switch result {

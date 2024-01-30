@@ -71,7 +71,6 @@ struct MusicsListView: View {
                 
             }.onChange(of: imageToShow) {
                 isLoadingImage = false
-                print("mudou")
             }
             
         }
