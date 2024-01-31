@@ -35,8 +35,8 @@ extension HTTPClient {
             if let body = urlComponents.percentEncodedQuery?.data(using: .utf8) {
                 request.httpBody = body
             }
-        }
-        
+        } // passar um enum explicando se eh urlencoded or json-body,receber um data
+
         do {
             let (data, response) = try await URLSession.shared.data(for: request)
             
@@ -51,11 +51,9 @@ extension HTTPClient {
                 let decoder = JSONDecoder()
                 decoder.keyDecodingStrategy = .convertFromSnakeCase
                 do {
-                    
                     let decodedResponse = try decoder.decode(responseModel, from: data)
                     return .success(decodedResponse)
                 } catch(let error) {
-                    print(error)
                     return .failure(.decode)
                 }
                

@@ -10,10 +10,9 @@ import SwiftUI
 struct LogInView: View, GetCode {
     @Environment(UserStateViewModel.self) var userStateViewModel
     var body: some View {
-        
         VStack {
             if userStateViewModel.isLogged {
-                MainView()
+                MainView() // isso pode estar na memória se eu de logout, pode ser que de pau!!!
                     .transition(.move(edge: .trailing))
             } else {
                 Button {
@@ -39,7 +38,7 @@ struct LogInView: View, GetCode {
         }
         .onOpenURL { url in
             Task {
-                print(url)
+                
                 await AuthenticationService().saveAcessToken(from:url)
             }
         }

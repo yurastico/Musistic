@@ -9,7 +9,6 @@ import Foundation
 
 struct TokenEndpoint {
     var code: String
-    
 }
 
 extension TokenEndpoint: Endpoint {

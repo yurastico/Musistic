@@ -31,9 +31,8 @@ struct TopContentListView<type: Codable & ContentForRender,Content: View, Destin
                                 content(data)
                             }
                         }
-                        
                     }
-                }
+                } 
                 .listStyle(.plain)
                 .navigationTitle("Top Artists")
                 .navigationDestination(for: ContentNavigationType<type>.self) { type in

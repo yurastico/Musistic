@@ -60,8 +60,6 @@ final class TopContentViewModel<T> where T: ContentForRender & Codable {
         
         let imageRenderer = ImageRenderer(content: ShareItemView(tracks: contentForRender))
         let image = imageRenderer.uiImage
-        
-        
         guard let image else { return nil }
         return Image(uiImage: image)
         

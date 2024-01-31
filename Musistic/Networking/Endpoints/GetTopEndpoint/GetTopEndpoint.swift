@@ -10,6 +10,16 @@ import Foundation
 enum GetTopPath {
     case tracks
     case artists
+    static func returnType<T: Decodable>(for type: T.Type) -> GetTopPath {
+        switch type {
+        case is Track.Type:
+            return .tracks
+        case is Artist.Type:
+            return .artists
+        default:
+            fatalError("oops")
+        }
+    }
 }
 
 struct GetTopEndpoint {
