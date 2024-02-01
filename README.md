@@ -10,7 +10,9 @@ To build app in your xcode you need to create a enum called *SpotifyConstants*
 ```swift 
 enum SpotifyConstants: String {
     case clientId = "{YOUR CLIENT ID}"
-    case clientSecret = "{YOUR CLIENT SECRET"
+    case clientSecret = "{YOUR CLIENT SECRET}"
     case scope = "user-read-private user-read-email user-top-read"
 }
 ```
+
+
