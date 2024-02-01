@@ -7,8 +7,9 @@
 
 import SwiftUI
 
-struct LogInView: View, GetCode {
+struct LogInView: View {
     @Environment(UserStateViewModel.self) var userStateViewModel
+    @State private var viewModel: LoginViewModel = .init()
     var body: some View {
         VStack {
             if userStateViewModel.isLogged {
@@ -16,13 +17,7 @@ struct LogInView: View, GetCode {
                     .transition(.move(edge: .trailing))
             } else {
                 Button {
-                    let result = createUrl(endpoint: AuthorizeEndpoint.authorize)
-                    switch result {
-                    case .success(let url):
-                        UIApplication.shared.open(url)
-                    case .failure(let error):
-                        print(error)
-                    }
+                    viewModel.openDeepLink()
                 } label: {
                     Text("Log in with Spotify")
                         .frame(maxWidth: .infinity)
