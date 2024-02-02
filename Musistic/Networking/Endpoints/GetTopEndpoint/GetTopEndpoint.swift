@@ -71,5 +71,16 @@ enum TimeRange: String, CaseIterable {
     case shortTerm = "short_term"
     case mediumTerm = "medium_term"
     case longTerm = "long_term"
+    
+    var text: String {
+        switch self {
+        case .longTerm:
+            return "All Data"
+        case .mediumTerm:
+            return "6 months"
+        case .shortTerm:
+            return "4 weeks"
+        }
+    }
 }
 

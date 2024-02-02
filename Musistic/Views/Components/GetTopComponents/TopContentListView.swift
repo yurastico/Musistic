@@ -45,7 +45,7 @@ struct TopContentListView<type: Codable & ContentForRender,Content: View, Destin
                     ToolbarItem(placement: .topBarLeading) {
                         Picker("Term", selection: $timeRange) {
                             ForEach(TimeRange.allCases,id: \.self) { range in
-                                Text(range.rawValue)
+                                Text(range.text)
                             }
                         }
                         .onChange(of: timeRange) {
