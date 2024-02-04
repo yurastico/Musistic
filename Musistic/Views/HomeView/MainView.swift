@@ -23,7 +23,7 @@ struct MainView: View {
                 .tabItem {
                     Label("Playlists",systemImage: "music.note.list")
                 }
-            SettingsView()
+            ProfileView()
                 .tabItem {
                     Label("Settings",systemImage: "gear")
                 }

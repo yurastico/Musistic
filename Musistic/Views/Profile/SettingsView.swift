@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SettingsView: View {
+struct ProfileView: View {
     @Environment(UserStateViewModel.self) var userStateViewModel
     var body: some View {
         NavigationStack {
@@ -23,5 +23,5 @@ struct SettingsView: View {
 }
 
 #Preview {
-    SettingsView()
+    ProfileView()
 }

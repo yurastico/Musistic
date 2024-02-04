@@ -58,7 +58,6 @@ struct TopContentListView<type: Codable & ContentForRender,Content: View, Destin
                             }
                         }
                     }
-                    
                     ToolbarItem(placement: .topBarTrailing) {
                         Button {
                             IsShowingShareView = true

@@ -357,12 +357,12 @@
 			path = TopArtists;
 			sourceTree = "<group>";
 		};
-		C570BE592B2E49A2006E7536 /* Settings */ = {
+		C570BE592B2E49A2006E7536 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
 				C5774B862B28AC0D0089DA4A /* SettingsView.swift */,
 			);
-			path = Settings;
+			path = Profile;
 			sourceTree = "<group>";
 		};
 		C570BE5A2B2E49B3006E7536 /* Playlists */ = {
@@ -458,7 +458,7 @@
 				C570BE782B2E5C0E006E7536 /* Navigation */,
 				C570BE5B2B2E4B9D006E7536 /* Components */,
 				C570BE5A2B2E49B3006E7536 /* Playlists */,
-				C570BE592B2E49A2006E7536 /* Settings */,
+				C570BE592B2E49A2006E7536 /* Profile */,
 				C570BE582B2E498F006E7536 /* TopArtists */,
 				C570BE572B2E4977006E7536 /* TopMusic */,
 				C570BE562B2E496E006E7536 /* Login */,
