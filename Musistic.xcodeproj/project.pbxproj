@@ -38,6 +38,7 @@
 		A99279472B5A7F6C00D20E48 /* SpotifyAuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99279462B5A7F6C00D20E48 /* SpotifyAuthenticationManager.swift */; };
 		A99279492B5C78E100D20E48 /* RefreshTokenEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99279482B5C78E100D20E48 /* RefreshTokenEndpoint.swift */; };
 		A996B4922B65A1C700B1D690 /* ShareItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A996B4912B65A1C700B1D690 /* ShareItemView.swift */; };
+		A9E574F52B700AC600E84A5E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E574F42B700AC600E84A5E /* User.swift */; };
 		A9EAB0422B65737A006A92A8 /* ArtistDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EAB0412B65737A006A92A8 /* ArtistDetailViewModel.swift */; };
 		A9EB11872B5CE5C00052DCCA /* GetTopEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EB11862B5CE5C00052DCCA /* GetTopEndpoint.swift */; };
 		A9EB11892B5CEC9A0052DCCA /* GetTopService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EB11882B5CEC9A0052DCCA /* GetTopService.swift */; };
@@ -102,6 +103,7 @@
 		A99279462B5A7F6C00D20E48 /* SpotifyAuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyAuthenticationManager.swift; sourceTree = "<group>"; };
 		A99279482B5C78E100D20E48 /* RefreshTokenEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshTokenEndpoint.swift; sourceTree = "<group>"; };
 		A996B4912B65A1C700B1D690 /* ShareItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareItemView.swift; sourceTree = "<group>"; };
+		A9E574F42B700AC600E84A5E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		A9EAB0412B65737A006A92A8 /* ArtistDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistDetailViewModel.swift; sourceTree = "<group>"; };
 		A9EB11862B5CE5C00052DCCA /* GetTopEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTopEndpoint.swift; sourceTree = "<group>"; };
 		A9EB11882B5CEC9A0052DCCA /* GetTopService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTopService.swift; sourceTree = "<group>"; };
@@ -395,6 +397,7 @@
 			children = (
 				A983382D2B6008550087EA99 /* GetTopResponse */,
 				A983382C2B60082C0087EA99 /* AuthenticationResponse */,
+				A9E574F42B700AC600E84A5E /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -572,6 +575,7 @@
 				C5774B852B28AB420089DA4A /* ArtistsListView.swift in Sources */,
 				A9835ED62B5DEA5F00F18F20 /* UserStateViewModel.swift in Sources */,
 				A99279392B57C5CB00D20E48 /* GetCode.swift in Sources */,
+				A9E574F52B700AC600E84A5E /* User.swift in Sources */,
 				C5774B832B28AAF40089DA4A /* MusicsListView.swift in Sources */,
 				A9EB118B2B5CFEEB0052DCCA /* ArtistListRow.swift in Sources */,
 				A98338302B6073A40087EA99 /* SnackBarErrorView.swift in Sources */,

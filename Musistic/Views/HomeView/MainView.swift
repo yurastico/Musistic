@@ -10,7 +10,6 @@ import SwiftUI
 struct MainView: View {
     var body: some View {
         TabView {
-            
             MusicsListView()
                 .tabItem {
                     Label("Musics", systemImage: "music.note")
