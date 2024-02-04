@@ -11,6 +11,7 @@ import Observation
 @Observable
 final class UserProfileViewModel {
     var user: User? = nil
+    var currentContent: UserCurrentPlaying? = nil
     var errorMessage = ""
     func getUserContent() async {
         let result = await UserService().fetchCurrentUser()
@@ -21,4 +22,17 @@ final class UserProfileViewModel {
             self.errorMessage = error.errorMessage
         }
     }
+    
+    func getPlayingContent() async {
+        print("oiii")
+        let result = await UserService().fetchCurrentTrack()
+        switch result {
+        case .success(let currentContent):
+            self.currentContent = currentContent
+            
+        case .failure(let error):
+            self.errorMessage = error.errorMessage
+        }
+    }
+    
 }

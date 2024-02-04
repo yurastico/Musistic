@@ -19,13 +19,13 @@ struct UserService: HTTPClient {
             return .failure(error)
         }
     }
-    func fetchCurrentTrack() async -> Result<User,RequestError> {
+    func fetchCurrentTrack() async -> Result<UserCurrentPlaying,RequestError> {
         let endpoint = UserEndpoint.currentTrack
-        let response = await sendRequest(endpoint: endpoint, responseModel: User.self)
+        let response = await sendRequest(endpoint: endpoint, responseModel: UserCurrentPlaying.self)
         switch response {
-        case .success(let user):
-            guard let user else { return .failure(.noContent)}
-            return .success(user)
+        case .success(let currentPlaying):
+            guard let currentPlaying else { return .failure(.noContent)}
+            return .success(currentPlaying)
         case .failure(let error):
             return .failure(error)
         }

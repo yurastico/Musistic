@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct SpotifyData: Codable {
+struct UserCurrentPlaying: Codable {
 
     struct Restrictions: Codable {
         let reason: String
@@ -22,16 +22,16 @@ struct SpotifyData: Codable {
 
 
     struct Actions: Codable {
-        let interruptingPlayback: Bool
-        let pausing: Bool
-        let resuming: Bool
-        let seeking: Bool
-        let skippingNext: Bool
-        let skippingPrev: Bool
-        let togglingRepeatContext: Bool
-        let togglingShuffle: Bool
-        let togglingRepeatTrack: Bool
-        let transferringPlayback: Bool
+        let interruptingPlayback: Bool?
+        let pausing: Bool?
+        let resuming: Bool?
+        let seeking: Bool?
+        let skippingNext: Bool?
+        let skippingPrev: Bool?
+        let togglingRepeatContext: Bool?
+        let togglingShuffle: Bool?
+        let togglingRepeatTrack: Bool?
+        let transferringPlayback: Bool?
     }
 
     struct SpotifyContext: Codable {
@@ -41,10 +41,10 @@ struct SpotifyData: Codable {
         let uri: String
     }
 
-    let device: Device
-    let repeatState: String
-    let shuffleState: Bool
-    let context: SpotifyContext
+    let device: Device?
+    let repeatState: String?
+    let shuffleState: Bool?
+    let context: SpotifyContext?
     let timestamp: Int
     let progressMs: Int
     let isPlaying: Bool

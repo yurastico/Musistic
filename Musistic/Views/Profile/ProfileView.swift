@@ -33,6 +33,22 @@ struct ProfileView: View {
                     }
                 }
                 
+                if let currentContent = viewModel.currentContent {
+                    
+                        if let url = URL(string: currentContent.item.album.images.first!.url) {
+                            HStack {
+                                AsyncImageContainer(url: url)
+                                    .frame(height: 100)
+                                VStack {
+                                    Text(currentContent.item.name)
+                                    Text(currentContent.item.album.name)
+                                }
+                            }
+                        }
+                    
+                }
+                
+                
                 Spacer()
                 
                 Button("Logout") {
@@ -46,6 +62,7 @@ struct ProfileView: View {
         .onAppear {
             Task {
                 await viewModel.getUserContent()
+                await viewModel.getPlayingContent()
             }
         }
     }

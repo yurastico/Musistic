@@ -54,6 +54,7 @@ extension HTTPClient {
                     let decodedResponse = try decoder.decode(responseModel, from: data)
                     return .success(decodedResponse)
                 } catch(let error) {
+                    print(error)
                     return .failure(.decode)
                 }
                
