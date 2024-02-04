@@ -42,6 +42,8 @@
 		A9E574F82B700B4000E84A5E /* UserEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E574F72B700B4000E84A5E /* UserEndpoint.swift */; };
 		A9E574FB2B700C3200E84A5E /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E574FA2B700C3200E84A5E /* UserService.swift */; };
 		A9E574FD2B700F4400E84A5E /* UserProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E574FC2B700F4400E84A5E /* UserProfileViewModel.swift */; };
+		A9E574FF2B701E8800E84A5E /* UserCurrentPlaying.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E574FE2B701E8800E84A5E /* UserCurrentPlaying.swift */; };
+		A9E575012B701E9900E84A5E /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E575002B701E9900E84A5E /* Device.swift */; };
 		A9EAB0422B65737A006A92A8 /* ArtistDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EAB0412B65737A006A92A8 /* ArtistDetailViewModel.swift */; };
 		A9EB11872B5CE5C00052DCCA /* GetTopEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EB11862B5CE5C00052DCCA /* GetTopEndpoint.swift */; };
 		A9EB11892B5CEC9A0052DCCA /* GetTopService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EB11882B5CEC9A0052DCCA /* GetTopService.swift */; };
@@ -110,6 +112,8 @@
 		A9E574F72B700B4000E84A5E /* UserEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEndpoint.swift; sourceTree = "<group>"; };
 		A9E574FA2B700C3200E84A5E /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		A9E574FC2B700F4400E84A5E /* UserProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewModel.swift; sourceTree = "<group>"; };
+		A9E574FE2B701E8800E84A5E /* UserCurrentPlaying.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCurrentPlaying.swift; sourceTree = "<group>"; };
+		A9E575002B701E9900E84A5E /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
 		A9EAB0412B65737A006A92A8 /* ArtistDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistDetailViewModel.swift; sourceTree = "<group>"; };
 		A9EB11862B5CE5C00052DCCA /* GetTopEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTopEndpoint.swift; sourceTree = "<group>"; };
 		A9EB11882B5CEC9A0052DCCA /* GetTopService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTopService.swift; sourceTree = "<group>"; };
@@ -423,6 +427,7 @@
 				A983382D2B6008550087EA99 /* GetTopResponse */,
 				A983382C2B60082C0087EA99 /* AuthenticationResponse */,
 				A9E574F42B700AC600E84A5E /* User.swift */,
+				A9E574FE2B701E8800E84A5E /* UserCurrentPlaying.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -438,6 +443,7 @@
 		C5774B662B27E9D10089DA4A = {
 			isa = PBXGroup;
 			children = (
+				A9E575002B701E9900E84A5E /* Device.swift */,
 				C5774B712B27E9D20089DA4A /* Musistic */,
 				C5774B702B27E9D20089DA4A /* Products */,
 			);
@@ -629,6 +635,8 @@
 				A99279302B57538300D20E48 /* AuthorizeUserEndpoint.swift in Sources */,
 				C570BE552B2DB97A006E7536 /* MusicItemRow.swift in Sources */,
 				A9EC7E172B6C59C600FCAEDA /* LoginViewModel.swift in Sources */,
+				A9E574FF2B701E8800E84A5E /* UserCurrentPlaying.swift in Sources */,
+				A9E575012B701E9900E84A5E /* Device.swift in Sources */,
 				C570BE672B2E4CE7006E7536 /* Artist.swift in Sources */,
 				C570BE772B2E56BF006E7536 /* AsyncImageContainer.swift in Sources */,
 				A99279322B57BE6400D20E48 /* SpotifyBaseURL.swift in Sources */,
