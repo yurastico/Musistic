@@ -39,6 +39,8 @@
 		A99279492B5C78E100D20E48 /* RefreshTokenEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99279482B5C78E100D20E48 /* RefreshTokenEndpoint.swift */; };
 		A996B4922B65A1C700B1D690 /* ShareItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A996B4912B65A1C700B1D690 /* ShareItemView.swift */; };
 		A9E574F52B700AC600E84A5E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E574F42B700AC600E84A5E /* User.swift */; };
+		A9E574F82B700B4000E84A5E /* UserEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E574F72B700B4000E84A5E /* UserEndpoint.swift */; };
+		A9E574FB2B700C3200E84A5E /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E574FA2B700C3200E84A5E /* UserService.swift */; };
 		A9EAB0422B65737A006A92A8 /* ArtistDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EAB0412B65737A006A92A8 /* ArtistDetailViewModel.swift */; };
 		A9EB11872B5CE5C00052DCCA /* GetTopEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EB11862B5CE5C00052DCCA /* GetTopEndpoint.swift */; };
 		A9EB11892B5CEC9A0052DCCA /* GetTopService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EB11882B5CEC9A0052DCCA /* GetTopService.swift */; };
@@ -104,6 +106,8 @@
 		A99279482B5C78E100D20E48 /* RefreshTokenEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshTokenEndpoint.swift; sourceTree = "<group>"; };
 		A996B4912B65A1C700B1D690 /* ShareItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareItemView.swift; sourceTree = "<group>"; };
 		A9E574F42B700AC600E84A5E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		A9E574F72B700B4000E84A5E /* UserEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEndpoint.swift; sourceTree = "<group>"; };
+		A9E574FA2B700C3200E84A5E /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		A9EAB0412B65737A006A92A8 /* ArtistDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistDetailViewModel.swift; sourceTree = "<group>"; };
 		A9EB11862B5CE5C00052DCCA /* GetTopEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTopEndpoint.swift; sourceTree = "<group>"; };
 		A9EB11882B5CEC9A0052DCCA /* GetTopService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTopService.swift; sourceTree = "<group>"; };
@@ -290,6 +294,7 @@
 		A992793A2B5939AB00D20E48 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				A9E574F92B700C2600E84A5E /* User */,
 				A98338392B62E56E0087EA99 /* Artist */,
 				A992793B2B5939B600D20E48 /* AuthenticationService.swift */,
 				A9EB11882B5CEC9A0052DCCA /* GetTopService.swift */,
@@ -313,6 +318,22 @@
 			path = Managers;
 			sourceTree = "<group>";
 		};
+		A9E574F62B700B3200E84A5E /* UserEndpoint */ = {
+			isa = PBXGroup;
+			children = (
+				A9E574F72B700B4000E84A5E /* UserEndpoint.swift */,
+			);
+			path = UserEndpoint;
+			sourceTree = "<group>";
+		};
+		A9E574F92B700C2600E84A5E /* User */ = {
+			isa = PBXGroup;
+			children = (
+				A9E574FA2B700C3200E84A5E /* UserService.swift */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
 		A9EB11842B5CE51A0052DCCA /* GetTopEndpoint */ = {
 			isa = PBXGroup;
 			children = (
@@ -324,6 +345,7 @@
 		A9EB11852B5CE5AE0052DCCA /* Endpoints */ = {
 			isa = PBXGroup;
 			children = (
+				A9E574F62B700B3200E84A5E /* UserEndpoint */,
 				A98338362B62E4310087EA99 /* ArtistEndpoint */,
 				A992792C2B574E9800D20E48 /* AuthenticationEndpoint */,
 				A9EB11842B5CE51A0052DCCA /* GetTopEndpoint */,
@@ -576,6 +598,7 @@
 				A9835ED62B5DEA5F00F18F20 /* UserStateViewModel.swift in Sources */,
 				A99279392B57C5CB00D20E48 /* GetCode.swift in Sources */,
 				A9E574F52B700AC600E84A5E /* User.swift in Sources */,
+				A9E574FB2B700C3200E84A5E /* UserService.swift in Sources */,
 				C5774B832B28AAF40089DA4A /* MusicsListView.swift in Sources */,
 				A9EB118B2B5CFEEB0052DCCA /* ArtistListRow.swift in Sources */,
 				A98338302B6073A40087EA99 /* SnackBarErrorView.swift in Sources */,
@@ -595,6 +618,7 @@
 				A983383B2B62E5810087EA99 /* ArtistsDataService.swift in Sources */,
 				C570BE712B2E4E08006E7536 /* ItemType.swift in Sources */,
 				C570BE612B2E4C24006E7536 /* Track.swift in Sources */,
+				A9E574F82B700B4000E84A5E /* UserEndpoint.swift in Sources */,
 				A99279492B5C78E100D20E48 /* RefreshTokenEndpoint.swift in Sources */,
 				C5774B732B27E9D20089DA4A /* MusisticApp.swift in Sources */,
 				C570BE632B2E4C57006E7536 /* APIImage.swift in Sources */,

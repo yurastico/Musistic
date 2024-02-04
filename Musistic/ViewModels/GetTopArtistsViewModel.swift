@@ -43,9 +43,6 @@ final class TopContentViewModel<T> where T: ContentForRender & Codable {
                 guard let url = URL(string: item.imageUrlString!) else { return }
                 let (data,_) = try await URLSession.shared.data(for: URLRequest(url: url))
                 var renderItem = item
-                guard let uiImage = UIImage(data: data) else { return }
-                //renderArtist.image  = data
-                
                 renderItem.setValue(for: data)
                 self.contentForRender.append(renderItem)
                 

@@ -8,7 +8,7 @@
 import Foundation
 
 enum RequestError: Error {
-    case invalidURL, decode, noResponse, expiredToken, noAuthorized, unknown
+    case invalidURL, decode, noResponse, expiredToken, noAuthorized, unknown,noContent
     case custom(_ error: [String: Any]?)
     
     
@@ -27,6 +27,8 @@ enum RequestError: Error {
             "you dont have authorization for this"
         case .unknown:
             "unkown error"
+        case .noContent:
+            "no content fot this request"
         case .custom(let error):
             "error custom "
         }
