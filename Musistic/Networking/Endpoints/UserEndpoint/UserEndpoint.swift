@@ -7,12 +7,19 @@
 
 import Foundation
 
-struct UserEndpoint: Endpoint {
+enum UserEndpoint: Endpoint {
+    case profile,currentTrack
     var host: String {
         SpotifyBaseURL.api.rawValue
     }
     var path: String {
-        "/v1/me"
+        switch self {
+        case .profile:
+            return "/v1/me"
+        case .currentTrack:
+            return "/v1/me/player/currently-playing"
+        }
+        
     }
     
     var method: RequestMethod {
@@ -20,15 +27,15 @@ struct UserEndpoint: Endpoint {
     }
     
     var header: [String : String]? {
-        ["Authorization": "Bearer \(accessToken ?? "")"]
+        ["Authorization": "Bearer \(SpotifyAuthenticationManager.shared.accessToken ?? "")"]
     }
     
-    var jsonBody: [String : String]?
+    var jsonBody: [String : String]? {
+        nil
+    }
     
-    var queryItems: [URLQueryItem]?
-    
-    var accessToken: String? {
-        SpotifyAuthenticationManager.shared.accessToken
+    var queryItems: [URLQueryItem]? {
+        nil
     }
     
 }
