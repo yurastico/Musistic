@@ -8,10 +8,12 @@
 import SwiftUI
 
 struct MyPlaylistsView: View {
+    @State private var viewModel = PlaylistsViewModel()
     var body: some View {
-        NavigationStack {
-            Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-                .navigationTitle("My playlists")
+        List {
+            ForEach(viewModel.playlists) { Playlist in
+                Text(Playlist.name)
+            }
         }
         
     }

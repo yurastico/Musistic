@@ -17,7 +17,7 @@ struct UserPlaylist: Codable {
     let items: [Playlist]
 }
 
-struct Playlist: Codable {
+struct Playlist: Codable,Identifiable {
     let collaborative: Bool
     let description: String
     let externalUrls: ExternalUrls
