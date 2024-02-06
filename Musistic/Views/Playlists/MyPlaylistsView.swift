@@ -15,7 +15,11 @@ struct MyPlaylistsView: View {
                 Text(Playlist.name)
             }
         }
-        
+        .onAppear {
+            Task {
+                await viewModel.getPlaylists()
+            }
+        }
     }
 }
 

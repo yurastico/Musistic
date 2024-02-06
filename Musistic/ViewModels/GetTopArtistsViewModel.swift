@@ -37,6 +37,7 @@ final class TopContentViewModel<T> where T: ContentForRender & Codable {
         }
     }
     
+    
     func prepareForRender() async {
         for item in content {
             do {
@@ -46,15 +47,14 @@ final class TopContentViewModel<T> where T: ContentForRender & Codable {
                 renderItem.setValue(for: data)
                 self.contentForRender.append(renderItem)
                 
+                
             } catch {
                 print(error)
             }
-            
         }
     }
     @MainActor
     func renderImage() async -> Image? {
-        
         let imageRenderer = ImageRenderer(content: ShareItemView(tracks: contentForRender))
         let image = imageRenderer.uiImage
         guard let image else { return nil }

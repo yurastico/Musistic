@@ -8,12 +8,12 @@
 import Foundation
 
 struct UserPlaylist: Codable {
-    let href: String
-    let limit: Int
-    let next: String
-    let offset: Int
-    let previous: String
-    let total: Int
+    let href: String?
+    let limit: Int?
+    let next: String?
+    let offset: Int?
+    let previous: String?
+    let total: Int?
     let items: [Playlist]
 }
 
@@ -26,11 +26,11 @@ struct Playlist: Codable,Identifiable {
     let images: [APIImage]
     let name: String
     let owner: User
-    let publicFlag: Bool
-    let snapshotId: String
-    let tracks: PlaylistTracks
-    let type: String
-    let uri: String
+    let publicFlag: Bool?
+    let snapshotId: String?
+    let tracks: PlaylistTracks?
+    let type: String?
+    let uri: String?
 
 
 }

@@ -7,18 +7,18 @@
 
 import Foundation
 struct User: Codable {
-    let country: String
-    let displayName: String
-    let email: String
-    let explicitContent: ExplicitContent
-    let externalUrls: ExternalUrls
-    let followers: Followers
-    let href: String
+    let country: String?
+    let displayName: String?
+    let email: String?
+    let explicitContent: ExplicitContent?
+    let externalUrls: ExternalUrls?
+    let followers: Followers?
+    let href: String?
     let id: String
-    let images: [APIImage]
-    let product: String
-    let type: String
-    let uri: String
+    let images: [APIImage]?
+    let product: String?
+    let type: String?
+    let uri: String?
     
 }
 

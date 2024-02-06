@@ -14,7 +14,7 @@ struct ProfileView: View {
         NavigationStack {
             VStack {
                 if let user = viewModel.user,
-                   let url = URL(string: user.images.last!.url) {
+                   let url = URL(string: user.images!.last!.url) {
                     AsyncImageContainer(url: url)
                         .clipShape(Circle())
                         .frame(height: 150)
@@ -27,7 +27,7 @@ struct ProfileView: View {
                 }
                 
                 HStack {
-                    if let followers = viewModel.user?.followers.total {
+                    if let followers = viewModel.user?.followers?.total {
                         Text("Followers \(followers)")
                             .font(.title)
                     }
@@ -61,6 +61,7 @@ struct ProfileView: View {
         }
         .onAppear {
             Task {
+                
                 await viewModel.getUserContent()
                 await viewModel.getPlayingContent()
             }
