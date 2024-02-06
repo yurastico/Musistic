@@ -31,5 +31,16 @@ struct UserService: HTTPClient {
         }
         
     }
+    func fetchUserPlaylists() async -> Result<UserPlaylist,RequestError> {
+        let endpoint = UserEndpoint.playlists
+        let response = await sendRequest(endpoint: endpoint, responseModel: UserPlaylist.self)
+        switch response {
+        case .success(let playlists):
+            guard let playlists else { return .failure(.noContent)}
+            return .success(playlists)
+        case .failure(let error):
+            return .failure(error)
+        }
+    }
     
 }

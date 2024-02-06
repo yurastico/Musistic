@@ -8,7 +8,7 @@
 import Foundation
 
 enum UserEndpoint: Endpoint {
-    case profile,currentTrack
+    case profile,currentTrack,playlists
     var host: String {
         SpotifyBaseURL.api.rawValue
     }
@@ -18,6 +18,8 @@ enum UserEndpoint: Endpoint {
             return "/v1/me"
         case .currentTrack:
             return "/v1/me/player/currently-playing"
+        case .playlists:
+            return "/v1/me/playlists"
         }
         
     }

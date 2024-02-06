@@ -24,7 +24,6 @@ final class UserProfileViewModel {
     }
     
     func getPlayingContent() async {
-        print("oiii")
         let result = await UserService().fetchCurrentTrack()
         switch result {
         case .success(let currentContent):
