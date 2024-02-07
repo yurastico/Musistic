@@ -8,6 +8,11 @@
 import SwiftUI
 
 struct TopMusicDetail: View {
+    
+    @State private var viewModel: TrackDetailViewModel = .init()
+    
+    
+    
     let track: Track
     var body: some View {
         VStack {
@@ -24,13 +29,20 @@ struct TopMusicDetail: View {
             }
             
             HStack {
+                if let url = URL(string: viewModel.artist?.imageUrlString ?? "") {
+                    AsyncImageContainer(url: url)
+                        .clipShape(Circle())
+                        .frame(height: 150)
+                }
                 Text(track.artistsText)
             }
             
             Spacer()
         }
         .onAppear {
-           
+            Task {
+                await viewModel.getArtist(for: track)
+            }
         }
     }
 }

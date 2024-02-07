@@ -36,8 +36,6 @@ struct ArtistDataService: HTTPClient {
     }
     
     func fetchArtistAlbuns(artistId: String) async -> [Album]?{
-
-        
         let endpoint = ArtistEndpoint.albums(artistId)
         let result = await sendRequest(endpoint: endpoint, responseModel: ArtistAlbuns.self)
         switch result {
@@ -45,6 +43,17 @@ struct ArtistDataService: HTTPClient {
             return albuns?.items
         case .failure(let error):
             print(error)
+            return nil
+        }
+    }
+    
+    func fetchArtist(artistId: String) async -> Artist? {
+        let endpoint = ArtistEndpoint.details(artistId)
+        let response = await sendRequest(endpoint: endpoint, responseModel: Artist.self)
+        switch response {
+        case .success(let artist):
+            return artist
+        case .failure(_):
             return nil
         }
     }

@@ -7,7 +7,17 @@
 
 import Foundation
 import Observation
+
+@Observable
 final class TrackDetailViewModel {
-    //let Artist: Artist
+    var artist: Artist?
+    var track: Track?
+    
+    func getArtist(for track: Track) async {
+        
+        let response = await ArtistDataService().fetchArtist(artistId: track.artists.first!.id)
+        self.artist = response
+        self.track = track
+    }
 
 }
