@@ -7,15 +7,21 @@
 
 import Foundation
 
-struct RelatedArtistsEndpoint: Endpoint {
-    let artistId: String
-    let accessToken: String
+enum RelatedArtistsEndpoint: Endpoint {
+    case relatedArtists(String)
+    case details(String)
     var host: String {
         SpotifyBaseURL.api.rawValue
     }
     
     var path: String {
-        "/v1/artists/\(artistId)/related-artists"
+        switch self {
+        case .relatedArtists(let artistId):
+            return "/v1/artists/\(artistId)/related-artists"
+        case .details(let artistId):
+            return "/v1/artists/\(artistId)"
+        }
+        
     }
     
     var method: RequestMethod {
@@ -23,7 +29,7 @@ struct RelatedArtistsEndpoint: Endpoint {
     }
     
     var header: [String : String]? {
-        ["Authorization": "Bearer \(accessToken)"]
+        ["Authorization": "Bearer \(SpotifyAuthenticationManager.shared.accessToken ?? "")"]
     }
     
     var jsonBody: [String : String]?
