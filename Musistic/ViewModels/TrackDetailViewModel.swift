@@ -6,3 +6,8 @@
 //
 
 import Foundation
+import Observation
+final class TrackDetailViewModel {
+    //let Artist: Artist
+
+}

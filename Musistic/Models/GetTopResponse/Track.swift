@@ -30,6 +30,11 @@ struct Track: Codable, Identifiable, Hashable {
     let uri: String
     let isLocal: Bool
     var image: Data?
+    
+    var artistsText: String {
+        self.artists.map { $0.name }.joined(separator: ", ")
+    }
+    
 }
 
 extension Track: ContentForRender {

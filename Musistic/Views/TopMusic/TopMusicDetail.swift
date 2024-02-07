@@ -22,7 +22,15 @@ struct TopMusicDetail: View {
                 Text(track.artists[0].name)
                     .font(.title)
             }
+            
+            HStack {
+                Text(track.artistsText)
+            }
+            
             Spacer()
+        }
+        .onAppear {
+           
         }
     }
 }

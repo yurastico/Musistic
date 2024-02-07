@@ -31,8 +31,6 @@ struct Playlist: Codable,Identifiable {
     let tracks: PlaylistTracks?
     let type: String?
     let uri: String?
-
-
 }
 
 
