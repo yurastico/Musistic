@@ -43,7 +43,13 @@ enum ArtistEndpoint: Endpoint {
     }
     
     var queryItems: [URLQueryItem]? {
-        nil
+        switch self {
+        case .topTracks(_):
+            return [URLQueryItem(name: "market", value: "us")]
+        default:
+            return nil
+        }
+        
     }
 }
                         
