@@ -6,7 +6,12 @@
 //
 
 import Foundation
-struct User: Codable {
+struct User: Codable,Hashable {
+    static func == (lhs: User, rhs: User) -> Bool {
+        lhs.id == rhs.id
+        
+    }
+    
     let country: String?
     let displayName: String?
     let email: String?
@@ -22,7 +27,7 @@ struct User: Codable {
     
 }
 
-struct ExplicitContent: Codable {
+struct ExplicitContent: Codable,Hashable {
     let filterEnabled: Bool
     let filterLocked: Bool
 }

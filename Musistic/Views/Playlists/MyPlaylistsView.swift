@@ -9,10 +9,28 @@ import SwiftUI
 
 struct MyPlaylistsView: View {
     @State private var viewModel = PlaylistsViewModel()
+    @State private var path = NavigationPath()
     var body: some View {
-        List {
-            ForEach(viewModel.playlists) { Playlist in
-                Text(Playlist.name)
+        NavigationStack(path: $path) {
+            List {
+                ForEach(viewModel.playlists) { playlist in
+                    NavigationLink(value: PlaylistNavigationType.detail(playlist)) {
+                        HStack {
+                            if let url = URL(string: playlist.images.first?.url ?? "") {
+                                AsyncImageContainer(url: url)
+                            }
+                            Text(playlist.name)
+                        }
+                    }
+                    
+                }
+            }
+            .navigationDestination(for: PlaylistNavigationType.self) { type in
+                switch type {
+                case .detail(let playlist):
+                    Text("oiii")
+                }
+                
             }
         }
         .onAppear {

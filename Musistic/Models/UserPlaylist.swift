@@ -17,7 +17,11 @@ struct UserPlaylist: Codable {
     let items: [Playlist]
 }
 
-struct Playlist: Codable,Identifiable {
+struct Playlist: Codable,Identifiable,Hashable {
+    static func == (lhs: Playlist, rhs: Playlist) -> Bool {
+        lhs.id == rhs.id
+    }
+    
     let collaborative: Bool
     let description: String
     let externalUrls: ExternalUrls
@@ -35,7 +39,7 @@ struct Playlist: Codable,Identifiable {
 
 
 
-struct PlaylistTracks: Codable {
+struct PlaylistTracks: Codable,Hashable {
     let href: String
     let total: Int
 }
