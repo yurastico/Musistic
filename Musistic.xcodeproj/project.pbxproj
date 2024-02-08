@@ -409,6 +409,8 @@
 		C570BE5B2B2E4B9D006E7536 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				A983382E2B6073960087EA99 /* Snackbar */,
+				A9835EDA2B5E3B4D00F18F20 /* Skeleton */,
 				A93A97972B686C140097656E /* GetTopComponents */,
 				C570BE762B2E56BF006E7536 /* AsyncImageContainer.swift */,
 			);
@@ -490,8 +492,6 @@
 			isa = PBXGroup;
 			children = (
 				A93A97962B6869250097656E /* ShareItems */,
-				A983382E2B6073960087EA99 /* Snackbar */,
-				A9835EDA2B5E3B4D00F18F20 /* Skeleton */,
 				C570BE782B2E5C0E006E7536 /* Navigation */,
 				C570BE5B2B2E4B9D006E7536 /* Components */,
 				C570BE5A2B2E49B3006E7536 /* Playlists */,
