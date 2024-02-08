@@ -12,9 +12,11 @@ struct ArtistsListView: View {
     var body: some View {
         TopContentListView(viewModel: viewModel) { artist in
             ArtistListRow(artist: artist)
+                .navigationTitle("Top Artists")
         } destination: { artist in
             TopArtistDetail(artist: artist)
         }
+        
 
     }
     
