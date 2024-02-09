@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import AuthenticationServices
 
 struct LogInView: View {
     @Environment(UserStateViewModel.self) var userStateViewModel
@@ -29,6 +30,8 @@ struct LogInView: View {
                         .clipShape(RoundedRectangle(cornerRadius: 66))
                         .padding()
                 }
+                
+               
             }
         }
         .onOpenURL { url in
