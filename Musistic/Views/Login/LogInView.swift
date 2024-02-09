@@ -11,6 +11,7 @@ import AuthenticationServices
 struct LogInView: View {
     @Environment(UserStateViewModel.self) var userStateViewModel
     @State private var viewModel: LoginViewModel = .init()
+    @State var isShowingAuthWebView = false
     var body: some View {
         VStack {
             if userStateViewModel.isLogged {
@@ -18,7 +19,7 @@ struct LogInView: View {
                     .transition(.move(edge: .trailing))
             } else {
                 Button {
-                    viewModel.openDeepLink()
+                    isShowingAuthWebView = true
                 } label: {
                     Text("Log in with Spotify")
                         .frame(maxWidth: .infinity)
@@ -34,6 +35,9 @@ struct LogInView: View {
                
             }
         }
+        .sheet(isPresented: $isShowingAuthWebView, content: {
+            AuthSheetView(isShowingSheetView: $isShowingAuthWebView, viewModel: $viewModel)
+              })
         .onOpenURL { url in
             Task {
                 
