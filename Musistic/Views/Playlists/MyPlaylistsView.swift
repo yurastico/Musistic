@@ -11,7 +11,6 @@ struct MyPlaylistsView: View {
     @State private var viewModel = PlaylistsViewModel()
     @State private var path = NavigationPath()
     var body: some View {
-        NavigationStack(path: $path) {
             List {
                 ForEach(viewModel.playlists) { playlist in
                     NavigationLink(value: PlaylistNavigationType.detail(playlist)) {
@@ -32,7 +31,7 @@ struct MyPlaylistsView: View {
                 }
                 
             }
-        }
+        
         .onAppear {
             Task {
                 await viewModel.getPlaylists()

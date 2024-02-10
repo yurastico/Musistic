@@ -21,6 +21,7 @@ final class TopContentViewModel<T> where T: ContentForRender & Codable {
             switch result {
             case .success(let bool):
                 if !bool {
+                    print("n'ao eh valido")
                     return
                 }
             case .failure(let error):

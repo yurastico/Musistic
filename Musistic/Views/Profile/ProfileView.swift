@@ -11,7 +11,7 @@ struct ProfileView: View {
     @Environment(UserStateViewModel.self) var userStateViewModel
     @State private var viewModel = UserProfileViewModel()
     var body: some View {
-        NavigationStack {
+      
             VStack {
                 if let user = viewModel.user,
                    let url = URL(string: user.images!.last!.url) {
@@ -58,10 +58,9 @@ struct ProfileView: View {
                 .buttonStyle(.borderedProminent)
             }
             .navigationTitle("Settings")
-        }
+        
         .onAppear {
             Task {
-                
                 await viewModel.getUserContent()
                 await viewModel.getPlayingContent()
             }

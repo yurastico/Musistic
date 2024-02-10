@@ -36,7 +36,7 @@ class AuthCoordinator: NSObject, WKNavigationDelegate {
           } else {
               if let url = navigationAction.request.url {
                   viewModel.handleSpotify(for: url)
-                  print(url)
+                  viewModel.isLogged = true
               }
             
             decisionHandler(.cancel)

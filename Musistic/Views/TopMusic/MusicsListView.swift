@@ -13,10 +13,13 @@ struct MusicsListView: View {
     var body: some View {
         TopContentListView(viewModel: TopContentViewModel<Track>()) { track in
             MusicItemRow(track: track)
-                .navigationTitle("Top Tracks")
+                
         } destination: { track in
             TopMusicDetail(track: track)
         }
+       
+        
+        
         
     }
 }

@@ -28,8 +28,14 @@ final class UserStateViewModel: GetCode {
     
     func handleSpotify(for url: URL) {
         Task {
-            await AuthenticationService().saveAcessToken(from: url)
-            self.isFinishedAuthentication = true
+            let result = await AuthenticationService().saveAcessToken(from: url)
+            switch result {
+            case .success(()):
+                self.isFinishedAuthentication = true
+            case .failure(let error):
+                print(error)
+            }
+            
         }
     }
   

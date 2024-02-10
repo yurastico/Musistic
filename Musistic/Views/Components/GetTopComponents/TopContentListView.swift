@@ -20,7 +20,6 @@ struct TopContentListView<type: Codable & ContentForRender,Content: View, Destin
     @ViewBuilder var destination: (type) -> Destination
 
     var body: some View {
-        NavigationStack(path: $path) {
             ZStack {
                 List {
                     ForEach(viewModel.content) { data in
@@ -41,44 +40,13 @@ struct TopContentListView<type: Codable & ContentForRender,Content: View, Destin
                         destination(artist)
                     }
                 }
-                .toolbar {
-                    ToolbarItem(placement: .topBarLeading) {
-                        Picker("Term", selection: $timeRange) {
-                            ForEach(TimeRange.allCases,id: \.self) { range in
-                                Text(range.text)
-                            }
-                        }
-                        .onChange(of: timeRange) {
-                            isFetchingData = true
-                            Task {
-                                await viewModel.refreshContent(for: timeRange)
-                                withAnimation {
-                                    isFetchingData = false
-                                }
-                            }
-                        }
-                    }
-                    ToolbarItem(placement: .topBarTrailing) {
-                        Button {
-                            IsShowingShareView = true
-                            Task {
-                                await viewModel.prepareForRender()
-                                self.imageToShow = await viewModel.renderImage()
-                            }
-                            
-                        } label: {
-                            Image(systemName: "plus")
-                        }
-                        
-                    }
-                    
-                }
+                
                 if isShowingSnackBar {
                     SnackBarErrorView(isShowing: $isShowingSnackBar, message: errorMessage)
                 }
             }
             
-        }
+        
         .onAppear {
             if viewModel.content.isEmpty {
                 isFetchingData = true
@@ -92,6 +60,38 @@ struct TopContentListView<type: Codable & ContentForRender,Content: View, Destin
         }
         .sheet(isPresented: $IsShowingShareView) {
             ShareContentView(imageToShow: $imageToShow)
+        }
+        .toolbar {
+            ToolbarItem(placement: .topBarLeading) {
+                Picker("Term", selection: $timeRange) {
+                    ForEach(TimeRange.allCases,id: \.self) { range in
+                        Text(range.text)
+                    }
+                }
+                .onChange(of: timeRange) {
+                    isFetchingData = true
+                    Task {
+                        await viewModel.refreshContent(for: timeRange)
+                        withAnimation {
+                            isFetchingData = false
+                        }
+                    }
+                }
+            }
+            ToolbarItem(placement: .topBarTrailing) {
+                Button {
+                    IsShowingShareView = true
+                    Task {
+                        await viewModel.prepareForRender()
+                        self.imageToShow = await viewModel.renderImage()
+                    }
+                    
+                } label: {
+                    Image(systemName: "plus")
+                }
+                
+            }
+            
         }
     }
 }
