@@ -10,7 +10,7 @@ import AuthenticationServices
 
 struct LogInView: View {
     @Environment(UserStateViewModel.self) var userStateViewModel
-    @State private var viewModel: LoginViewModel = .init()
+    @State private var viewModel: UserStateViewModel = .init()
     @State var isShowingAuthWebView = false
     var body: some View {
         VStack {

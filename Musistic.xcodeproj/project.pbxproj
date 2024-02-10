@@ -52,7 +52,6 @@
 		A9EB11892B5CEC9A0052DCCA /* GetTopService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EB11882B5CEC9A0052DCCA /* GetTopService.swift */; };
 		A9EB118B2B5CFEEB0052DCCA /* ArtistListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EB118A2B5CFEEB0052DCCA /* ArtistListRow.swift */; };
 		A9EB118D2B5D08550052DCCA /* TopArtistDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EB118C2B5D08550052DCCA /* TopArtistDetail.swift */; };
-		A9EC7E172B6C59C600FCAEDA /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EC7E162B6C59C600FCAEDA /* LoginViewModel.swift */; };
 		C570BE552B2DB97A006E7536 /* MusicItemRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C570BE542B2DB97A006E7536 /* MusicItemRow.swift */; };
 		C570BE5F2B2E4C13006E7536 /* GetTopResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C570BE5E2B2E4C13006E7536 /* GetTopResponse.swift */; };
 		C570BE612B2E4C24006E7536 /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = C570BE602B2E4C24006E7536 /* Track.swift */; };
@@ -125,7 +124,6 @@
 		A9EB11882B5CEC9A0052DCCA /* GetTopService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTopService.swift; sourceTree = "<group>"; };
 		A9EB118A2B5CFEEB0052DCCA /* ArtistListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistListRow.swift; sourceTree = "<group>"; };
 		A9EB118C2B5D08550052DCCA /* TopArtistDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopArtistDetail.swift; sourceTree = "<group>"; };
-		A9EC7E162B6C59C600FCAEDA /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		C570BE542B2DB97A006E7536 /* MusicItemRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicItemRow.swift; sourceTree = "<group>"; };
 		C570BE5E2B2E4C13006E7536 /* GetTopResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTopResponse.swift; sourceTree = "<group>"; };
 		C570BE602B2E4C24006E7536 /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
@@ -246,7 +244,6 @@
 				A9835ED52B5DEA5F00F18F20 /* UserStateViewModel.swift */,
 				A93A979C2B686FE70097656E /* GetTopContentViewModel.swift */,
 				A9EAB0412B65737A006A92A8 /* ArtistDetailViewModel.swift */,
-				A9EC7E162B6C59C600FCAEDA /* LoginViewModel.swift */,
 				A9E574FC2B700F4400E84A5E /* UserProfileViewModel.swift */,
 				A9A4F6DB2B72E8CB00A7A16A /* PlaylistsViewModel.swift */,
 				A9A4F6DD2B74473C00A7A16A /* TrackDetailViewModel.swift */,
@@ -646,7 +643,6 @@
 				A9EB118D2B5D08550052DCCA /* TopArtistDetail.swift in Sources */,
 				A99279302B57538300D20E48 /* AuthorizeUserEndpoint.swift in Sources */,
 				C570BE552B2DB97A006E7536 /* MusicItemRow.swift in Sources */,
-				A9EC7E172B6C59C600FCAEDA /* LoginViewModel.swift in Sources */,
 				A9E574FF2B701E8800E84A5E /* UserCurrentPlaying.swift in Sources */,
 				A9E575012B701E9900E84A5E /* Device.swift in Sources */,
 				C570BE672B2E4CE7006E7536 /* Artist.swift in Sources */,

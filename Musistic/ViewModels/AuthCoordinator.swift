@@ -24,18 +24,25 @@ class AuthCoordinator: NSObject, WKNavigationDelegate {
                decidePolicyFor navigationAction: WKNavigationAction,
                decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
 
-    let newlyRequestedURL = navigationAction.request.url!.absoluteString
-    guard newlyRequestedURL.contains("?error=") == false else {
-      fatalError("Received an error from SpotifyAuth API, instead of the auth code.")
-    }
-    if newlyRequestedURL.contains("?code=") == false {
-      decisionHandler(.allow)
-      return
-    } else {
-      viewModel.handleSpotify(for: newlyRequestedURL)
-      decisionHandler(.cancel)
-      webView.stopLoading()
-      return
-    }
+      let url = navigationAction.request.url!.absoluteString
+      print(url)
+      guard url.contains("?error=") == false else {
+            fatalError("Received an error from SpotifyAuth API, instead of the auth code.")
+          }
+          // When we see `?code=` in the response, we successfully got the code.
+          if url.contains("?code=") == false {
+            decisionHandler(.allow)
+            return
+          } else {
+              if let url = navigationAction.request.url {
+                  viewModel.handleSpotify(for: url)
+                  print(url)
+              }
+            
+            decisionHandler(.cancel)
+            webView.stopLoading()
+            return
+          }
+    
   }
 }

@@ -13,7 +13,7 @@ import Combine
 final class UserStateViewModel: GetCode {
     var isLogged: Bool = false
     var isLoading = false
-    
+    var isFinishedAuthentication = false
     
     func createUrlForAuthorization() -> URL? {
         let endpoint = AuthorizeEndpoint.authorize
@@ -26,8 +26,11 @@ final class UserStateViewModel: GetCode {
         }
     }
     
-    func handleSpotify(for url: String) {
-       
+    func handleSpotify(for url: URL) {
+        Task {
+            await AuthenticationService().saveAcessToken(from: url)
+            self.isFinishedAuthentication = true
+        }
     }
   
 }

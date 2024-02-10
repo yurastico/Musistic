@@ -10,5 +10,5 @@ import Foundation
 enum SpotifyBaseURL: String {
     case auth = "accounts.spotify.com"
     case api = "api.spotify.com"
-    case redirectURL = "Musistic"//"https://followmap-e38ef391f6f1.herokuapp.com"
+    case redirectURL = "Musistic://callback"//"https://followmap-e38ef391f6f1.herokuapp.com"
 }

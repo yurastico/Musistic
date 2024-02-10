@@ -9,9 +9,18 @@ import SwiftUI
 
 struct AuthSheetView: View {
     @Binding var isShowingSheetView: Bool
-    @Binding var viewModel: LoginViewModel
+    @Binding var viewModel: UserStateViewModel
     var body: some View {
-        WebView(authViewModel: UserStateViewModel())
+        if !viewModel.isFinishedAuthentication {
+              
+                WebView(authViewModel: viewModel)
+                  .opacity(viewModel.isLoading ? 0 : 1)
+            } else {
+              ProgressView()
+                .onAppear {
+                  isShowingSheetView = false
+                }
+            }
     }
 }
 
@@ -24,7 +33,7 @@ var authViewModel: UserStateViewModel
   func makeCoordinator() -> AuthCoordinator {
     AuthCoordinator(authViewModel)
   }
-
+ 
   func updateUIView(_ uiView: UIView,
                     context: UIViewRepresentableContext<WebView>) {}
 
