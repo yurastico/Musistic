@@ -10,8 +10,24 @@ import Observation
 import AuthenticationServices
 import Combine
 @Observable
-final class UserStateViewModel {
+final class UserStateViewModel: GetCode {
     var isLogged: Bool = false
+    var isLoading = false
     
+    
+    func createUrlForAuthorization() -> URL? {
+        let endpoint = AuthorizeEndpoint.authorize
+        let response = createUrl(endpoint: endpoint)
+        switch response {
+        case .success(let url):
+            return url
+        case .failure(_):
+            return nil
+        }
+    }
+    
+    func handleSpotify(for url: String) {
+       
+    }
   
 }

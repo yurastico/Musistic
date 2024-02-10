@@ -38,12 +38,6 @@ struct LogInView: View {
         .sheet(isPresented: $isShowingAuthWebView, content: {
             AuthSheetView(isShowingSheetView: $isShowingAuthWebView, viewModel: $viewModel)
               })
-        .onOpenURL { url in
-            Task {
-                
-                await AuthenticationService().saveAcessToken(from:url)
-            }
-        }
         .onAppear {
             if SpotifyAuthenticationManager.shared.isAccessTokenValid() {
                 withAnimation {
