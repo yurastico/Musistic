@@ -11,6 +11,7 @@ struct MainView: View {
     @State private var selectedTab: TabViewSections = .tracks
     @State private var trackViewModel = TopContentViewModel<Track>()
     @State private var artistViewModel = TopContentViewModel<Artist>()
+    @Binding var path: NavigationPath
     var body: some View {
         TabView(selection: $selectedTab) {
             MusicsListView(viewModel: $trackViewModel)
@@ -29,7 +30,7 @@ struct MainView: View {
                 .tabItem {
                     Label("Playlists",systemImage: "music.note.list")
                 }
-            ProfileView()
+            ProfileView(path: $path)
                 .tag(TabViewSections.profile)
                 .tabItem {
                     Label("Profile",systemImage: "person.fill")
@@ -72,5 +73,5 @@ enum TabViewSections {
 }
 
 #Preview {
-    MainView()
+    MainView(path: .constant(.init()))
 }

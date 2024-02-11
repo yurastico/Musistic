@@ -8,10 +8,9 @@
 import SwiftUI
 
 struct ProfileView: View {
-    @Environment(UserStateViewModel.self) var userStateViewModel
     @State private var viewModel = UserProfileViewModel()
+    @Binding var path: NavigationPath
     var body: some View {
-      
             VStack {
                 if let user = viewModel.user,
                    let url = URL(string: user.images!.last!.url) {
@@ -53,7 +52,7 @@ struct ProfileView: View {
                 
                 Button("Logout") {
                     SpotifyAuthenticationManager.shared.removeCredentials()
-                    userStateViewModel.isLogged = false
+                    path.removeLast()
                 }
                 .buttonStyle(.borderedProminent)
             }
@@ -69,5 +68,5 @@ struct ProfileView: View {
 }
 
 #Preview {
-    ProfileView()
+    ProfileView(path: .constant(.init()))
 }
