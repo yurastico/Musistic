@@ -9,7 +9,7 @@ import SwiftUI
 import AuthenticationServices
 
 struct LogInView: View {
-    @State var userStateViewModel: UserStateViewModel = .init()
+    @Environment(UserStateViewModel.self) var userStateViewModel
     @State var isShowingAuthWebView = false
     @State private var path = NavigationPath()
     var body: some View {
@@ -36,21 +36,36 @@ struct LogInView: View {
                 }
             }
         }
-        
-        .onChange(of: isShowingAuthWebView, { oldValue, newValue in
-            if newValue == false {
-                if userStateViewModel.isLogged {
-                    path.append(LoginPath.mainView)
-                }
+        .onChange(of: userStateViewModel.isLogged, { oldValue, newValue in
+            if newValue {
+                path.append(LoginPath.mainView)
             }
         })
+        .onChange(of: isShowingAuthWebView, { oldValue, newValue in
+            if newValue == false {
+                if SpotifyAuthenticationManager.shared.isAccessTokenValid() {
+                    userStateViewModel.isLogged = true
+                 
+                }
+            }
+            
+        })
         .sheet(isPresented: $isShowingAuthWebView) {
-            AuthSheetView(isShowingSheetView: $isShowingAuthWebView, viewModel: $userStateViewModel)
+            AuthSheetView(isShowingSheetView: $isShowingAuthWebView)
+                .onDisappear {
+                    if SpotifyAuthenticationManager.shared.isAccessTokenValid() {
+                        withAnimation {
+                            userStateViewModel.isLogged = true
+                            
+                        }
+                    }
+                }
         }
         .onAppear {
             if SpotifyAuthenticationManager.shared.isAccessTokenValid() {
                 withAnimation {
                     userStateViewModel.isLogged = true
+                    
                 }
                 
                 print("tudo valendo!!!!!")

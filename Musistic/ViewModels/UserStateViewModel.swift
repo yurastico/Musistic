@@ -15,6 +15,13 @@ final class UserStateViewModel: GetCode {
     var isLoading = false
     var isFinishedAuthentication = false
     
+    
+    func logout() {
+        isLogged = false
+        isLoading = false
+        isFinishedAuthentication = false
+    }
+    
     func createUrlForAuthorization() -> URL? {
         let endpoint = AuthorizeEndpoint.authorize
         let response = createUrl(endpoint: endpoint)

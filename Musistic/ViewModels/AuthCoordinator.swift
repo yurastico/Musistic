@@ -10,7 +10,7 @@ import WebKit
 import SwiftUI
 
 class AuthCoordinator: NSObject, WKNavigationDelegate {
-  @State private var viewModel: UserStateViewModel
+  var viewModel: UserStateViewModel
 
   init(_ viewModel: UserStateViewModel) {
     self.viewModel = viewModel
@@ -36,7 +36,7 @@ class AuthCoordinator: NSObject, WKNavigationDelegate {
           } else {
               if let url = navigationAction.request.url {
                   viewModel.handleSpotify(for: url)
-                  viewModel.isLogged = true
+                  //viewModel.isLogged = true
               }
             
             decisionHandler(.cancel)

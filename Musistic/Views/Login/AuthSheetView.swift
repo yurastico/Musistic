@@ -9,46 +9,45 @@ import SwiftUI
 
 struct AuthSheetView: View {
     @Binding var isShowingSheetView: Bool
-    @Binding var viewModel: UserStateViewModel
+    @Environment(UserStateViewModel.self) var viewModel
     var body: some View {
         if !viewModel.isFinishedAuthentication {
-              
-                WebView(authViewModel: viewModel)
-                  .opacity(viewModel.isLoading ? 0 : 1)
-            } else {
-              ProgressView()
+            WebView()
+                .opacity(viewModel.isLoading ? 0 : 1)
+        } else {
+            ProgressView()
                 .onAppear {
-                  isShowingSheetView = false
+                    isShowingSheetView = false
                 }
-            }
+        }
     }
 }
 
 import WebKit
 struct WebView: UIViewRepresentable {
-
-var authViewModel: UserStateViewModel
-  let webView = WKWebView()
-
-  func makeCoordinator() -> AuthCoordinator {
-    AuthCoordinator(authViewModel)
-  }
- 
-  func updateUIView(_ uiView: UIView,
-                    context: UIViewRepresentableContext<WebView>) {}
-
-  func makeUIView(context: Context) -> UIView {
-    webView.navigationDelegate = context.coordinator
     
-      if let url = authViewModel.createUrlForAuthorization() {
-      webView.load(URLRequest(url: url))
+    @Environment(UserStateViewModel.self) var userStateViewModel
+    let webView = WKWebView()
+    
+    func makeCoordinator() -> AuthCoordinator {
+        AuthCoordinator(userStateViewModel)
     }
-
-    return webView
-  }
+    
+    func updateUIView(_ uiView: UIView,
+                      context: UIViewRepresentableContext<WebView>) {}
+    
+    func makeUIView(context: Context) -> UIView {
+        webView.navigationDelegate = context.coordinator
+        
+        if let url = userStateViewModel.createUrlForAuthorization() {
+            webView.load(URLRequest(url: url))
+        }
+        
+        return webView
+    }
 }
 
 
 #Preview {
-    AuthSheetView(isShowingSheetView: .constant(true),viewModel: .constant(.init()))
+    AuthSheetView(isShowingSheetView: .constant(true))
 }

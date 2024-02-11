@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ProfileView: View {
+    @Environment(UserStateViewModel.self) var userStateViewModel
     @State private var viewModel = UserProfileViewModel()
     @Binding var path: NavigationPath
     var body: some View {
@@ -52,7 +53,9 @@ struct ProfileView: View {
                 
                 Button("Logout") {
                     SpotifyAuthenticationManager.shared.removeCredentials()
+                    userStateViewModel.logout()
                     path.removeLast()
+                    
                 }
                 .buttonStyle(.borderedProminent)
             }
