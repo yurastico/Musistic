@@ -14,8 +14,13 @@ import Observation
 final class TopContentViewModel<T> where T: ContentForRender & Codable {
     var content = [T]()
     var contentForRender = [T]()
+    var isFetchingData = false
+    var IsShowingShareView = false
+    var imageToShow: Image?
+    var timeRange: TimeRange = .mediumTerm
     
-    func refreshContent(for range: TimeRange) async {
+    func refreshContent() async {
+        
         if !SpotifyAuthenticationManager.shared.isAccessTokenValid() {
             let result = await AuthenticationService().refreshToken()
             switch result {
@@ -29,7 +34,7 @@ final class TopContentViewModel<T> where T: ContentForRender & Codable {
                 return
             }
         }
-        let result = await GetTopService().fetchTop(for: T.self,timeRange: range)
+        let result = await GetTopService().fetchTop(for: T.self,timeRange: self.timeRange)
         switch result {
         case .success(let content):
             self.content = content.items

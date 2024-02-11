@@ -8,28 +8,25 @@
 import SwiftUI
 
 struct TopContentListView<type: Codable & ContentForRender,Content: View, Destination: View>: View {
-    @State private var timeRange: TimeRange = .mediumTerm
     @State private var path = NavigationPath()
     @State private var isShowingSnackBar = false
     @State private var errorMessage = ""
     @Bindable var viewModel: TopContentViewModel<type>
-    @State private var isFetchingData = true
-    @State private var IsShowingShareView = false
-    @State var imageToShow: Image?
     @ViewBuilder var content: (type) -> Content
     @ViewBuilder var destination: (type) -> Destination
-
     var body: some View {
             ZStack {
+                
                 List {
-                    ForEach(viewModel.content) { data in
-                        NavigationLink(value: ContentNavigationType.detail(data)) {
-                            if isFetchingData {
-                                SkeletonRow()
-                            } else {
+                    if !viewModel.isFetchingData {
+                        ForEach(viewModel.content) { data in
+                            
+                            NavigationLink(value: ContentNavigationType.detail(data)) {
                                 content(data)
                             }
                         }
+                    } else {
+                        SkeletonView()
                     }
                 }
                 .listStyle(.plain)
@@ -45,54 +42,21 @@ struct TopContentListView<type: Codable & ContentForRender,Content: View, Destin
                     SnackBarErrorView(isShowing: $isShowingSnackBar, message: errorMessage)
                 }
             }
-            
-        
         .onAppear {
             if viewModel.content.isEmpty {
-                isFetchingData = true
+                viewModel.isFetchingData = true
                 Task {
-                    await viewModel.refreshContent(for: timeRange)
+                    await viewModel.refreshContent()
                     withAnimation {
-                        isFetchingData = false
+                        viewModel.isFetchingData = false
                     }
                 }
             }
         }
-        .sheet(isPresented: $IsShowingShareView) {
-            ShareContentView(imageToShow: $imageToShow)
+        .sheet(isPresented: $viewModel.IsShowingShareView) {
+            ShareContentView(imageToShow: $viewModel.imageToShow)
         }
-        .toolbar {
-            ToolbarItem(placement: .topBarLeading) {
-                Picker("Term", selection: $timeRange) {
-                    ForEach(TimeRange.allCases,id: \.self) { range in
-                        Text(range.text)
-                    }
-                }
-                .onChange(of: timeRange) {
-                    isFetchingData = true
-                    Task {
-                        await viewModel.refreshContent(for: timeRange)
-                        withAnimation {
-                            isFetchingData = false
-                        }
-                    }
-                }
-            }
-            ToolbarItem(placement: .topBarTrailing) {
-                Button {
-                    IsShowingShareView = true
-                    Task {
-                        await viewModel.prepareForRender()
-                        self.imageToShow = await viewModel.renderImage()
-                    }
-                    
-                } label: {
-                    Image(systemName: "plus")
-                }
-                
-            }
-            
-        }
+     
     }
 }
 

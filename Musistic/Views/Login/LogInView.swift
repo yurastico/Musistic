@@ -14,8 +14,7 @@ struct LogInView: View {
     @State private var path = NavigationPath()
     var body: some View {
         NavigationStack(path: $path) {
-            VStack {
-                
+            
                 Button {
                     isShowingAuthWebView = true
                     
@@ -30,12 +29,11 @@ struct LogInView: View {
                         .clipShape(RoundedRectangle(cornerRadius: 66))
                         .padding()
                 }
-            }
-            
             .navigationDestination(for: LoginPath.self) { path in
                 switch path {
                 case .mainView:
                     MainView()
+                    
                         
                 }
             }

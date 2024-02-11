@@ -37,6 +37,7 @@
 		A99279492B5C78E100D20E48 /* RefreshTokenEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99279482B5C78E100D20E48 /* RefreshTokenEndpoint.swift */; };
 		A996B4922B65A1C700B1D690 /* ShareItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A996B4912B65A1C700B1D690 /* ShareItemView.swift */; };
 		A9984E492B780BDC00F26752 /* AuthCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9984E482B780BDC00F26752 /* AuthCoordinator.swift */; };
+		A9984E4B2B78AF7700F26752 /* GetTopToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9984E4A2B78AF7700F26752 /* GetTopToolbar.swift */; };
 		A9A4F6DA2B72E5D100A7A16A /* UserPlaylist.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A4F6D92B72E5D100A7A16A /* UserPlaylist.swift */; };
 		A9A4F6DC2B72E8CB00A7A16A /* PlaylistsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A4F6DB2B72E8CB00A7A16A /* PlaylistsViewModel.swift */; };
 		A9A4F6DE2B74473C00A7A16A /* TrackDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A4F6DD2B74473C00A7A16A /* TrackDetailViewModel.swift */; };
@@ -109,6 +110,7 @@
 		A99279482B5C78E100D20E48 /* RefreshTokenEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshTokenEndpoint.swift; sourceTree = "<group>"; };
 		A996B4912B65A1C700B1D690 /* ShareItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareItemView.swift; sourceTree = "<group>"; };
 		A9984E482B780BDC00F26752 /* AuthCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCoordinator.swift; sourceTree = "<group>"; };
+		A9984E4A2B78AF7700F26752 /* GetTopToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTopToolbar.swift; sourceTree = "<group>"; };
 		A9A4F6D92B72E5D100A7A16A /* UserPlaylist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPlaylist.swift; sourceTree = "<group>"; };
 		A9A4F6DB2B72E8CB00A7A16A /* PlaylistsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistsViewModel.swift; sourceTree = "<group>"; };
 		A9A4F6DD2B74473C00A7A16A /* TrackDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackDetailViewModel.swift; sourceTree = "<group>"; };
@@ -451,6 +453,7 @@
 		C5774B662B27E9D10089DA4A = {
 			isa = PBXGroup;
 			children = (
+				A9984E4A2B78AF7700F26752 /* GetTopToolbar.swift */,
 				A9E575002B701E9900E84A5E /* Device.swift */,
 				C5774B712B27E9D20089DA4A /* Musistic */,
 				C5774B702B27E9D20089DA4A /* Products */,
@@ -647,6 +650,7 @@
 				A9E575012B701E9900E84A5E /* Device.swift in Sources */,
 				C570BE672B2E4CE7006E7536 /* Artist.swift in Sources */,
 				C570BE772B2E56BF006E7536 /* AsyncImageContainer.swift in Sources */,
+				A9984E4B2B78AF7700F26752 /* GetTopToolbar.swift in Sources */,
 				A99279322B57BE6400D20E48 /* SpotifyBaseURL.swift in Sources */,
 				C570BE652B2E4CD8006E7536 /* Album.swift in Sources */,
 				A9835EDF2B5E3BBA00F18F20 /* RedectedAnimation.swift in Sources */,

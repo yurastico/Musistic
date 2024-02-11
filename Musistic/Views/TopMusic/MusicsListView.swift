@@ -9,9 +9,9 @@ import SwiftUI
 
 
 struct MusicsListView: View {
-    private var viewModel = TopContentViewModel<Track>()
+    @Binding var viewModel: TopContentViewModel<Track>
     var body: some View {
-        TopContentListView(viewModel: TopContentViewModel<Track>()) { track in
+        TopContentListView(viewModel: viewModel) { track in
             MusicItemRow(track: track)
                 
         } destination: { track in

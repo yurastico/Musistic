@@ -11,11 +11,11 @@ struct SkeletonView: View {
    
     var body: some View {
         VStack(spacing: 4) {
-            ForEach(0..<1,id: \.self) { index in
+            
+                ForEach(0..<15,id: \.self) { index in
                     SkeletonRow()
-            }
-            .listRowSeparator(.hidden, edges: .all)
-            .padding(-5)
+                }
+            
         }
     }
 }
