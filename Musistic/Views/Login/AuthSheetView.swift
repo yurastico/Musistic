@@ -6,6 +6,10 @@
 //
 
 import SwiftUI
+import AuthenticationServices
+
+
+
 
 struct AuthSheetView: View {
     @Binding var isShowingSheetView: Bool
@@ -24,6 +28,7 @@ struct AuthSheetView: View {
 }
 
 import WebKit
+
 struct WebView: UIViewRepresentable {
     
     @Environment(UserStateViewModel.self) var userStateViewModel

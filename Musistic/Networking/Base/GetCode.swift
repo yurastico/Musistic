@@ -20,7 +20,7 @@ extension GetCode {
         urlComponents.queryItems = endpoint.queryItems
         
         guard let url = urlComponents.url else { return .failure(.invalidURL)}
-        
+        print(url)
         return .success(url)
         
     }

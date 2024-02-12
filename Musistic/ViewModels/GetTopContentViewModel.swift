@@ -34,10 +34,12 @@ final class TopContentViewModel<T> where T: ContentForRender & Codable {
                 return
             }
         }
+        
         let result = await GetTopService().fetchTop(for: T.self,timeRange: self.timeRange)
         switch result {
         case .success(let content):
             self.content = content.items
+            
         case .failure(let error):
             print(error)
         }

@@ -13,7 +13,7 @@ protocol HTTPClient {
 
 extension HTTPClient {
     func sendRequest<T: Decodable>(endpoint: Endpoint, responseModel: T.Type?) async -> Result<T?,RequestError> {
-
+        
         var urlComponents = URLComponents()
         urlComponents.scheme = endpoint.schema
         urlComponents.host = endpoint.host
@@ -37,12 +37,19 @@ extension HTTPClient {
             }
         } // passar um enum explicando se eh urlencoded or json-body,receber um data
 
+        
+        print(urlComponents.url)
+        print(request.httpMethod)
+        print(request.allHTTPHeaderFields)
+        
         do {
             let (data, response) = try await URLSession.shared.data(for: request)
+            let errorResponse = try? JSONSerialization.jsonObject(with: data) as? [String: Any]
             
             guard let response = response as? HTTPURLResponse else {
                 return .failure(.noResponse)
             }
+            print(response.statusCode)
             switch response.statusCode {
             case 200...299:
                 guard let responseModel = responseModel else {
@@ -53,8 +60,8 @@ extension HTTPClient {
                 do {
                     let decodedResponse = try decoder.decode(responseModel, from: data)
                     return .success(decodedResponse)
-                } catch(let error) {
-                    print(error)
+                } catch {
+                    
                     return .failure(.decode)
                 }
                
@@ -65,10 +72,9 @@ extension HTTPClient {
                 return .failure(.noAuthorized)
             default:
                 let errorResponse = try? JSONSerialization.jsonObject(with: data) as? [String: Any]
-                
                 return .failure(.custom(errorResponse))
             }
-        } catch {
+        } catch(let error) {
             return .failure(.unknown)
         }
         

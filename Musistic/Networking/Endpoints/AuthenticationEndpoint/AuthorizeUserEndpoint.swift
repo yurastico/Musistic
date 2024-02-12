@@ -13,11 +13,16 @@ enum AuthorizeEndpoint {
 
 extension AuthorizeEndpoint: Endpoint {
     var queryItems: [URLQueryItem]? {
+        guard let pkce = PkceManager.shared else { return nil }
         return [URLQueryItem(name: "response_type", value: "code"),
                 URLQueryItem(name: "client_id", value: SpotifyConstants.clientId.rawValue),
                 URLQueryItem(name: "scope", value: SpotifyConstants.scope.rawValue),
                 URLQueryItem(name: "redirect_uri", value: SpotifyBaseURL.redirectURL.rawValue),
-                URLQueryItem(name: "state", value: generateRandomString())]
+                //URLQueryItem(name: "state", value: ),
+                URLQueryItem(name: "code_challenge_method", value: "S256"),
+                URLQueryItem(name: "code_challenge", value: pkce.codeChallanger)
+                
+        ]
     }
     
     var host: String {
@@ -43,9 +48,8 @@ extension AuthorizeEndpoint: Endpoint {
         nil
     }
     
-    private func generateRandomString(length: Int = 16) -> String {
-           let characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-           let randomString = (0..<length).map { _ in characters.randomElement()! }
-           return String(randomString)
-       }
+    
+    
 }
+
+

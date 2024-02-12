@@ -6,9 +6,10 @@
 //
 
 import SwiftUI
-import AuthenticationServices
+
 
 struct LogInView: View {
+    @Environment(\.authorizationController) private var authorizationController
     @Environment(UserStateViewModel.self) var userStateViewModel
     @State var isShowingAuthWebView = false
     @State private var path = NavigationPath()
@@ -95,3 +96,6 @@ struct LogInView: View {
 enum LoginPath: Hashable {
     case mainView
 }
+
+
+

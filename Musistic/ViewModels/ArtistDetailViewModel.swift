@@ -13,16 +13,25 @@ final class ArtistDetailViewModel {
     let artistId: String
     var relatedArtists: [Artist] = []
     var topTracks: [Track] = []
+    var artist: Artist?
     
     init(artistId: String) {
         self.artistId = artistId
         if !SpotifyAuthenticationManager.shared.isAccessTokenValid() {
             Task {
                 _ = await AuthenticationService().refreshToken()
+                
             }
+        }
+        Task {
+            await fetchArtist()
         }
     }
     
+    func fetchArtist() async {
+        let artistResponse = await ArtistDataService().fetchArtist(artistId: self.artistId)
+        self.artist = artistResponse
+    }
 
     func fetchAlbuns() async {
         let service = ArtistDataService()

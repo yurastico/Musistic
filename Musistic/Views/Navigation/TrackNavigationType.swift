@@ -12,7 +12,7 @@ enum TrackNavigationType: Hashable {
 }
 
 enum ArtistNavigationType: Hashable {
-    case artistDetail(artist: Artist)
+    case artistDetail(artistId: String)
 }
 
 enum ContentNavigationType<T>: Hashable where T:Hashable {

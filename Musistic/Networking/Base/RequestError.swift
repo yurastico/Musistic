@@ -14,7 +14,6 @@ enum RequestError: Error {
     
     var errorMessage: String {
         switch self {
-            
         case .invalidURL:
             "the URL is invalid!"
         case .decode:
@@ -29,8 +28,10 @@ enum RequestError: Error {
             "unkown error"
         case .noContent:
             "no content fot this request"
-        case .custom(_):
-            "error custom "
+        case .custom(let error):
+            "Custom error"
         }
     }
 }
+
+

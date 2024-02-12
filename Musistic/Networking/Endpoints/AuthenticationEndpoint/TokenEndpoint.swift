@@ -14,9 +14,12 @@ struct TokenEndpoint {
 extension TokenEndpoint: Endpoint {
 
     var queryItems: [URLQueryItem]? {
+        guard let pkce = PkceManager.shared else { return nil }
         return [URLQueryItem(name: "grant_type", value: "authorization_code"),
             URLQueryItem(name: "code", value: code),
-            URLQueryItem(name: "redirect_uri", value: SpotifyBaseURL.redirectURL.rawValue)]
+            URLQueryItem(name: "redirect_uri", value: SpotifyBaseURL.redirectURL.rawValue),
+                URLQueryItem(name: "client_id", value: SpotifyConstants.clientId.rawValue),
+            URLQueryItem(name: "code_verifier", value: pkce.codeVerifier)]
     }
     
     var host: String {
