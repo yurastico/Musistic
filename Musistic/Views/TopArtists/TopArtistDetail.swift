@@ -55,30 +55,16 @@ struct TopArtistDetail: View {
                     ScrollView(.horizontal) {
                         HStack {
                             ForEach(viewModel.relatedArtists) { artist in
-                                VStack {
-                                    if let url = URL(string: artist.images!.first!.url) {
-                                        NavigationLink(value: ArtistNavigationType.artistDetail(artistId: artist.id)) {
-                                            AsyncImageContainer(url: url)
-                                                .clipShape(Circle())
-                                                .frame(height: 100)
-                                            Text(artist.name)
-                                                .bold()
-                                                
-                                        }
-                                        .foregroundStyle(.primary)
-                                        
-                                        
-                                    }
-                                    
-                                }
+                                RelatedArtistCardView(artist: artist)
                                 .navigationDestination(for: ArtistNavigationType.self, destination: { type in
                                     switch type {
-                                    case .artistDetail(artistId: let string):
-                                        TopArtistDetail(artistId: artist.id)
+                                    case .artistDetail(artistId: let id):
+                                        TopArtistDetail(artistId: id)
                                         
                                     }
                                 })
                             }
+                            
                         }
                     }
                     

@@ -14,6 +14,7 @@
 		A93A979D2B686FE70097656E /* GetTopContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93A979C2B686FE70097656E /* GetTopContentViewModel.swift */; };
 		A93A97A02B694BA90097656E /* ShareContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93A979F2B694BA90097656E /* ShareContentView.swift */; };
 		A93A97A22B696ED20097656E /* CodableIgnored.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93A97A12B696ED20097656E /* CodableIgnored.swift */; };
+		A97E2BF82B7C2A2C0032564C /* RelatedArtistCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97E2BF72B7C2A2C0032564C /* RelatedArtistCardView.swift */; };
 		A98338302B6073A40087EA99 /* SnackBarErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A983382F2B6073A40087EA99 /* SnackBarErrorView.swift */; };
 		A98338322B6073EB0087EA99 /* UIAplication+getKeyWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98338312B6073EB0087EA99 /* UIAplication+getKeyWindow.swift */; };
 		A98338352B62E2B90087EA99 /* ArtistAlbuns.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98338342B62E2B90087EA99 /* ArtistAlbuns.swift */; };
@@ -87,6 +88,7 @@
 		A93A979C2B686FE70097656E /* GetTopContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTopContentViewModel.swift; sourceTree = "<group>"; };
 		A93A979F2B694BA90097656E /* ShareContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareContentView.swift; sourceTree = "<group>"; };
 		A93A97A12B696ED20097656E /* CodableIgnored.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableIgnored.swift; sourceTree = "<group>"; };
+		A97E2BF72B7C2A2C0032564C /* RelatedArtistCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelatedArtistCardView.swift; sourceTree = "<group>"; };
 		A983382F2B6073A40087EA99 /* SnackBarErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnackBarErrorView.swift; sourceTree = "<group>"; };
 		A98338312B6073EB0087EA99 /* UIAplication+getKeyWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAplication+getKeyWindow.swift"; sourceTree = "<group>"; };
 		A98338342B62E2B90087EA99 /* ArtistAlbuns.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistAlbuns.swift; sourceTree = "<group>"; };
@@ -455,6 +457,7 @@
 		C5774B662B27E9D10089DA4A = {
 			isa = PBXGroup;
 			children = (
+				A97E2BF72B7C2A2C0032564C /* RelatedArtistCardView.swift */,
 				A9F206C42B7AB47700EDC7AD /* PkceManager.swift */,
 				A9984E4A2B78AF7700F26752 /* GetTopToolbar.swift */,
 				A9E575002B701E9900E84A5E /* Device.swift */,
@@ -653,6 +656,7 @@
 				A9E574FF2B701E8800E84A5E /* UserCurrentPlaying.swift in Sources */,
 				A9E575012B701E9900E84A5E /* Device.swift in Sources */,
 				C570BE672B2E4CE7006E7536 /* Artist.swift in Sources */,
+				A97E2BF82B7C2A2C0032564C /* RelatedArtistCardView.swift in Sources */,
 				C570BE772B2E56BF006E7536 /* AsyncImageContainer.swift in Sources */,
 				A9984E4B2B78AF7700F26752 /* GetTopToolbar.swift in Sources */,
 				A99279322B57BE6400D20E48 /* SpotifyBaseURL.swift in Sources */,
