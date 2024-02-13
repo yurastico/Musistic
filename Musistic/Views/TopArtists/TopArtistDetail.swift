@@ -51,8 +51,6 @@ struct TopArtistDetail: View {
                     .frame(height: 250)
                     .frame(maxWidth: .infinity)
                     .tabViewStyle(.page(indexDisplayMode: .never))
-                    
-                    
                     Divider()
                     ScrollView(.horizontal) {
                         HStack {
@@ -65,8 +63,11 @@ struct TopArtistDetail: View {
                                                 .frame(height: 100)
                                             Text(artist.name)
                                                 .bold()
+                                                
                                         }
-                                       
+                                        .foregroundStyle(.primary)
+                                        
+                                        
                                     }
                                     
                                 }
@@ -74,7 +75,7 @@ struct TopArtistDetail: View {
                                     switch type {
                                     case .artistDetail(artistId: let string):
                                         TopArtistDetail(artistId: artist.id)
-                                    
+                                        
                                     }
                                 })
                             }
