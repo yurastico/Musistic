@@ -5,10 +5,8 @@
 //  Created by Yuri Cunha on 21/01/24.
 //
 
-import Foundation
 import Observation
-import AuthenticationServices
-import Combine
+import SwiftUI
 @Observable
 final class UserStateViewModel: GetCode {
     var isLogged: Bool = false
@@ -44,6 +42,30 @@ final class UserStateViewModel: GetCode {
                 print(error)
             }
             
+        }
+    }
+    
+    func verifyLogin() {
+        if SpotifyAuthenticationManager.shared.isAccessTokenValid() {
+            withAnimation {
+                self.isLogged = true
+                
+            }
+            
+            print("tudo valendo!!!!!")
+        } else {
+            Task {
+                if SpotifyAuthenticationManager.shared.accessToken != nil {
+                    let result = await AuthenticationService().refreshToken()
+                    switch result {
+                    case .success(let isAuthenticated):
+                        self.isLogged = isAuthenticated
+                        print("refreshing token!!!!!!!!!!!!")
+                    case .failure(let error):
+                        print(error)
+                    }
+                }
+            }
         }
     }
   

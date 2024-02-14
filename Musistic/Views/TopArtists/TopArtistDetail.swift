@@ -20,7 +20,6 @@ struct TopArtistDetail: View {
                 VStack {
                     ArtistPhotoView(artist: artist)
                     
-                    
                     Divider()
                     
                     ArtistAlbumsView(albuns: viewModel.albuns)
