@@ -18,82 +18,26 @@ struct TopArtistDetail: View {
         ScrollView {
             if let artist = viewModel.artist {
                 VStack {
-                    VStack(spacing: 0) {
-                        if let url = URL(string: artist.images!.first!.url) {
-                            AsyncImageContainer(url: url)
-                                .clipShape(Circle())
-                            
-                            Text(artist.name)
-                                .font(.largeTitle)
-                                .bold()
-                        }
-                        
-                    }
-                    .frame(height: 150)
-                    .frame(maxWidth: .infinity)
+                    ArtistPhotoView(artist: artist)
                     
                     
                     Divider()
                     
-                    TabView {
-                        ForEach(viewModel.albuns) { album in
-                            if let url = URL(string: album.images.first!.url) {
-                                VStack {
-                                    AsyncImageContainer(url: url)
-                                        .frame(maxWidth: .infinity)
-                                    Text(album.name)
-                                }
-                                
-                            }
-                        }
-                    }
-                    
-                    .frame(height: 250)
-                    .frame(maxWidth: .infinity)
-                    .tabViewStyle(.page(indexDisplayMode: .never))
+                    ArtistAlbumsView(albuns: viewModel.albuns)
                     Divider()
-                    ScrollView(.horizontal) {
-                        HStack {
-                            ForEach(viewModel.relatedArtists) { artist in
-                                RelatedArtistCardView(artist: artist)
-                                .navigationDestination(for: ArtistNavigationType.self, destination: { type in
-                                    switch type {
-                                    case .artistDetail(artistId: let id):
-                                        TopArtistDetail(artistId: id)
-                                        
-                                    }
-                                })
-                            }
-                            
-                        }
-                    }
+                    
+                    RelatedArtistsView(artists: viewModel.relatedArtists)
+                    
                     
                     Divider()
                     
-                    VStack(alignment: .leading) {
-                        var number = 0
-                        ForEach(viewModel.topTracks) { track in
-                            
-                            HStack {
-                                if let url = URL(string: track.album.images.first!.url) {
-                                    Text("\(number.autoIncrement() - 10)")
-                                        .font(.caption2)
-                                    AsyncImageContainer(url: url)
-                                        .frame(width: 50,height: 50)
-                                    Text(track.name)
-                                    
-                                }
-                                
-                            }
-                        }
-                    }
+                    ArtistTopTracksView(tracks: viewModel.topTracks)
                 }
             }
         }
         
         .onAppear {
             Task {
-                
                 await viewModel.fetchAlbuns()
                 await viewModel.fetchRelatedArtists()
                 await viewModel.fetchArtistTopTracks()
