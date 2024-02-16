@@ -29,7 +29,7 @@ enum UserEndpoint: Endpoint {
     }
     
     var header: [String : String]? {
-        ["Authorization": "Bearer \(SpotifyAuthenticationManager.shared.accessToken ?? "")"]
+        ["Authorization": "Bearer \(SpotifyAuthenticationManager.shared.alwaysValidAcessToken ?? "")"]
     }
     
     var jsonBody: [String : String]? {

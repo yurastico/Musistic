@@ -15,9 +15,34 @@ final class SpotifyAuthenticationManager {
     private static let refreshTokenKey = "musistic-spotify-refreshToken"
     private static let expiresInKey = "musistic-spotify-expiresIn"
     
-    var accessToken: String?
+    private var accessToken: String?
     var expiresIn: TimeInterval?
     var refreshToken: String?
+    
+    var alwaysValidAcessToken: String? {
+        guard let _ = accessToken else { return nil }
+        if isAccessTokenValid() {
+            return accessToken
+        }
+        self.refreshAcessToken()
+        guard let token = accessToken else { return nil}
+        return token
+        
+    }
+    
+    private func refreshAcessToken() {
+        let service = AuthenticationService()
+        Task {
+            let result = await service.refreshToken()
+            switch result {
+            case .success(let token):
+                self.saveCredentials(for: token)
+            case .failure(let error):
+                print("error to save accessToken")
+            }
+        }
+    }
+    
     
     private init() {
         self.accessToken = KeychainHelper.get(for: Self.acessTokenKey)

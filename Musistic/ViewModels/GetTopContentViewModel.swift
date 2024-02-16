@@ -21,20 +21,6 @@ final class TopContentViewModel<T> where T: ContentForRender & Codable {
     
     func refreshContent() async {
         
-        if !SpotifyAuthenticationManager.shared.isAccessTokenValid() {
-            let result = await AuthenticationService().refreshToken()
-            switch result {
-            case .success(let bool):
-                if !bool {
-                    print("n'ao eh valido")
-                    return
-                }
-            case .failure(let error):
-                print(error)
-                return
-            }
-        }
-        
         let result = await GetTopService().fetchTop(for: T.self,timeRange: self.timeRange)
         switch result {
         case .success(let content):

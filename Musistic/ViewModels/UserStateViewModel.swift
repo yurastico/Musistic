@@ -55,11 +55,11 @@ final class UserStateViewModel: GetCode {
             print("tudo valendo!!!!!")
         } else {
             Task {
-                if SpotifyAuthenticationManager.shared.accessToken != nil {
+                if SpotifyAuthenticationManager.shared.alwaysValidAcessToken != nil {
                     let result = await AuthenticationService().refreshToken()
                     switch result {
                     case .success(let isAuthenticated):
-                        self.isLogged = isAuthenticated
+                        self.isLogged = true
                         print("refreshing token!!!!!!!!!!!!")
                     case .failure(let error):
                         print(error)

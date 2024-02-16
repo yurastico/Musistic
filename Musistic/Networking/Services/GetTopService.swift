@@ -11,7 +11,7 @@ import Foundation
 struct GetTopService: HTTPClient {
     func fetchTop<T: Decodable>(for type: T.Type, timeRange: TimeRange,by path: GetTopPath = .returnType(for: T.self)) async -> Result<GetTopResponse<T>,RequestError> {
         
-        guard let accessToken = SpotifyAuthenticationManager.shared.accessToken else { 
+        guard let accessToken = SpotifyAuthenticationManager.shared.alwaysValidAcessToken else { 
             return .failure(.expiredToken)
         }
         
