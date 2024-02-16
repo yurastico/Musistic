@@ -14,11 +14,14 @@ struct MainView: View {
     @Binding var path: NavigationPath
     var body: some View {
         TabView(selection: $selectedTab) {
-            MusicsListView(viewModel: $trackViewModel)
-                .tag(TabViewSections.tracks)
-                .tabItem {
-                    Label("Musics", systemImage: "music.note")
-                }
+                
+                MusicsListView(viewModel: $trackViewModel)
+                    .tag(TabViewSections.tracks)
+                    .tabItem {
+                        Label("Musics", systemImage: "music.note")
+                    }
+            
+        
             
             ArtistsListView(viewModel: $artistViewModel)
                 .tag(TabViewSections.artists)

@@ -29,7 +29,7 @@ class AuthCoordinator: NSObject, WKNavigationDelegate {
         let url = navigationAction.request.url!.absoluteString
         
         
-        
+        print(url)
         if url.contains("?code=") == false {
             decisionHandler(.allow)
             return
@@ -37,9 +37,9 @@ class AuthCoordinator: NSObject, WKNavigationDelegate {
             
             if let url = navigationAction.request.url {
                 viewModel.handleSpotify(for: url)
-                //viewModel.isLogged = true
             }
             decisionHandler(.cancel)
+            viewModel.isFinishedAuthentication = true
             webView.stopLoading()
             return
         }

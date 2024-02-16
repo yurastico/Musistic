@@ -15,25 +15,25 @@ struct LogInView: View {
     @State private var path = NavigationPath()
     var body: some View {
         NavigationStack(path: $path) {
-                Button {
-                    isShowingAuthWebView = true
-                } label: {
-                    Text("Log in with Spotify")
-                        .frame(maxWidth: .infinity)
-                        .font(.title)
-                        .fontWeight(.bold)
-                        .padding()
-                        .background(Color.green)
-                        .foregroundStyle(.white)
-                        .clipShape(RoundedRectangle(cornerRadius: 66))
-                        .padding()
-                }
+            Button {
+                isShowingAuthWebView = true
+            } label: {
+                Text("Log in with Spotify")
+                    .frame(maxWidth: .infinity)
+                    .font(.title)
+                    .fontWeight(.bold)
+                    .padding()
+                    .background(Color.green)
+                    .foregroundStyle(.white)
+                    .clipShape(RoundedRectangle(cornerRadius: 66))
+                    .padding()
+            }
             .navigationDestination(for: LoginPath.self) { path in
                 switch path {
                 case .mainView:
                     MainView(path: $path)
+                
                     
-                        
                 }
             }
         }
@@ -46,7 +46,7 @@ struct LogInView: View {
             if newValue == false {
                 if SpotifyAuthenticationManager.shared.isAccessTokenValid() {
                     userStateViewModel.isLogged = true
-                 
+                    
                 }
             }
             
