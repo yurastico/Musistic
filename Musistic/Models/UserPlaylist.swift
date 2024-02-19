@@ -80,7 +80,7 @@ struct TrackFromPlaylist: Codable,Hashable,Identifiable {
     struct AddedBy: Codable,Hashable {
        
         let externalUrls: ExternalUrls
-        let followers: Followers
+        let followers: Followers?
         let href: String
         let id: String
         let type: String
