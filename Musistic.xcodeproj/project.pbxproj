@@ -14,6 +14,8 @@
 		A93A979D2B686FE70097656E /* GetTopContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93A979C2B686FE70097656E /* GetTopContentViewModel.swift */; };
 		A93A97A02B694BA90097656E /* ShareContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93A979F2B694BA90097656E /* ShareContentView.swift */; };
 		A93A97A22B696ED20097656E /* CodableIgnored.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93A97A12B696ED20097656E /* CodableIgnored.swift */; };
+		A94FA3452B82DA46005CF8C4 /* PlaylistEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94FA3442B82DA45005CF8C4 /* PlaylistEndpoint.swift */; };
+		A94FA3472B82DFD4005CF8C4 /* PlaylistService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94FA3462B82DFD4005CF8C4 /* PlaylistService.swift */; };
 		A97818062B7EF00300591FAC /* PlaylistListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97818052B7EF00300591FAC /* PlaylistListView.swift */; };
 		A97818082B7EF0D300591FAC /* PlaylistViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97818072B7EF0D300591FAC /* PlaylistViewModel.swift */; };
 		A97E2BF82B7C2A2C0032564C /* RelatedArtistCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97E2BF72B7C2A2C0032564C /* RelatedArtistCardView.swift */; };
@@ -94,6 +96,8 @@
 		A93A979C2B686FE70097656E /* GetTopContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTopContentViewModel.swift; sourceTree = "<group>"; };
 		A93A979F2B694BA90097656E /* ShareContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareContentView.swift; sourceTree = "<group>"; };
 		A93A97A12B696ED20097656E /* CodableIgnored.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableIgnored.swift; sourceTree = "<group>"; };
+		A94FA3442B82DA45005CF8C4 /* PlaylistEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistEndpoint.swift; sourceTree = "<group>"; };
+		A94FA3462B82DFD4005CF8C4 /* PlaylistService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistService.swift; sourceTree = "<group>"; };
 		A97818052B7EF00300591FAC /* PlaylistListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistListView.swift; sourceTree = "<group>"; };
 		A97818072B7EF0D300591FAC /* PlaylistViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistViewModel.swift; sourceTree = "<group>"; };
 		A97E2BF72B7C2A2C0032564C /* RelatedArtistCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelatedArtistCardView.swift; sourceTree = "<group>"; };
@@ -327,6 +331,7 @@
 				A98338392B62E56E0087EA99 /* Artist */,
 				A992793B2B5939B600D20E48 /* AuthenticationService.swift */,
 				A9EB11882B5CEC9A0052DCCA /* GetTopService.swift */,
+				A94FA3462B82DFD4005CF8C4 /* PlaylistService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -379,6 +384,7 @@
 				A98338362B62E4310087EA99 /* ArtistEndpoint */,
 				A992792C2B574E9800D20E48 /* AuthenticationEndpoint */,
 				A9EB11842B5CE51A0052DCCA /* GetTopEndpoint */,
+				A94FA3442B82DA45005CF8C4 /* PlaylistEndpoint.swift */,
 			);
 			path = Endpoints;
 			sourceTree = "<group>";
@@ -496,16 +502,16 @@
 			isa = PBXGroup;
 			children = (
 				C5774B722B27E9D20089DA4A /* MusisticApp.swift */,
-				C5774B782B27E9D30089DA4A /* Preview Content */,
 				C5774B762B27E9D30089DA4A /* Assets.xcassets */,
 				A99279352B57C54B00D20E48 /* Info.plist */,
-				A99279452B5A7F5300D20E48 /* Managers */,
-				A99279422B5A7EAF00D20E48 /* Services */,
-				A99279202B55F46700D20E48 /* Networking */,
-				C570BE5D2B2E4BC6006E7536 /* Models */,
 				C596B60E2B2947DB001A5F0B /* Extensions */,
-				A9835ED72B5E38BF00F18F20 /* ViewModels */,
+				A99279452B5A7F5300D20E48 /* Managers */,
+				C570BE5D2B2E4BC6006E7536 /* Models */,
+				A99279202B55F46700D20E48 /* Networking */,
+				A99279422B5A7EAF00D20E48 /* Services */,
 				C5774B8C2B2937C90089DA4A /* Views */,
+				A9835ED72B5E38BF00F18F20 /* ViewModels */,
+				C5774B782B27E9D30089DA4A /* Preview Content */,
 			);
 			path = Musistic;
 			sourceTree = "<group>";
@@ -646,6 +652,7 @@
 				A99279392B57C5CB00D20E48 /* GetCode.swift in Sources */,
 				A97818062B7EF00300591FAC /* PlaylistListView.swift in Sources */,
 				A9E574F52B700AC600E84A5E /* User.swift in Sources */,
+				A94FA3452B82DA46005CF8C4 /* PlaylistEndpoint.swift in Sources */,
 				A9E574FB2B700C3200E84A5E /* UserService.swift in Sources */,
 				C5774B832B28AAF40089DA4A /* MusicsListView.swift in Sources */,
 				A9EB118B2B5CFEEB0052DCCA /* ArtistListRow.swift in Sources */,
@@ -682,6 +689,7 @@
 				C570BE672B2E4CE7006E7536 /* Artist.swift in Sources */,
 				A97E2BF82B7C2A2C0032564C /* RelatedArtistCardView.swift in Sources */,
 				C570BE772B2E56BF006E7536 /* AsyncImageContainer.swift in Sources */,
+				A94FA3472B82DFD4005CF8C4 /* PlaylistService.swift in Sources */,
 				A9984E4B2B78AF7700F26752 /* GetTopToolbar.swift in Sources */,
 				A99279322B57BE6400D20E48 /* SpotifyBaseURL.swift in Sources */,
 				C570BE652B2E4CD8006E7536 /* Album.swift in Sources */,

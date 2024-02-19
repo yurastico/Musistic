@@ -15,7 +15,13 @@ struct PlaylistListView: View {
     
     var body: some View {
         List {
-            
+            if viewModel.isFatchingData {
+                SkeletonView()
+            } else {
+                ForEach(viewModel.tracks) { track in
+                    Text(track.track.name)
+                }
+            }
         }
         .listStyle(.plain)
     }

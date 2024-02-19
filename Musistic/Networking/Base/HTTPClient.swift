@@ -38,9 +38,7 @@ extension HTTPClient {
         } // passar um enum explicando se eh urlencoded or json-body,receber um data
 
         
-        print(urlComponents.url)
-        print(request.httpMethod)
-        print(request.allHTTPHeaderFields)
+    
         
         do {
             let (data, response) = try await URLSession.shared.data(for: request)
@@ -49,7 +47,7 @@ extension HTTPClient {
             guard let response = response as? HTTPURLResponse else {
                 return .failure(.noResponse)
             }
-            print(response.statusCode)
+        
             switch response.statusCode {
             case 200...299:
                 guard let responseModel = responseModel else {
@@ -60,8 +58,8 @@ extension HTTPClient {
                 do {
                     let decodedResponse = try decoder.decode(responseModel, from: data)
                     return .success(decodedResponse)
-                } catch {
-                    
+                } catch(let error) {
+                    print(error)
                     return .failure(.decode)
                 }
                

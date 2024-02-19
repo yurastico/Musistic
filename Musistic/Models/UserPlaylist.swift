@@ -42,4 +42,48 @@ struct Playlist: Codable,Identifiable,Hashable {
 struct PlaylistTracks: Codable,Hashable {
     let href: String
     let total: Int
+    let limit: Int?
+    let next: String?
+    let offset: Int?
+    let previous: String?
+    let items: [TrackFromPlaylist]?
+    
+}
+
+struct TrackFromPlaylist: Codable,Hashable,Identifiable {
+    
+    var id: String {
+        self.track.id
+    }
+    
+    static func == (lhs: TrackFromPlaylist, rhs: TrackFromPlaylist) -> Bool {
+        lhs.track.id == rhs.track.id
+    }
+    
+    
+    
+ 
+    
+    struct LinkedFrom: Codable {
+    }
+    
+    struct Restrictions: Codable {
+        let reason: String
+    }
+    
+
+    let addedAt: String
+    let addedBy: AddedBy
+    let isLocal: Bool
+    let track: Track
+    
+    struct AddedBy: Codable,Hashable {
+       
+        let externalUrls: ExternalUrls
+        let followers: Followers
+        let href: String
+        let id: String
+        let type: String
+        let uri: String
+    }
 }
