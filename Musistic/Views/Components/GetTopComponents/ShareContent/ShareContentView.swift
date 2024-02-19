@@ -13,9 +13,24 @@ struct ShareContentView: View {
     var body: some View {
         VStack {
             if !isLoadingImage {
-                imageToShow?
-                    .resizable()
-                    .scaledToFit()
+                TabView {
+                    imageToShow?
+                        .resizable()
+                        .scaledToFit()
+                    imageToShow?
+                        .resizable()
+                        .scaledToFit()
+                    imageToShow?
+                        .resizable()
+                        .scaledToFit()
+                    imageToShow?
+                        .resizable()
+                        .scaledToFit()
+                    imageToShow?
+                        .resizable()
+                        .scaledToFit()
+                }.tabViewStyle(.page(indexDisplayMode: .always))
+                
             } else {
                 ProgressView()
             }

@@ -14,7 +14,7 @@ struct ShareItemView<T: ContentForRender>: View {
         VStack(alignment: .leading) {
             Text("Your most listened songs!")
                 .font(.largeTitle)
-            ForEach(tracks) { track in
+            ForEach(tracks.dropFirst(10)) { track in
                 HStack {
                     transformDataIntoImage(content: track)?
                         .resizable()
