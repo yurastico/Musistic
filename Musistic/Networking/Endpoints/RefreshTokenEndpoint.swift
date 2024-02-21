@@ -7,16 +7,19 @@
 
 import Foundation
 
-struct RefreshTokenEndpoint {
-    var refreshToken: String
-}
 
-extension RefreshTokenEndpoint: Endpoint {
+enum RefreshTokenEndpoint: Endpoint {
+    
+    case refreshToken(String)
    
     var queryItems: [URLQueryItem]? {
-        return [URLQueryItem(name: "grant_type", value:"refresh_token"),
-                URLQueryItem(name: "refresh_token", value: refreshToken),
-                URLQueryItem(name: "client_id", value: SpotifyConstants.clientId.rawValue)]
+        switch self {
+        case .refreshToken(let token):
+            return [URLQueryItem(name: "grant_type", value:"refresh_token"),
+                    URLQueryItem(name: "refresh_token", value: token),
+                    URLQueryItem(name: "client_id", value: SpotifyConstants.clientId.rawValue)]
+        }
+
     }
     
     var host: String {

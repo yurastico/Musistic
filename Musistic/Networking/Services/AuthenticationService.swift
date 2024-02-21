@@ -27,7 +27,7 @@ struct AuthenticationService: HTTPClient {
     
     func refreshToken() async -> Result<AccessTokenResponse,RequestError> {
         guard let refreshToken = SpotifyAuthenticationManager.shared.refreshToken else { return .failure(.expiredToken) }
-        let endpoint = RefreshTokenEndpoint(refreshToken: refreshToken)
+        let endpoint = RefreshTokenEndpoint.refreshToken(refreshToken)
         
         let result = await sendRequest(endpoint: endpoint, responseModel: AccessTokenResponse.self)
         switch result {

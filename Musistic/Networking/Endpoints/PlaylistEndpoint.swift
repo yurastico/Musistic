@@ -8,6 +8,9 @@
 import Foundation
 
 enum PlaylistEndpoint: Endpoint {
+    
+    case playlist(String)
+    
     var host: String {
         SpotifyBaseURL.api.rawValue
     }
@@ -35,6 +38,6 @@ enum PlaylistEndpoint: Endpoint {
     var queryItems: [URLQueryItem]? { nil
     }
     
-    case playlist(String)
+    
 }
 
