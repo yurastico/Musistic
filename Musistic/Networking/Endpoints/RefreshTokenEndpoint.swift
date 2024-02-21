@@ -32,9 +32,7 @@ extension RefreshTokenEndpoint: Endpoint {
     }
     
     var header: [String : String]? {
-        guard let base64Encoded = "\(SpotifyConstants.clientId.rawValue):\(SpotifyConstants.clientSecret.rawValue)".data(using: .utf8)?.base64EncodedString() else { return nil }
-        return ["Content-Type" : "application/x-www-form-urlencoded",
-        "Authorization": "Basic \(base64Encoded)"]
+        return ["Content-Type" : "application/x-www-form-urlencoded"]
     }
     
     var jsonBody: [String : String]? {
