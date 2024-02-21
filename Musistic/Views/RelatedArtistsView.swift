@@ -21,7 +21,7 @@ struct RelatedArtistsView: View {
                         .navigationDestination(for: ArtistNavigationType.self, destination: { type in
                             switch type {
                             case .artistDetail(artistId: let id):
-                                TopArtistDetail(artistId: id)
+                                TopArtistDetailView(artistId: id)
                                 
                             }
                         })

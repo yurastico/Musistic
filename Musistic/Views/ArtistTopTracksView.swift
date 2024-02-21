@@ -18,7 +18,7 @@ struct ArtistTopTracksView: View {
                     if let url = URL(string: track.album.images.first!.url) {
                         Text("\(number.autoIncrement() - 10)")
                             .font(.caption2)
-                        AsyncImageContainer(url: url)
+                        AsyncImageContainerView(url: url)
                             .frame(width: 50,height: 50)
                         Text(track.name)
                         

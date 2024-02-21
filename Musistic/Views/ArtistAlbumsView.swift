@@ -14,7 +14,7 @@ struct ArtistAlbumsView: View {
             ForEach(albuns) { album in
                 if let url = URL(string: album.images.first!.url) {
                     VStack {
-                        AsyncImageContainer(url: url)
+                        AsyncImageContainerView(url: url)
                             .frame(maxWidth: .infinity)
                         Text(album.name)
                     }
