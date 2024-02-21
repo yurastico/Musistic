@@ -11,7 +11,7 @@ struct TracksListView: View {
     @Binding var viewModel: TopContentViewModel<Track>
     var body: some View {
         TopContentListView(viewModel: viewModel) { track in
-                    TrackItemRow(track: track)
+                    TrackItemRowView(track: track)
                         
                 } destination: { track in
                     TrackDetailView(track: track)

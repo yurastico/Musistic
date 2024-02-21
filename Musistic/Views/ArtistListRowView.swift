@@ -6,7 +6,7 @@
 //
 import SwiftUI
 
-struct ArtistListRow: View {
+struct ArtistListRowView: View {
     let artist: Artist
 
     var body: some View {

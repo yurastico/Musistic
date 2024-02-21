@@ -11,7 +11,7 @@ struct ArtistsListView: View {
     @Binding var viewModel: TopContentViewModel<Artist>
     var body: some View {
         TopContentListView(viewModel: viewModel) { artist in
-            ArtistListRow(artist: artist)
+            ArtistListRowView(artist: artist)
                 .navigationTitle("Top Artists")
         } destination: { artist in
             TopArtistDetailView(artistId: artist.id)

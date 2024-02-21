@@ -12,6 +12,7 @@ enum UserEndpoint: Endpoint {
     var host: String {
         SpotifyBaseURL.api.rawValue
     }
+    
     var path: String {
         switch self {
         case .profile:

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct TrackItemRow: View {
+struct TrackItemRowView: View {
     var track: Track
     var body: some View {
            HStack {
