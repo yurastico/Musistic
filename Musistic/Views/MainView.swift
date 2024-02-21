@@ -15,7 +15,7 @@ struct MainView: View {
     var body: some View {
         TabView(selection: $selectedTab) {
                 
-                MusicsListView(viewModel: $trackViewModel)
+                TracksListView(viewModel: $trackViewModel)
                     .tag(TabViewSections.tracks)
                     .tabItem {
                         Label("Musics", systemImage: "music.note")

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct AsyncImageContainer: View {
+struct AsyncImageContainerView: View {
     let url: URL
     var body: some View {
         AsyncImage(url: url) { image in
@@ -21,5 +21,5 @@ struct AsyncImageContainer: View {
 }
 
 #Preview {
-    AsyncImageContainer(url: URL(string: "")!)
+    AsyncImageContainerView(url: URL(string: "")!)
 }

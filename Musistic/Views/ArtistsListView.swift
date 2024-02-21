@@ -14,7 +14,7 @@ struct ArtistsListView: View {
             ArtistListRow(artist: artist)
                 .navigationTitle("Top Artists")
         } destination: { artist in
-            TopArtistDetail(artistId: artist.id)
+            TopArtistDetailView(artistId: artist.id)
         }
         
 

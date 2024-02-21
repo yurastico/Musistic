@@ -15,7 +15,7 @@ struct ProfileView: View {
             VStack {
                 if let user = viewModel.user,
                    let url = URL(string: user.images!.last!.url) {
-                    AsyncImageContainer(url: url)
+                    AsyncImageContainerView(url: url)
                         .clipShape(Circle())
                         .frame(height: 150)
                 }
@@ -37,7 +37,7 @@ struct ProfileView: View {
                     
                         if let url = URL(string: currentContent.item.album.images.first!.url) {
                             HStack {
-                                AsyncImageContainer(url: url)
+                                AsyncImageContainerView(url: url)
                                     .frame(height: 100)
                                 VStack {
                                     Text(currentContent.item.name)

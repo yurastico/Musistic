@@ -11,7 +11,7 @@ struct ArtistListRow: View {
 
     var body: some View {
         HStack {
-            AsyncImageContainer(url: URL(string: artist.images!.first!.url)!)
+            AsyncImageContainerView(url: URL(string: artist.images!.first!.url)!)
                 .frame(width: 50,height: 50)
             
             VStack(alignment: .leading) {

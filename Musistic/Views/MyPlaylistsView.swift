@@ -20,7 +20,7 @@ struct MyPlaylistsView: View {
                         } else {
                             HStack {
                                 if let url = URL(string: playlist.images.first?.url ?? "") {
-                                    AsyncImageContainer(url: url)
+                                    AsyncImageContainerView(url: url)
                                         .frame(height: 50)
                                 }
                                 Text(playlist.name)

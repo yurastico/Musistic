@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct TopArtistDetail: View {
+struct TopArtistDetailView: View {
     let viewModel: ArtistDetailViewModel
     
     init(artistId: String) {
