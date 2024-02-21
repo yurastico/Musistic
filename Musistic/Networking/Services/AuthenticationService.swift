@@ -11,7 +11,7 @@ struct AuthenticationService: HTTPClient {
     
     func saveAcessToken(from url: URL) async -> Result<(),RequestError> {
         guard let code = getAuthorizationCode(from: url) else { return .failure(.invalidURL)}
-        let endpoint = TokenEndpoint(code: code)
+        let endpoint = TokenEndpoint.code(code)
         
         let result =  await sendRequest(endpoint: endpoint, responseModel: AccessTokenResponse.self)
         switch result {
