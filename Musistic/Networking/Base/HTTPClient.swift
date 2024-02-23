@@ -67,6 +67,8 @@ extension HTTPClient {
                 let errorResponse = try? JSONSerialization.jsonObject(with: data) as? [String: Any]
                 return .failure(.custom(errorResponse))
             case 401:
+                let errorResponse = try? JSONSerialization.jsonObject(with: data) as? [String: Any]
+                print(errorResponse)
                 return .failure(.noAuthorized)
             default:
                 let errorResponse = try? JSONSerialization.jsonObject(with: data) as? [String: Any]
