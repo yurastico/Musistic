@@ -10,9 +10,7 @@ To build app in your xcode you need to create a enum called *SpotifyConstants*
 ```swift 
 enum SpotifyConstants: String {
     case clientId = "{YOUR CLIENT ID}"
-    case clientSecret = "{YOUR CLIENT SECRET}"
     case scope = "user-read-private user-read-email user-top-read"
 }
 ```
-
-
+You dont need expose your client secret, just the clientId, im showing my client secret in this project, but is recommended dont show this information

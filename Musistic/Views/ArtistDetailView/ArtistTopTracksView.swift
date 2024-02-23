@@ -13,7 +13,6 @@ struct ArtistTopTracksView: View {
         VStack(alignment: .leading) {
             var number = 0
             ForEach(tracks) { track in
-                
                 HStack {
                     if let url = URL(string: track.album.images.first!.url) {
                         Text("\(number.autoIncrement() - 10)")

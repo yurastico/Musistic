@@ -259,14 +259,14 @@
 			path = Managers;
 			sourceTree = "<group>";
 		};
-		A9C0D43A2B8828A3008E0558 /* ArtsDetailView */ = {
+		A9C0D43A2B8828A3008E0558 /* ArtistDetailView */ = {
 			isa = PBXGroup;
 			children = (
 				A97E2BFF2B7C7A7B0032564C /* ArtistAlbumsView.swift */,
 				A97E2BFD2B7C7A240032564C /* ArtistPhotoView.swift */,
 				A97E2BFB2B7C792B0032564C /* ArtistTopTracksView.swift */,
 			);
-			path = ArtsDetailView;
+			path = ArtistDetailView;
 			sourceTree = "<group>";
 		};
 		A9EB11852B5CE5AE0052DCCA /* Endpoints */ = {
@@ -353,7 +353,7 @@
 		C5774B8C2B2937C90089DA4A /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				A9C0D43A2B8828A3008E0558 /* ArtsDetailView */,
+				A9C0D43A2B8828A3008E0558 /* ArtistDetailView */,
 				A9EB118A2B5CFEEB0052DCCA /* ArtistListRowView.swift */,
 				C5774B842B28AB420089DA4A /* ArtistsListView.swift */,
 				C570BE762B2E56BF006E7536 /* AsyncImageContainerView.swift */,
