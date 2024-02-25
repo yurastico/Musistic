@@ -10,13 +10,12 @@ import Foundation
 import SwiftUI
 
 struct SnackBarErrorView: View {
-    @Binding var isShowing: Bool
-    var message: String
+    @Binding var error: RequestError?
     var body: some View {
         VStack {
             Spacer()
-            if isShowing {
-                Text(message)
+            if error != nil {
+                Text(error?.errorMessage ?? "Error!")
                     .padding()
                     .background(Color.red)
                     .foregroundStyle(.white)
@@ -25,7 +24,7 @@ struct SnackBarErrorView: View {
                     .onAppear {
                         DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
                             withAnimation {
-                                isShowing = false
+                                error = nil
                             }
                         }
                     }
@@ -34,10 +33,10 @@ struct SnackBarErrorView: View {
         }
         .frame(maxWidth: .infinity)
         .padding(.horizontal)
-        .padding(.bottom, isShowing ? UIApplication.shared.getKeyWindow?.safeAreaInsets.bottom ?? 0 : -100)
+        .padding(.bottom, error != nil ? UIApplication.shared.getKeyWindow?.safeAreaInsets.bottom ?? 0 : -100)
     }
 }
 
 #Preview {
-    SnackBarErrorView(isShowing: .constant(true),message: "Erro! tente novamente mais tarde")
+    SnackBarErrorView(error: .constant(.custom(nil)))
 }
