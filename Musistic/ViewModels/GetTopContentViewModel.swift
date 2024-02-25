@@ -27,10 +27,15 @@ final class TopContentViewModel<T> where T: ContentForRender & Codable {
             self.content = content.items
             
         case .failure(let error):
-            self.error = error
+            showError(error: error)
         }
     }
     
+    private func showError(error: RequestError) {
+        DispatchQueue.main.async {
+            self.error = error
+        }
+    }
     
     func prepareForRender() async {
         for item in content {
@@ -57,3 +62,4 @@ final class TopContentViewModel<T> where T: ContentForRender & Codable {
     }
     
 }
+

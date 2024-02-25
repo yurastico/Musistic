@@ -9,6 +9,7 @@
 import UIKit
 
 extension UIApplication {
+    
     var getKeyWindow: UIWindow? {
         return self.connectedScenes
             .filter { $0.activationState == .foregroundActive }
