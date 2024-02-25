@@ -33,7 +33,7 @@ final class UserStateViewModel: GetCode {
     
     func handleSpotify(for url: URL) {
         Task {
-        
+            
             let result = await AuthenticationService().saveAcessToken(from: url)
             switch result {
             case .success(()):
@@ -54,19 +54,12 @@ final class UserStateViewModel: GetCode {
             
             print("tudo valendo!!!!!")
         } else {
-            Task {
-                if SpotifyAuthenticationManager.shared.alwaysValidAcessToken != nil {
-                    let result = await AuthenticationService().refreshToken()
-                    switch result {
-                    case .success(let isAuthenticated):
-                        self.isLogged = true
-                        print("refreshing token!!!!!!!!!!!!")
-                    case .failure(let error):
-                        print(error)
-                    }
-                }
+            
+            if SpotifyAuthenticationManager.shared.alwaysValidAcessToken != nil {
+                self.isLogged = true
             }
+            
         }
     }
-  
+    
 }

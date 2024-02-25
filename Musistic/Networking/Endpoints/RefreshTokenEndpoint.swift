@@ -10,13 +10,13 @@ import Foundation
 
 enum RefreshTokenEndpoint: Endpoint {
     
-    case refreshToken(String)
+    case refreshToken
    
     var queryItems: [URLQueryItem]? {
         switch self {
-        case .refreshToken(let token):
+        case .refreshToken:
             return [URLQueryItem(name: "grant_type", value:"refresh_token"),
-                    URLQueryItem(name: "refresh_token", value: token),
+                    URLQueryItem(name: "refresh_token", value: SpotifyAuthenticationManager.shared.refreshToken ),
                     URLQueryItem(name: "client_id", value: SpotifyConstants.clientId.rawValue)]
         }
 

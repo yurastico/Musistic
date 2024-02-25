@@ -20,9 +20,9 @@ final class SpotifyAuthenticationManager {
     var refreshToken: String?
     
     var alwaysValidAcessToken: String? {
-        guard let _ = accessToken else { return nil }
+        guard let token = accessToken else { return nil }
         if isAccessTokenValid() {
-            return accessToken
+            return token
         }
         self.refreshAcessToken()
         guard let token = accessToken else { return nil}
@@ -38,6 +38,7 @@ final class SpotifyAuthenticationManager {
             case .success(let token):
                 self.saveCredentials(for: token)
             case .failure(let error):
+                print(error)
                 print("error to save accessToken")
             }
         }

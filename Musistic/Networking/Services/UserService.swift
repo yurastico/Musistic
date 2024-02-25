@@ -13,7 +13,7 @@ struct UserService: HTTPClient {
         let response = await sendRequest(endpoint: endpoint, responseModel: User.self)
         switch response {
         case .success(let user):
-            guard let user else { return .failure(.noContent)}
+            guard let user else { return .failure(.noContent(nil))}
             return .success(user)
         case .failure(let error):
             return .failure(error)
@@ -24,7 +24,7 @@ struct UserService: HTTPClient {
         let response = await sendRequest(endpoint: endpoint, responseModel: UserCurrentPlaying.self)
         switch response {
         case .success(let currentPlaying):
-            guard let currentPlaying else { return .failure(.noContent)}
+            guard let currentPlaying else { return .failure(.noContent(nil))}
             return .success(currentPlaying)
         case .failure(let error):
             return .failure(error)
@@ -36,7 +36,7 @@ struct UserService: HTTPClient {
         let response = await sendRequest(endpoint: endpoint, responseModel: UserPlaylist.self)
         switch response {
         case .success(let playlists):
-            guard let playlists else { return .failure(.noContent)}
+            guard let playlists else { return .failure(.noContent(nil))}
             return .success(playlists)
         case .failure(let error):
             return .failure(error)

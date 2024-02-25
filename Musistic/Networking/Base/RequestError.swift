@@ -8,8 +8,8 @@
 import Foundation
 
 enum RequestError: Error {
-    case invalidURL, decode, noResponse, expiredToken, noAuthorized, unknown,noContent
-    case custom(_ error: [String: Any]?)
+    case invalidURL(ApiErrorResponse?), decode(ApiErrorResponse?), noResponse(ApiErrorResponse?), expiredToken(ApiErrorResponse?), noAuthorized(ApiErrorResponse?), unknown(ApiErrorResponse?),noContent(ApiErrorResponse?)
+    case custom((ApiErrorResponse?))
     
     
     var errorMessage: String {

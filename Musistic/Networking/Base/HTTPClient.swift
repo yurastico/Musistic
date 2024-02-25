@@ -21,7 +21,7 @@ extension HTTPClient {
         urlComponents.queryItems = endpoint.queryItems
         
         guard let url = urlComponents.url else  {
-            return .failure(.invalidURL)
+            return .failure(.invalidURL(nil))
         }
         
         var request = URLRequest(url: url)
@@ -45,9 +45,11 @@ extension HTTPClient {
             let errorResponse = try? JSONSerialization.jsonObject(with: data) as? [String: Any]
             
             guard let response = response as? HTTPURLResponse else {
-                return .failure(.noResponse)
+                return .failure(.noResponse(nil))
             }
         
+            
+            
             switch response.statusCode {
             case 200...299:
                 guard let responseModel = responseModel else {
@@ -60,23 +62,28 @@ extension HTTPClient {
                     return .success(decodedResponse)
                 } catch(let error) {
                     print(error)
-                    return .failure(.decode)
+                    return .failure(.decode(nil))
                 }
                
             case 400:
-                let errorResponse = try? JSONSerialization.jsonObject(with: data) as? [String: Any]
-                return .failure(.custom(errorResponse))
+                
+                return .failure(.custom(decodeErrorResponse(data: data)))
             case 401:
-                let errorResponse = try? JSONSerialization.jsonObject(with: data) as? [String: Any]
-                print(errorResponse)
-                return .failure(.noAuthorized)
+                return .failure(.noAuthorized(decodeErrorResponse(data: data)))
             default:
-                let errorResponse = try? JSONSerialization.jsonObject(with: data) as? [String: Any]
-                return .failure(.custom(errorResponse))
+                return .failure(.custom(decodeErrorResponse(data: data)))
             }
         } catch(let error) {
-            return .failure(.unknown)
+            return .failure(.unknown(nil))
         }
         
     }
+    
+    private func decodeErrorResponse(data: Data) -> ApiErrorResponse? {
+        let decoder = JSONDecoder()
+        decoder.keyDecodingStrategy = .convertFromSnakeCase
+        let errorResponse = try? decoder.decode(ApiErrorResponse.self, from: data)
+        return errorResponse
+    }
+    
 }
