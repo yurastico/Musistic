@@ -42,8 +42,6 @@ extension HTTPClient {
         
         do {
             let (data, response) = try await URLSession.shared.data(for: request)
-            let errorResponse = try? JSONSerialization.jsonObject(with: data) as? [String: Any]
-            
             guard let response = response as? HTTPURLResponse else {
                 return .failure(.noResponse(nil))
             }
@@ -73,7 +71,7 @@ extension HTTPClient {
             default:
                 return .failure(.custom(decodeErrorResponse(data: data)))
             }
-        } catch(let error) {
+        } catch {
             return .failure(.unknown(nil))
         }
         

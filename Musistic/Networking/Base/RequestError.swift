@@ -28,7 +28,7 @@ enum RequestError: Error {
             "unkown error"
         case .noContent:
             "no content fot this request"
-        case .custom(let error):
+        case .custom:
             "Custom error"
         }
     }
