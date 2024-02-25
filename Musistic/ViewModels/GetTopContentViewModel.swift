@@ -18,7 +18,7 @@ final class TopContentViewModel<T> where T: ContentForRender & Codable {
     var IsShowingShareView = false
     var imageToShow: Image?
     var timeRange: TimeRange = .mediumTerm
-    
+    var error: RequestError?
     func refreshContent() async {
         
         let result = await GetTopService().fetchTop(for: T.self,timeRange: self.timeRange)
@@ -27,7 +27,7 @@ final class TopContentViewModel<T> where T: ContentForRender & Codable {
             self.content = content.items
             
         case .failure(let error):
-            print(error)
+            self.error = error
         }
     }
     

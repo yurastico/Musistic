@@ -9,7 +9,6 @@ import SwiftUI
 
 struct TopContentListView<type: Codable & ContentForRender,Content: View, Destination: View>: View {
     @State private var path = NavigationPath()
-    @State private var error: RequestError?
     @Bindable var viewModel: TopContentViewModel<type>
     @ViewBuilder var content: (type) -> Content
     @ViewBuilder var destination: (type) -> Destination
@@ -37,8 +36,8 @@ struct TopContentListView<type: Codable & ContentForRender,Content: View, Destin
                     }
                 }
                 
-                if error != nil {
-                    SnackBarErrorView(error: $error)
+                if viewModel.error != nil {
+                    SnackBarErrorView(error: $viewModel.error)
                 }
             }
         .onAppear {
