@@ -21,7 +21,7 @@ extension HTTPClient {
         urlComponents.queryItems = endpoint.queryItems
         
         guard let url = urlComponents.url else  {
-            return .failure(.invalidURL(nil))
+            return .failure(.invalidURL)
         }
         
         var request = URLRequest(url: url)
@@ -43,7 +43,7 @@ extension HTTPClient {
         do {
             let (data, response) = try await URLSession.shared.data(for: request)
             guard let response = response as? HTTPURLResponse else {
-                return .failure(.noResponse(nil))
+                return .failure(.noResponse)
             }
         
             
@@ -60,7 +60,7 @@ extension HTTPClient {
                     return .success(decodedResponse)
                 } catch(let error) {
                     print(error)
-                    return .failure(.decode(nil))
+                    return .failure(.decode)
                 }
                
             case 400:
@@ -72,7 +72,7 @@ extension HTTPClient {
                 return .failure(.custom(decodeErrorResponse(data: data)))
             }
         } catch {
-            return .failure(.unknown(nil))
+            return .failure(.unknown)
         }
         
     }

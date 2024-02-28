@@ -38,5 +38,5 @@ struct SnackBarErrorView: View {
 }
 
 #Preview {
-    SnackBarErrorView(error: .constant(.custom(nil)))
+    SnackBarErrorView(error: .constant(.decode))
 }
