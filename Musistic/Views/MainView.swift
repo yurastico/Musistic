@@ -11,19 +11,18 @@ struct MainView: View {
     @State private var selectedTab: TabViewSections = .tracks
     @State private var trackViewModel = TopContentViewModel<Track>()
     @State private var artistViewModel = TopContentViewModel<Artist>()
-    @Binding var path: NavigationPath
     var body: some View {
         TabView(selection: $selectedTab) {
-                
-                TracksListView(viewModel: $trackViewModel)
-                    .tag(TabViewSections.tracks)
-                    .tabItem {
-                        Label("Musics", systemImage: "music.note")
-                    }
             
-        
+            TracksListView()
+                .tag(TabViewSections.tracks)
+                .tabItem {
+                    Label("Musics", systemImage: "music.note")
+                }
             
-            ArtistsListView(viewModel: $artistViewModel)
+            
+            
+            ArtistsListView()
                 .tag(TabViewSections.artists)
                 .tabItem {
                     Label("Artists", systemImage: "music.mic")
@@ -33,7 +32,7 @@ struct MainView: View {
                 .tabItem {
                     Label("Playlists",systemImage: "music.note.list")
                 }
-            ProfileView(path: $path)
+            ProfileView()
                 .tag(TabViewSections.profile)
                 .tabItem {
                     Label("Profile",systemImage: "person.fill")
@@ -76,5 +75,5 @@ enum TabViewSections {
 }
 
 #Preview {
-    MainView(path: .constant(.init()))
+    MainView()
 }

@@ -55,7 +55,7 @@ extension Track: ContentForRender {
 }
 
 
-protocol ContentForRender: Identifiable,Hashable {
+protocol ContentForRender: Identifiable,Hashable, Codable {
     var imageUrlString: String? { get}
     var title: String? { get }
     var subtitle: String? { get }

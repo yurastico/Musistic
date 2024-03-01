@@ -11,7 +11,7 @@ import Observation
 
 
 @Observable
-final class TopContentViewModel<T> where T: ContentForRender & Codable {
+final class TopContentViewModel<T> where T: ContentForRender {
     var content = [T]()
     var contentForRender = [T]()
     var isFetchingData = false

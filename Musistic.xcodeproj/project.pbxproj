@@ -54,6 +54,8 @@
 		A9A4F6DC2B72E8CB00A7A16A /* PlaylistsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A4F6DB2B72E8CB00A7A16A /* PlaylistsViewModel.swift */; };
 		A9A4F6DE2B74473C00A7A16A /* TrackDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A4F6DD2B74473C00A7A16A /* TrackDetailViewModel.swift */; };
 		A9A4F6E02B76E25100A7A16A /* AuthSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A4F6DF2B76E25100A7A16A /* AuthSheetView.swift */; };
+		A9DC10D92B915D6E0057C35B /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DC10D82B915D6E0057C35B /* Coordinator.swift */; };
+		A9DC10DB2B916A630057C35B /* CoordinatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DC10DA2B916A630057C35B /* CoordinatorView.swift */; };
 		A9E574F52B700AC600E84A5E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E574F42B700AC600E84A5E /* User.swift */; };
 		A9E574F82B700B4000E84A5E /* UserEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E574F72B700B4000E84A5E /* UserEndpoint.swift */; };
 		A9E574FB2B700C3200E84A5E /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E574FA2B700C3200E84A5E /* UserService.swift */; };
@@ -77,7 +79,7 @@
 		C570BE6D2B2E4DE8006E7536 /* ArtistType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C570BE6C2B2E4DE8006E7536 /* ArtistType.swift */; };
 		C570BE6F2B2E4DFA006E7536 /* ExternalIds.swift in Sources */ = {isa = PBXBuildFile; fileRef = C570BE6E2B2E4DFA006E7536 /* ExternalIds.swift */; };
 		C570BE712B2E4E08006E7536 /* ItemType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C570BE702B2E4E08006E7536 /* ItemType.swift */; };
-		C570BE732B2E52D6006E7536 /* TrackNavigationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C570BE722B2E52D6006E7536 /* TrackNavigationType.swift */; };
+		C570BE732B2E52D6006E7536 /* NavigationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C570BE722B2E52D6006E7536 /* NavigationType.swift */; };
 		C570BE772B2E56BF006E7536 /* AsyncImageContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C570BE762B2E56BF006E7536 /* AsyncImageContainerView.swift */; };
 		C5774B732B27E9D20089DA4A /* MusisticApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5774B722B27E9D20089DA4A /* MusisticApp.swift */; };
 		C5774B752B27E9D20089DA4A /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5774B742B27E9D20089DA4A /* MainView.swift */; };
@@ -138,6 +140,8 @@
 		A9A4F6DB2B72E8CB00A7A16A /* PlaylistsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistsViewModel.swift; sourceTree = "<group>"; };
 		A9A4F6DD2B74473C00A7A16A /* TrackDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackDetailViewModel.swift; sourceTree = "<group>"; };
 		A9A4F6DF2B76E25100A7A16A /* AuthSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthSheetView.swift; sourceTree = "<group>"; };
+		A9DC10D82B915D6E0057C35B /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		A9DC10DA2B916A630057C35B /* CoordinatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorView.swift; sourceTree = "<group>"; };
 		A9E574F42B700AC600E84A5E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		A9E574F72B700B4000E84A5E /* UserEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEndpoint.swift; sourceTree = "<group>"; };
 		A9E574FA2B700C3200E84A5E /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
@@ -161,7 +165,7 @@
 		C570BE6C2B2E4DE8006E7536 /* ArtistType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistType.swift; sourceTree = "<group>"; };
 		C570BE6E2B2E4DFA006E7536 /* ExternalIds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExternalIds.swift; sourceTree = "<group>"; };
 		C570BE702B2E4E08006E7536 /* ItemType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemType.swift; sourceTree = "<group>"; };
-		C570BE722B2E52D6006E7536 /* TrackNavigationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackNavigationType.swift; sourceTree = "<group>"; };
+		C570BE722B2E52D6006E7536 /* NavigationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationType.swift; sourceTree = "<group>"; };
 		C570BE762B2E56BF006E7536 /* AsyncImageContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImageContainerView.swift; sourceTree = "<group>"; };
 		C5774B6F2B27E9D20089DA4A /* Musistic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Musistic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5774B722B27E9D20089DA4A /* MusisticApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusisticApp.swift; sourceTree = "<group>"; };
@@ -331,6 +335,9 @@
 			isa = PBXGroup;
 			children = (
 				C5774B722B27E9D20089DA4A /* MusisticApp.swift */,
+				C570BE722B2E52D6006E7536 /* NavigationType.swift */,
+				A9DC10D82B915D6E0057C35B /* Coordinator.swift */,
+				A9DC10DA2B916A630057C35B /* CoordinatorView.swift */,
 				C5774B762B27E9D30089DA4A /* Assets.xcassets */,
 				A99279352B57C54B00D20E48 /* Info.plist */,
 				C596B60E2B2947DB001A5F0B /* Extensions */,
@@ -377,7 +384,6 @@
 				A93A979A2B686D090097656E /* TopContentListView.swift */,
 				A92D3C842B8588C9004A5732 /* TrackDetailView.swift */,
 				A92D3C822B85886C004A5732 /* TrackItemRowView.swift */,
-				C570BE722B2E52D6006E7536 /* TrackNavigationType.swift */,
 				A92D3C802B8586F8004A5732 /* TracksListView.swift */,
 			);
 			path = Views;
@@ -494,6 +500,7 @@
 				A97E2BFA2B7C78290032564C /* RelatedArtistsView.swift in Sources */,
 				C5774B852B28AB420089DA4A /* ArtistsListView.swift in Sources */,
 				A9835ED62B5DEA5F00F18F20 /* UserStateViewModel.swift in Sources */,
+				A9DC10DB2B916A630057C35B /* CoordinatorView.swift in Sources */,
 				A99279392B57C5CB00D20E48 /* GetCode.swift in Sources */,
 				A97818062B7EF00300591FAC /* PlaylistListView.swift in Sources */,
 				A9E574F52B700AC600E84A5E /* User.swift in Sources */,
@@ -510,7 +517,7 @@
 				A93A979D2B686FE70097656E /* GetTopContentViewModel.swift in Sources */,
 				A92D3C852B8588C9004A5732 /* TrackDetailView.swift in Sources */,
 				A9015EFA2B66CA30007CF96D /* ArtistEndpoint.swift in Sources */,
-				C570BE732B2E52D6006E7536 /* TrackNavigationType.swift in Sources */,
+				C570BE732B2E52D6006E7536 /* NavigationType.swift in Sources */,
 				A99279472B5A7F6C00D20E48 /* SpotifyAuthenticationManager.swift in Sources */,
 				C5774B8E2B2937D70089DA4A /* LogInView.swift in Sources */,
 				A9EB11892B5CEC9A0052DCCA /* GetTopService.swift in Sources */,
@@ -537,6 +544,7 @@
 				A9984E4B2B78AF7700F26752 /* GetTopToolbar.swift in Sources */,
 				A99279322B57BE6400D20E48 /* SpotifyBaseURL.swift in Sources */,
 				C570BE652B2E4CD8006E7536 /* Album.swift in Sources */,
+				A9DC10D92B915D6E0057C35B /* Coordinator.swift in Sources */,
 				A9835EDF2B5E3BBA00F18F20 /* RedectedAnimation.swift in Sources */,
 				A9015EF82B66C8B5007CF96D /* ArtistTopTracks.swift in Sources */,
 				A99279252B55F52100D20E48 /* Endpoint.swift in Sources */,

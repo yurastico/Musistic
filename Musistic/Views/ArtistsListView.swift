@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct ArtistsListView: View {
-    @Binding var viewModel: TopContentViewModel<Artist>
+    @State var viewModel: TopContentViewModel<Artist> = .init()
     var body: some View {
-        TopContentListView(viewModel: viewModel) { artist in
+        TopContentListView(type: .artistList,viewModel: viewModel) { artist in
             ArtistListRowView(artist: artist)
                 .navigationTitle("Top Artists")
         } destination: { artist in

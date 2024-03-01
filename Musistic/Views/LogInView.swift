@@ -12,9 +12,9 @@ struct LogInView: View {
     @Environment(\.authorizationController) private var authorizationController
     @Environment(UserStateViewModel.self) var userStateViewModel
     @State var isShowingAuthWebView = false
-    @State private var path = NavigationPath()
+    @Environment(Coordinator.self) var coordinator
     var body: some View {
-        NavigationStack(path: $path) {
+        Group {
             Button {
                 isShowingAuthWebView = true
             } label: {
@@ -31,7 +31,7 @@ struct LogInView: View {
             .navigationDestination(for: LoginPath.self) { path in
                 switch path {
                 case .mainView:
-                    MainView(path: $path)
+                    MainView()
                 
                     
                 }
@@ -39,7 +39,7 @@ struct LogInView: View {
         }
         .onChange(of: userStateViewModel.isLogged, { oldValue, newValue in
             if newValue {
-                path.append(LoginPath.mainView)
+                coordinator.push(to: .main)
             }
         })
         .onChange(of: isShowingAuthWebView, { oldValue, newValue in

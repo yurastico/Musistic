@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct RelatedArtistsView: View {
+    @Environment(Coordinator.self) var coordinator
     let artists: [Artist]
     var body: some View {
         VStack(alignment: .leading) {
@@ -18,13 +19,9 @@ struct RelatedArtistsView: View {
                 HStack {
                     ForEach(artists) { artist in
                         RelatedArtistCardView(artist: artist)
-                        .navigationDestination(for: ArtistNavigationType.self, destination: { type in
-                            switch type {
-                            case .artistDetail(artistId: let id):
-                                TopArtistDetailView(artistId: id)
-                                
+                            .navigationDestination(for: NavigationType.self) { type in
+                                coordinator.view(for: type)
                             }
-                        })
                     }
                     
                 }

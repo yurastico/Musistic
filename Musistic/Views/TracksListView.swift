@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct TracksListView: View {
-    @Binding var viewModel: TopContentViewModel<Track>
+    @State var viewModel: TopContentViewModel<Track> = .init()
     var body: some View {
-        TopContentListView(viewModel: viewModel) { track in
+        TopContentListView(type: .trackList,viewModel: viewModel) { track in
                     TrackItemRowView(track: track)
                         
                 } destination: { track in
@@ -20,5 +20,5 @@ struct TracksListView: View {
 }
 
 #Preview {
-    TracksListView(viewModel: .constant(.init()))
+    TracksListView()
 }

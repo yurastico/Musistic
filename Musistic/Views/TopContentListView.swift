@@ -7,8 +7,9 @@
 
 import SwiftUI
 
-struct TopContentListView<type: Codable & ContentForRender,Content: View, Destination: View>: View {
-    @State private var path = NavigationPath()
+struct TopContentListView<type: ContentForRender,Content: View, Destination: View>: View {
+    @Environment(Coordinator.self) var coordinator
+    var type: NavigationType
     @Bindable var viewModel: TopContentViewModel<type>
     @ViewBuilder var content: (type) -> Content
     @ViewBuilder var destination: (type) -> Destination
@@ -19,9 +20,10 @@ struct TopContentListView<type: Codable & ContentForRender,Content: View, Destin
                     if !viewModel.isFetchingData {
                         ForEach(viewModel.content) { data in
                             
-                            NavigationLink(value: ContentNavigationType.detail(data)) {
+                            NavigationLink(value: NavigationType.artistList) {
                                 content(data)
                             }
+                            
                         }
                     } else {
                         SkeletonView()
@@ -29,11 +31,8 @@ struct TopContentListView<type: Codable & ContentForRender,Content: View, Destin
                 }
                 .listStyle(.plain)
                 
-                .navigationDestination(for: ContentNavigationType<type>.self) { type in
-                    switch type {
-                    case .detail(let artist):
-                        destination(artist)
-                    }
+                .navigationDestination(for: NavigationType.self) { type in
+                    coordinator.view(for: type)
                 }
                 
                 if viewModel.error != nil {
@@ -59,7 +58,7 @@ struct TopContentListView<type: Codable & ContentForRender,Content: View, Destin
 }
 
 #Preview {
-    TopContentListView(viewModel: TopContentViewModel<Artist>()) { artist in
+    TopContentListView(type: .artistList,viewModel: TopContentViewModel<Artist>()) { artist in
         Text("oiii")
     } destination: { artist in
         Text(artist.id)}

@@ -9,12 +9,12 @@ import SwiftUI
 
 struct MyPlaylistsView: View {
     @State private var viewModel = PlaylistsViewModel()
-    @State private var path = NavigationPath()
     @State private var isFetchingData = false
+    @Environment(Coordinator.self) var coordinator
     var body: some View {
             List {
                 ForEach(viewModel.playlists) { playlist in
-                    NavigationLink(value: PlaylistNavigationType.detail(playlist)) {
+                    NavigationLink(value: NavigationType.playlistDetail(playlist)) {
                         if isFetchingData {
                             SkeletonView()
                         } else {
@@ -31,12 +31,8 @@ struct MyPlaylistsView: View {
                 }
             }
             .listStyle(.plain)
-            .navigationDestination(for: PlaylistNavigationType.self) { type in
-                switch type {
-                case .detail(let playlist):
-                    PlaylistListView(playlist: playlist)
-                }
-                
+            .navigationDestination(for: NavigationType.self) { type in
+                coordinator.view(for: type)
             }
         
         .onAppear {

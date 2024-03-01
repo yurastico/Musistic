@@ -12,7 +12,7 @@ struct MusisticApp: App {
     var userStateViewModel = UserStateViewModel()
     var body: some Scene {
         WindowGroup {
-            LogInView()
+            CoordinatorView()
                 .environment(userStateViewModel)
                 
         }
