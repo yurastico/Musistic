@@ -46,9 +46,9 @@ final class Coordinator {
         case .myPlaylists:
             MyPlaylistsView()
         case .trackList:
-            TracksListView()
+            EmptyView()
         case .artistList:
-            ArtistsListView()
+            EmptyView()
         }
     }
 }

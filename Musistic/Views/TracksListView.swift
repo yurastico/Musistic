@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct TracksListView: View {
-    @State var viewModel: TopContentViewModel<Track> = .init()
+    @State var viewModel: TopContentViewModel<Track>
     @Environment(Coordinator.self) var coordinator
     var body: some View {
         TopContentListView(viewModel: viewModel) { track in
@@ -27,5 +27,5 @@ struct TracksListView: View {
 }
 
 #Preview {
-    TracksListView()
+    TracksListView(viewModel: .init())
 }

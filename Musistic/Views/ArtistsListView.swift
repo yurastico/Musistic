@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ArtistsListView: View {
-    @State var viewModel: TopContentViewModel<Artist> = .init()
+    @State var viewModel: TopContentViewModel<Artist>
     @Environment(Coordinator.self) var coordinator
     var body: some View {
         TopContentListView(viewModel: viewModel) { artist in

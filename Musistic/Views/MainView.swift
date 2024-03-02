@@ -10,14 +10,16 @@ import SwiftUI
 struct MainView: View {
     @State private var selectedTab: TabViewSections = .tracks
     @Environment(Coordinator.self) var coordinator
+    @State private var tracksViewModel = TopContentViewModel<Track>()
+    @State private var artistViewModel = TopContentViewModel<Artist>()
     var body: some View {
         TabView(selection: $selectedTab) {
-            TracksListView()
+            TracksListView(viewModel: tracksViewModel)
                 .tag(TabViewSections.tracks)
                 .tabItem {
                     Label("Musics", systemImage: "music.note")
                 }
-            ArtistsListView()
+            ArtistsListView(viewModel: artistViewModel)
                 .tag(TabViewSections.artists)
                 .tabItem {
                     Label("Artists", systemImage: "music.mic")
@@ -34,8 +36,14 @@ struct MainView: View {
                 }
             
         }
-        
-        
+        .toolbar {
+            if selectedTab == .tracks {
+                GetTopToolbar(viewModel: $tracksViewModel)
+            }
+            if selectedTab == .artists {
+                GetTopToolbar(viewModel: $artistViewModel)
+            }
+        }
         .navigationTitle(selectedTab.navigationTitle)
         .navigationBarTitleDisplayMode(.large)
         .navigationBarBackButtonHidden()
