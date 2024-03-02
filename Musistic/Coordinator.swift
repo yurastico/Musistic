@@ -10,8 +10,12 @@ import SwiftUI
 
 @Observable
 final class Coordinator {
-    var path: NavigationPath = .init()
+    var path: NavigationPath
     private let loginViewModel = UserStateViewModel()
+    private init() {
+        self.path = NavigationPath()
+    }
+    static let shared: Coordinator = .init()
     
     func pop() {
         path.removeLast()
@@ -33,12 +37,14 @@ final class Coordinator {
             LogInView()
         case .main:
             MainView()
-        case .artistDetail(artistId: let id):
-            TopArtistDetailView(artistId: id)
+        case .artistDetail(artist: let artist):
+            TopArtistDetailView(artist: artist)
         case .trackDetail(track: let track):
             TrackDetailView(track: track)
         case .playlistDetail(let playlist):
             PlaylistListView(playlist: playlist)
+        case .myPlaylists:
+            MyPlaylistsView()
         case .trackList:
             TracksListView()
         case .artistList:

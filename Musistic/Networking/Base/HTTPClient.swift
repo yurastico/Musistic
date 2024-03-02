@@ -64,11 +64,12 @@ extension HTTPClient {
                 }
                
             case 400:
-                
+               
                 return .failure(.custom(decodeErrorResponse(data: data)))
             case 401:
                 return .failure(.noAuthorized(decodeErrorResponse(data: data)))
             default:
+                print(response.statusCode)
                 return .failure(.custom(decodeErrorResponse(data: data)))
             }
         } catch {

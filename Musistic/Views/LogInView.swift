@@ -14,7 +14,7 @@ struct LogInView: View {
     @State var isShowingAuthWebView = false
     @Environment(Coordinator.self) var coordinator
     var body: some View {
-        Group {
+        
             Button {
                 isShowingAuthWebView = true
             } label: {
@@ -27,16 +27,11 @@ struct LogInView: View {
                     .foregroundStyle(.white)
                     .clipShape(RoundedRectangle(cornerRadius: 66))
                     .padding()
-            }
-            .navigationDestination(for: LoginPath.self) { path in
-                switch path {
-                case .mainView:
-                    MainView()
-                
-                    
-                }
-            }
+            
+            
         }
+
+        
         .onChange(of: userStateViewModel.isLogged, { oldValue, newValue in
             if newValue {
                 coordinator.push(to: .main)
@@ -73,9 +68,6 @@ struct LogInView: View {
 }
 
 
-enum LoginPath: Hashable {
-    case mainView
-}
 
 
 

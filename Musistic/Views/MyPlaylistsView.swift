@@ -31,9 +31,7 @@ struct MyPlaylistsView: View {
                 }
             }
             .listStyle(.plain)
-            .navigationDestination(for: NavigationType.self) { type in
-                coordinator.view(for: type)
-            }
+           
         
         .onAppear {
             if viewModel.playlists.isEmpty {

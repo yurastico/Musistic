@@ -9,14 +9,21 @@ import SwiftUI
 
 struct TracksListView: View {
     @State var viewModel: TopContentViewModel<Track> = .init()
+    @Environment(Coordinator.self) var coordinator
     var body: some View {
-        TopContentListView(type: .trackList,viewModel: viewModel) { track in
-                    TrackItemRowView(track: track)
-                        
-                } destination: { track in
-                    TrackDetailView(track: track)
-                }
+        TopContentListView(viewModel: viewModel) { track in
+            NavigationLink(value: NavigationType.trackDetail(track: track)) {
+                TrackItemRowView(track: track)
+            }
+          
+            
+        }
+        
+        
+        
+        
     }
+    
 }
 
 #Preview {

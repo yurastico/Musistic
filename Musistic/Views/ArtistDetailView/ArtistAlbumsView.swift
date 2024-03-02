@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ArtistAlbumsView: View {
-    let albuns: [Album]
+    @Binding var albuns: [Album]
     var body: some View {
         TabView {
             ForEach(albuns) { album in
@@ -30,5 +30,5 @@ struct ArtistAlbumsView: View {
 }
 
 #Preview {
-    ArtistAlbumsView(albuns: [])
+    ArtistAlbumsView(albuns: .constant([]))
 }

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct RelatedArtistsView: View {
     @Environment(Coordinator.self) var coordinator
-    let artists: [Artist]
+    @Binding var artists: [Artist]
     var body: some View {
         VStack(alignment: .leading) {
             Text("Related Artists")
@@ -19,9 +19,7 @@ struct RelatedArtistsView: View {
                 HStack {
                     ForEach(artists) { artist in
                         RelatedArtistCardView(artist: artist)
-                            .navigationDestination(for: NavigationType.self) { type in
-                                coordinator.view(for: type)
-                            }
+                   
                     }
                     
                 }
@@ -31,5 +29,5 @@ struct RelatedArtistsView: View {
 }
 
 #Preview {
-    RelatedArtistsView(artists: [])
+    RelatedArtistsView(artists: .constant(.init()))
 }

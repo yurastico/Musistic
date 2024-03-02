@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ArtistTopTracksView: View {
-    let tracks: [Track]
+    @Binding var tracks: [Track]
     var body: some View {
         VStack(alignment: .leading) {
             var number = 0
@@ -30,5 +30,5 @@ struct ArtistTopTracksView: View {
 }
 
 #Preview {
-    ArtistTopTracksView(tracks: [])
+    ArtistTopTracksView(tracks: .constant(.init()))
 }

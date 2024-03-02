@@ -10,7 +10,7 @@ import SwiftUI
 import SwiftUI
 
 struct CoordinatorView: View {
-    @State private var coordinator = Coordinator()
+    @State private var coordinator = Coordinator.shared
 
     var body: some View {
         NavigationStack(path: $coordinator.path) {

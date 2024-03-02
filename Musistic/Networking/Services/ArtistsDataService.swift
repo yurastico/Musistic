@@ -40,6 +40,7 @@ struct ArtistDataService: HTTPClient {
         let result = await sendRequest(endpoint: endpoint, responseModel: ArtistAlbuns.self)
         switch result {
         case .success(let albuns):
+            
             return albuns?.items
         case .failure(let error):
             print(error)

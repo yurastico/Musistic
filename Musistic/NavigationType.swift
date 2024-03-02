@@ -17,12 +17,13 @@ enum NavigationType: Identifiable,Hashable {
     }
     
     case trackDetail(track: Track)
-    case artistDetail(artistId: String)
+    case artistDetail(artist: Artist)
     case playlistDetail(Playlist)
     case login
     case main
     case trackList
     case artistList
+    case myPlaylists
 }
 
 

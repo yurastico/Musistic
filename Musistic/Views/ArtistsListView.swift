@@ -9,15 +9,16 @@ import SwiftUI
 
 struct ArtistsListView: View {
     @State var viewModel: TopContentViewModel<Artist> = .init()
+    @Environment(Coordinator.self) var coordinator
     var body: some View {
-        TopContentListView(type: .artistList,viewModel: viewModel) { artist in
-            ArtistListRowView(artist: artist)
-                .navigationTitle("Top Artists")
-        } destination: { artist in
-            TopArtistDetailView(artistId: artist.id)
+        TopContentListView(viewModel: viewModel) { artist in
+            NavigationLink(value: NavigationType.artistDetail(artist: artist)) {
+                ArtistListRowView(artist: artist)
+            }
+          
         }
+    
         
-
     }
     
     

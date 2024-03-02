@@ -12,7 +12,7 @@ struct RelatedArtistCardView: View {
     var body: some View {
         VStack(alignment: .center,spacing: 4) {
             if let url = URL(string: artist.images!.first!.url) {
-                NavigationLink(value: NavigationType.artistDetail(artistId: artist.id)) {
+                NavigationLink(value: NavigationType.artistDetail(artist: artist)) {
                     VStack(alignment: .center,spacing: 4) {
                         AsyncImageContainerView(url: url)
                             .scaledToFill()
