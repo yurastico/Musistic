@@ -7,14 +7,19 @@
 
 import SwiftUI
 
+
+
 struct MainView: View {
     @State private var selectedTab: TabViewSections = .tracks
     @Environment(Coordinator.self) var coordinator
     @State private var tracksViewModel = TopContentViewModel<Track>()
+    @State private var path = NavigationPath()
     @State private var artistViewModel = TopContentViewModel<Artist>()
     var body: some View {
         TabView(selection: $selectedTab) {
+            
             TracksListView(viewModel: tracksViewModel)
+            
                 .tag(TabViewSections.tracks)
                 .tabItem {
                     Label("Musics", systemImage: "music.note")

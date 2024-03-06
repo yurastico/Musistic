@@ -7,12 +7,28 @@
 
 import SwiftUI
 
+
+
+
 struct TopArtistDetailView: View {
     @State var
 viewModel: ArtistDetailViewModel
     
     init(artist: Artist) {
         self.viewModel = ArtistDetailViewModel(artist: artist)
+    }
+    init(artistId: String) {
+        
+        
+            do {
+                Task {
+                    self.viewModel = try  ArtistDetailViewModel(artistId: artistId)
+                }
+            } catch {
+                print(error)
+                // TODO: - USE SNACK BAR
+            }
+        
     }
     
     var body: some View {
@@ -32,6 +48,11 @@ viewModel: ArtistDetailViewModel
                 Divider()
                 
                 ArtistTopTracksView(tracks: $viewModel.topTracks)
+                    
+            }
+            .navigationTitle(viewModel.artist.name)
+            .toolbar {
+                Text("Testeeee")
             }
             
         }

@@ -14,7 +14,17 @@ final class ArtistDetailViewModel {
     var relatedArtists: [Artist] = []
     var topTracks: [Track] = []
 
-    
+    init(artistId: String) throws {
+        var response: Artist?
+        Task {
+            response = await Self.fetchArtist(for: artistId)
+            
+        }
+        guard let response else { throw RequestError.unknown}
+        self.artist = response
+
+        
+    }
     init(artist: Artist) {
         self.artist = artist
         Task {
@@ -22,6 +32,10 @@ final class ArtistDetailViewModel {
         }
     }
     
+    static func fetchArtist(for id: String) async -> Artist? {
+        let artistResponse = await ArtistDataService().fetchArtist(artistId: id)
+        return artistResponse
+    }
     func fetchArtist() async {
         let artistResponse = await ArtistDataService().fetchArtist(artistId: self.artist.id)
         self.artist = artistResponse ?? artist

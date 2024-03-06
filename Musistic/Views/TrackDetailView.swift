@@ -9,6 +9,7 @@ import SwiftUI
 
 struct TrackDetailView: View {
     @State private var viewModel: TrackDetailViewModel = .init()
+    @Environment(Coordinator.self) var coordinator
     var track: Track
     var body: some View {
            VStack {
@@ -26,6 +27,7 @@ struct TrackDetailView: View {
                
                HStack {
                    if let url = URL(string: viewModel.artist?.imageUrlString ?? "") {
+                       
                        AsyncImageContainerView(url: url)
                            .clipShape(Circle())
                            .frame(height: 150)
