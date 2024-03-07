@@ -14,15 +14,12 @@ final class ArtistDetailViewModel {
     var relatedArtists: [Artist] = []
     var topTracks: [Track] = []
 
-    init(artistId: String) throws {
-        var response: Artist?
+    init(artistId: String) {
+        self.artist = Artist(externalUrls: ExternalUrls(spotify: ""), followers: nil, genres: nil, href: "^", id: "123", images: nil, name: "unkown", type: .artist, uri: "^", availableMarkets: nil)
         Task {
-            response = await Self.fetchArtist(for: artistId)
-            
+            self.artist = await fetchArtist(for: artistId) ?? self.artist
+            await loadUI()
         }
-        guard let response else { throw RequestError.unknown}
-        self.artist = response
-
         
     }
     init(artist: Artist) {
@@ -32,8 +29,10 @@ final class ArtistDetailViewModel {
         }
     }
     
-    static func fetchArtist(for id: String) async -> Artist? {
+    func fetchArtist(for id: String) async -> Artist? {
+        
         let artistResponse = await ArtistDataService().fetchArtist(artistId: id)
+        guard let artistResponse else { return nil }
         return artistResponse
     }
     func fetchArtist() async {
@@ -58,6 +57,16 @@ final class ArtistDetailViewModel {
         let relatedArtists = await service.fetchRelatedArtists(artistId: self.artist.id)
         
         self.relatedArtists = relatedArtists ?? []
+    }
+ 
+    
+    func loadUI() async {
+       
+            await fetchAlbuns()
+            await fetchRelatedArtists()
+            
+            await fetchArtistTopTracks()
+        
     }
     
 }

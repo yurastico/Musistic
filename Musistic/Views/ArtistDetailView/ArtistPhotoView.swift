@@ -11,7 +11,9 @@ struct ArtistPhotoView: View {
     let artist: Artist
     var body: some View {
         VStack(spacing: 0) {
-            if let url = URL(string: artist.images!.first!.url) {
+            
+            if let path = artist.images?.first?.url,
+               let url = URL(string: path) {
                 AsyncImageContainerView(url: url)
                     .clipShape(Circle())
                 

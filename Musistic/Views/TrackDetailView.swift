@@ -24,16 +24,18 @@ struct TrackDetailView: View {
                    Text(track.artists[0].name)
                        .font(.title)
                }
-               
-               HStack {
-                   if let url = URL(string: viewModel.artist?.imageUrlString ?? "") {
-                       
-                       AsyncImageContainerView(url: url)
-                           .clipShape(Circle())
-                           .frame(height: 150)
+               NavigationLink(value: NavigationType.artistDetailFromId(artistId: track.artists[0].id)) {
+                   HStack {
+                       if let url = URL(string: viewModel.artist?.imageUrlString ?? "") {
+                           
+                           AsyncImageContainerView(url: url)
+                               .clipShape(Circle())
+                               .frame(height: 150)
+                       }
+                       Text(track.artistsText)
                    }
-                   Text(track.artistsText)
                }
+               .foregroundStyle(.primary)
                
                Spacer()
            }

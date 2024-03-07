@@ -18,6 +18,7 @@ enum NavigationType: Identifiable,Hashable {
     
     case trackDetail(track: Track)
     case artistDetail(artist: Artist)
+    case artistDetailFromId(artistId: String)
     case playlistDetail(Playlist)
     case login
     case main

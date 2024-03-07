@@ -19,15 +19,7 @@ viewModel: ArtistDetailViewModel
     }
     init(artistId: String) {
         
-        
-            do {
-                Task {
-                    self.viewModel = try  ArtistDetailViewModel(artistId: artistId)
-                }
-            } catch {
-                print(error)
-                // TODO: - USE SNACK BAR
-            }
+        self.viewModel = ArtistDetailViewModel(artistId: artistId)
         
     }
     
@@ -51,18 +43,13 @@ viewModel: ArtistDetailViewModel
                     
             }
             .navigationTitle(viewModel.artist.name)
-            .toolbar {
-                Text("Testeeee")
-            }
+
             
         }
         
         .onAppear {
             Task {
-                await viewModel.fetchAlbuns()
-                await viewModel.fetchRelatedArtists()
-                
-                await viewModel.fetchArtistTopTracks()
+                await viewModel.loadUI()
             }
         }
     }

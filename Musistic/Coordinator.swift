@@ -37,6 +37,8 @@ final class Coordinator {
             LogInView()
         case .main:
             MainView()
+        case .artistDetailFromId(artistId: let id):
+            TopArtistDetailView(artistId: id)
         case .artistDetail(artist: let artist):
             TopArtistDetailView(artist: artist)
         case .trackDetail(track: let track):
