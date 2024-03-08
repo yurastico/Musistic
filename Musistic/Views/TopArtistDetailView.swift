@@ -6,10 +6,6 @@
 //
 
 import SwiftUI
-
-
-
-
 struct TopArtistDetailView: View {
     @State var
 viewModel: ArtistDetailViewModel
@@ -46,7 +42,9 @@ viewModel: ArtistDetailViewModel
 
             
         }
-        
+        .toolbar {
+            Text("oiiii")
+        }
         .onAppear {
             Task {
                 await viewModel.loadUI()

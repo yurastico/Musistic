@@ -1,0 +1,147 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "%@" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@"
+          }
+        }
+      }
+    },
+    "%lld" : {
+
+    },
+    "Artists" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Artistas"
+          }
+        }
+      }
+    },
+    "Followers %lld" : {
+      "localizations" : {
+        "en" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Follower %lld"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "new",
+                  "value" : "Followers %lld"
+                }
+              }
+            }
+          }
+        },
+        "fr" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "needs_review",
+                  "value" : "Followers %lld"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "new",
+                  "value" : "Followers %lld"
+                }
+              }
+            }
+          }
+        },
+        "pt-BR" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld Seguimor"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld Seguimores"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "Log in with Spotify" : {
+
+    },
+    "Logout" : {
+
+    },
+    "lul" : {
+
+    },
+    "oiii" : {
+
+    },
+    "oiiii" : {
+
+    },
+    "Playlists" : {
+
+    },
+    "Profile" : {
+
+    },
+    "Related Artists" : {
+
+    },
+    "Settings" : {
+
+    },
+    "Term" : {
+
+    },
+    "track.title" : {
+      "comment" : "so um comentario",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tracks"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Musiquê"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Músicas"
+          }
+        }
+      }
+    },
+    "tracks.title" : {
+
+    },
+    "Your most listened songs!" : {
+
+    }
+  },
+  "version" : "1.0"
+}

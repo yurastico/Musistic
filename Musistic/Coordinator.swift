@@ -12,10 +12,9 @@ import SwiftUI
 final class Coordinator {
     var path: NavigationPath
     private let loginViewModel = UserStateViewModel()
-    private init() {
+    init() {
         self.path = NavigationPath()
     }
-    static let shared: Coordinator = .init()
     
     func pop() {
         path.removeLast()

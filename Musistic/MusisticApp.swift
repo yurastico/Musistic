@@ -12,8 +12,15 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         print("Your code here")
         return true
     }
-    
-    
+    // eh a configuracao da aplicacao (entrada no app), seja foreground, background, quando recebe push notifications, tudo que eh entrada pelo aplicativo
+    // com o IpadOS virou SceneDelegate
+    //
+    /*
+     UIKit:
+        -- Push notifications
+        -- Deep Links *quando eh chamado
+        
+     */
 }
 
 @main

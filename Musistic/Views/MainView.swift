@@ -15,6 +15,7 @@ struct MainView: View {
     @State private var tracksViewModel = TopContentViewModel<Track>()
     @State private var path = NavigationPath()
     @State private var artistViewModel = TopContentViewModel<Artist>()
+    
     var body: some View {
         TabView(selection: $selectedTab) {
             
@@ -22,12 +23,15 @@ struct MainView: View {
             
                 .tag(TabViewSections.tracks)
                 .tabItem {
-                    Label("Musics", systemImage: "music.note")
+                    Label(String(localized: "tracks.title"), systemImage: "music.note")
                 }
             ArtistsListView(viewModel: artistViewModel)
                 .tag(TabViewSections.artists)
                 .tabItem {
                     Label("Artists", systemImage: "music.mic")
+                }
+                .toolbar {
+                    Text("oiii")
                 }
             MyPlaylistsView()
                 .tag(TabViewSections.playlists)
@@ -46,7 +50,7 @@ struct MainView: View {
                 GetTopToolbar(viewModel: $tracksViewModel)
             }
             if selectedTab == .artists {
-                GetTopToolbar(viewModel: $artistViewModel)
+                GetTopToolbar(viewModel: $artistViewModel)     
             }
         }
         .navigationTitle(selectedTab.navigationTitle)

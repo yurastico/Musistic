@@ -25,8 +25,10 @@ struct ArtistListRowView: View {
                     .font(.subheadline)
                     .multilineTextAlignment(.leading)
             }
+       
 
         }
+
         .listRowSeparator(.hidden, edges: .all)
         .padding(-5)
         //.frame(width: 25)
