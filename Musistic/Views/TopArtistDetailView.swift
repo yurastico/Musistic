@@ -42,9 +42,6 @@ viewModel: ArtistDetailViewModel
 
             
         }
-        .toolbar {
-            Text("oiiii")
-        }
         .onAppear {
             Task {
                 await viewModel.loadUI()
