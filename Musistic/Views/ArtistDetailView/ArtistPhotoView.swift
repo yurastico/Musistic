@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ArtistPhotoView: View {
+    @State private var isShowingPhoto = false
     let artist: Artist
     var body: some View {
         VStack(spacing: 0) {
@@ -16,11 +17,24 @@ struct ArtistPhotoView: View {
                let url = URL(string: path) {
                 AsyncImageContainerView(url: url)
                     .clipShape(Circle())
+                    .onTapGesture {
+                        isShowingPhoto = true
+                    }
+                    
+                    .sheet(isPresented: $isShowingPhoto) {
+                        HStack {
+                            AsyncImageContainerView(url: url)
+                        }
+                        .background(.black)
+                        
+                            
+                    }
                 
                 Text(artist.name)
                     .font(.largeTitle)
                     .bold()
             }
+         
             
         }
         .frame(height: 150)
