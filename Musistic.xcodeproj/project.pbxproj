@@ -305,6 +305,7 @@
 				A97E2BFF2B7C7A7B0032564C /* ArtistAlbumsView.swift */,
 				A97E2BFD2B7C7A240032564C /* ArtistPhotoView.swift */,
 				A97E2BFB2B7C792B0032564C /* ArtistTopTracksView.swift */,
+				A9EB118C2B5D08550052DCCA /* TopArtistDetailView.swift */,
 			);
 			path = ArtistDetailView;
 			sourceTree = "<group>";
@@ -412,7 +413,6 @@
 				A996B4912B65A1C700B1D690 /* ShareItemView.swift */,
 				A9835EDB2B5E3B5700F18F20 /* SkeletonView.swift */,
 				A983382F2B6073A40087EA99 /* SnackBarErrorView.swift */,
-				A9EB118C2B5D08550052DCCA /* TopArtistDetailView.swift */,
 				A93A979A2B686D090097656E /* TopContentListView.swift */,
 				A92D3C842B8588C9004A5732 /* TrackDetailView.swift */,
 				A92D3C822B85886C004A5732 /* TrackItemRowView.swift */,
