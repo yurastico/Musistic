@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ArtistAlbumsView: View {
+    @State private var isShowingImage = false
     @Binding var albuns: [Album]
     var body: some View {
         TabView {
@@ -16,13 +17,22 @@ struct ArtistAlbumsView: View {
                     VStack {
                         AsyncImageContainerView(url: url)
                             .frame(maxWidth: .infinity)
+                            .onTapGesture {
+                                isShowingImage = true
+                            }
                         Text(album.name)
+                    }
+                    .sheet(isPresented: $isShowingImage) {
+                        HStack {
+                            AsyncImageContainerView(url: url)
+                        }
+                        .background(.black)
                     }
                     
                 }
             }
         }
-        
+  
         .frame(height: 250)
         .frame(maxWidth: .infinity)
         .tabViewStyle(.page(indexDisplayMode: .never))
