@@ -11,6 +11,7 @@ struct ProfileView: View {
     @Environment(UserStateViewModel.self) var userStateViewModel
     @State private var viewModel = UserProfileViewModel()
     @Environment(Coordinator.self) var coordinator
+    @State private var isShowingImage = false
     var body: some View {
             VStack {
                 if let user = viewModel.user,
@@ -18,6 +19,15 @@ struct ProfileView: View {
                     AsyncImageContainerView(url: url)
                         .clipShape(Circle())
                         .frame(height: 150)
+                        .onTapGesture {
+                            isShowingImage = true
+                        }
+                        .sheet(isPresented: $isShowingImage) {
+                            HStack {
+                                AsyncImageContainerView(url: url)
+                            }
+                            .background(.black)
+                        }
                 }
                 
                 if let displayName = viewModel.user?.displayName {
